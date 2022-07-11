@@ -112,11 +112,18 @@
                                         <div class="text-center">
                                             <h5 class="mb-0">Selamat Datang Kembali</h5>
                                             <p class="text-muted mt-2">Silahkan login untuk melanjutkan ke dashboard.</p>
+                                            
                                         </div>
-                                        <form class="custom-form mt-4 pt-2" action="index.html">
+                                        <form class="custom-form mt-4 pt-2" action="{{ route('login') }}" method="POST">
+                                            @csrf
                                             <div class="mb-3">
                                                 <label class="form-label">Email</label>
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email">
+                                                <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Masukkan Email">
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <div class="d-flex align-items-start">
@@ -125,8 +132,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="input-group auth-pass-inputgroup">
-                                                    <input type="password" class="form-control" placeholder="Masukkan Password" name="password" id="password" aria-label="Password" aria-describedby="password-addon">
+                                                    <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukkan Password" name="password" id="password" aria-label="Password" aria-describedby="password-addon">
                                                     <button class="btn btn-light ms-0" type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
+                                                    
+                                                    @error('password')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
