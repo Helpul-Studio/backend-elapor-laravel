@@ -1,1057 +1,1020 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 
     <head>
-
         <meta charset="utf-8" />
-        <title>Dashboard | Minia - Minimal Admin & Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template"
-            name="description" />
-        <meta content="Themesbrand" name="author" />
+        <title>Dastyle - Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ url('logo-polri.png') }}">
+        <link rel="shortcut icon" href="{{url('logo-polri.png')}}">
 
-        <!-- preloader css -->
-        <link rel="stylesheet" href="{{ url('admin-template/assets/css/preloader.min.css') }}"
-            type="text/css" />
+        <!-- jvectormap -->
+        <link href="{{url('admin/plugins/jvectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet">
 
-        <!-- Bootstrap Css -->
-        <link href="{{ url('admin-template/assets/css/bootstrap.min.css') }}" id="bootstrap-style"
-            rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="{{ url('admin-template/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"
-            />
-        <!-- App Css-->
-        <link href="{{ url('admin-template/assets/css/app.min.css') }}" id="app-style" rel="stylesheet"
-            type="text/css" />
+        <!-- App css -->
+        <link href="{{url('admin/dashstyle/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('admin/dashstyle/assets/css/jquery-ui.min.css')}}" rel="stylesheet">
+        <link href="{{url('admin/dashstyle/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('admin/dashstyle/assets/css/metisMenu.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('admin/plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('admin/dashstyle/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <!-- Custom Css -->
-        <link href="{{ url('admin-template/assets/css/custom.css') }}" rel="stylesheet" type="text/css" />
     </head>
 
+    <body class="dark-sidenav">
+        <!-- Left Sidenav -->
+        <div class="left-sidenav">
+            <!-- LOGO -->
+            <div class="brand">
+                <a href="dashboard/crm-index.html" class="logo">
+                    <span>
+                        <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                    </span>
+                    <span>
+                        <img src="assets/images/logo.png" alt="logo-large" class="logo-lg logo-light">
+                        <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                    </span>
+                </a>
+            </div>
+            <!--end logo-->
+            <div class="menu-content h-100" data-simplebar>
+                <ul class="metismenu left-sidenav-menu">
+                    <li class="menu-label mt-0">Main</li>
+                    <li>
+                        <a href="javascript: void(0);"> <i data-feather="home" class="align-self-center menu-icon"></i><span>Dashboard</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="index.html"><i class="ti-control-record"></i>Analytics</a></li>
+                            <li class="nav-item"><a class="nav-link" href="crm-index.html"><i class="ti-control-record"></i>CRM</a></li>
+                            <li class="nav-item"><a class="nav-link" href="helpdesk-index.html"><i class="ti-control-record"></i>Helpdesk</a></li>
+                            <li class="nav-item"><a class="nav-link" href="sales-index.html"><i class="ti-control-record"></i>Sales</a></li> 
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <a href="javascript: void(0);"><i data-feather="grid" class="align-self-center menu-icon"></i><span>Apps</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Email <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="apps-email-inbox.html">Inbox</a></li>
+                                    <li><a href="apps-email-read.html">Read Email</a></li>
+                                </ul>
+                            </li>  
+                            <li class="nav-item"><a class="nav-link" href="apps-chat.html"><i class="ti-control-record"></i>Chat</a></li>
+                            <li class="nav-item"><a class="nav-link" href="apps-contact-list.html"><i class="ti-control-record"></i>Contact List</a></li>
+                            <li class="nav-item"><a class="nav-link" href="apps-calendar.html"><i class="ti-control-record"></i>Calendar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="apps-files.html"><i class="ti-control-record"></i>File Manager</a></li>
+                            <li class="nav-item"><a class="nav-link" href="apps-invoice.html"><i class="ti-control-record"></i>Invoice</a></li>
+                            <li class="nav-item"><a class="nav-link" href="apps-tasks.html"><i class="ti-control-record"></i>Tasks</a></li>
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Projects <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="apps-project-overview.html">Overview</a></li>                                    
+                                    <li><a href="apps-project-projects.html">Projects</a></li>
+                                    <li><a href="apps-project-board.html">Board</a></li>
+                                    <li><a href="apps-project-teams.html">Teams</a></li>
+                                    <li><a href="apps-project-files.html">Files</a></li>
+                                    <li><a href="apps-new-project.html">New Project</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Ecommerce <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="apps-ecommerce-products.html">Products</a></li>                                    
+                                    <li><a href="apps-ecommerce-product-list.html">Product List</a></li>
+                                    <li><a href="apps-ecommerce-product-detail.html">Product Detail</a></li>
+                                    <li><a href="apps-ecommerce-cart.html">Cart</a></li>
+                                    <li><a href="apps-ecommerce-checkout.html">Checkout</a></li>                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <a href="javascript: void(0);"><i data-feather="lock" class="align-self-center menu-icon"></i><span>Authentication</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="auth-login.html"><i class="ti-control-record"></i>Log in</a></li>
+                            <li class="nav-item"><a class="nav-link" href="auth-register.html"><i class="ti-control-record"></i>Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="auth-recover-pw.html"><i class="ti-control-record"></i>Recover Password</a></li>
+                            <li class="nav-item"><a class="nav-link" href="auth-lock-screen.html"><i class="ti-control-record"></i>Lock Screen</a></li>
+                            <li class="nav-item"><a class="nav-link" href="auth-404.html"><i class="ti-control-record"></i>Error 404</a></li>
+                            <li class="nav-item"><a class="nav-link" href="auth-500.html"><i class="ti-control-record"></i>Error 500</a></li>
+                        </ul>
+                    </li> 
+    
+                    <hr class="hr-dashed hr-menu">
+                    <li class="menu-label my-2">Components & Extra</li>
+    
+                    <li>
+                        <a href="javascript: void(0);"><i data-feather="box" class="align-self-center menu-icon"></i><span>UI Kit</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>UI Elements <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="ui-alerts.html">Alerts</a></li>                                    
+                                    <li><a href="ui-avatar.html">Avatar</a></li>
+                                    <li><a href="ui-buttons.html">Buttons</a></li>
+                                    <li><a href="ui-badges.html">Badges</a></li>
+                                    <li><a href="ui-cards.html">Cards</a></li>
+                                    <li><a href="ui-carousels.html">Carousels</a></li>
+                                    <li><a href="ui-check-radio.html"><span>Check & Radio</span></a></li>
+                                    <li><a href="ui-dropdowns.html">Dropdowns</a></li>                                   
+                                    <li><a href="ui-grids.html">Grids</a></li> 
+                                    <li><a href="ui-images.html">Images</a></li>
+                                    <li><a href="ui-list.html">List</a></li>                                   
+                                    <li><a href="ui-modals.html">Modals</a></li>
+                                    <li><a href="ui-navs.html">Navs</a></li>
+                                    <li><a href="ui-navbar.html">Navbar</a></li> 
+                                    <li><a href="ui-paginations.html">Paginations</a></li>   
+                                    <li><a href="ui-popover-tooltips.html">Popover & Tooltips</a></li>                                
+                                    <li><a href="ui-progress.html">Progress</a></li>
+                                    <li><a href="ui-spinners.html">Spinners</a></li>
+                                    <li><a href="ui-tabs-accordions.html">Tabs & Accordions</a></li>
+                                    <li><a href="ui-toasts.html">Toasts</a></li>
+                                    <li><a href="ui-typography.html">Typography</a></li>
+                                    <li><a href="ui-videos.html">Videos</a></li>
+                                </ul>
+                            </li>  
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Advanced UI <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="advanced-animation.html">Animation</a></li>
+                                    <li><a href="advanced-clipboard.html">Clip Board</a></li>
+                                    <li><a href="advanced-highlight.html">Highlight</a></li>
+                                    <li><a href="advanced-idle-timer.html">Idle Timer</a></li>
+                                    <li><a href="advanced-kanban.html">Kanban</a></li>
+                                    <li><a href="advanced-lightbox.html">Lightbox</a></li> 
+                                    <li><a href="advanced-nestable.html">Nestable List</a></li>
+                                    <li><a href="advanced-rangeslider.html">Range Slider</a></li>
+                                    <li><a href="advanced-ratings.html">Ratings</a></li>
+                                    <li><a href="advanced-ribbons.html">Ribbons</a></li>
+                                    <li><a href="advanced-session.html">Session Timeout</a></li>
+                                    <li><a href="advanced-sweetalerts.html">Sweet Alerts</a></li>                                    
+                                </ul>
+                            </li>  
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Forms <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="forms-advanced.html">Advance Elements</a></li>
+                                    <li><a href="forms-elements.html">Basic Elements</a></li>
+                                    <li><a href="forms-editors.html">Editors</a></li>
+                                    <li><a href="forms-uploads.html">File Upload</a></li>
+                                    <li><a href="forms-repeater.html">Repeater</a></li>
+                                    <li><a href="forms-validation.html">Validation</a></li>
+                                    <li><a href="forms-wizard.html">Wizard</a></li>
+                                    <li><a href="forms-x-editable.html">X Editable</a></li>
+                                    
+                                </ul>
+                            </li>  
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Charts <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="charts-apex.html">Apex</a></li>
+                                    <li><a href="charts-chartjs.html">Chartjs</a></li>
+                                    <li><a href="charts-flot.html">Flot</a></li>
+                                    <li><a href="charts-morris.html">Morris</a></li>
+                                </ul>
+                            </li>  
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Tables <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="tables-basic.html">Basic</a></li>
+                                    <li><a href="tables-datatable.html">Datatables</a></li>
+                                    <li><a href="tables-editable.html">Editable</a></li>
+                                    <li><a href="tables-responsive.html">Responsive</a></li>
+                                    
+                                </ul>
+                            </li>  
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Icons <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    
+                                    <li><a href="icons-dripicons.html">Dripicons</a></li>
+                                    <li><a href="icons-feather.html">Feather</a></li>
+                                    <li><a href="icons-fontawesome.html">Font awesome</a></li>
+                                    <li><a href="icons-materialdesign.html">Material Design</a></li>
+                                    <li><a href="icons-themify.html">Themify</a></li>
+                                    <li><a href="icons-typicons.html">Typicons</a></li>
+                                </ul>
+                            </li>  
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Maps <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="maps-google.html">Google Maps</a></li>
+                                    <li><a href="maps-vector.html">Vector Maps</a></li>  
+                                </ul>
+                            </li>  
+                            <li>
+                                <a href="javascript: void(0);"><i class="ti-control-record"></i>Email Template <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li><a href="email-templates-alert.html">Alert Email</a></li>
+                                    <li><a href="email-templates-basic.html">Basic Action Email</a></li>                                    
+                                    <li><a href="email-templates-billing.html">Billing Email</a></li>
+                                </ul>
+                            </li>   
+                        </ul>                        
+                    </li>
+    
+                    <li>
+                        <a href="widgets.html"><i data-feather="layers" class="align-self-center menu-icon"></i><span>Widgets</span><span class="badge badge-soft-success menu-arrow">New</span></a>
+                    </li>
+    
+                    <li>
+                        <a href="javascript: void(0);"><i data-feather="file-plus" class="align-self-center menu-icon"></i><span>Pages</span><span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link" href="pages-blogs.html"><i class="ti-control-record"></i>Blogs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pages-faqs.html"><i class="ti-control-record"></i>FAQs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pages-pricing.html"><i class="ti-control-record"></i>Pricing</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pages-profile.html"><i class="ti-control-record"></i>Profile</a></li>   
+                            <li class="nav-item"><a class="nav-link" href="pages-starter.html"><i class="ti-control-record"></i>Starter Page</a></li>                         
+                            <li class="nav-item"><a class="nav-link" href="pages-timeline.html"><i class="ti-control-record"></i>Timeline</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pages-treeview.html"><i class="ti-control-record"></i>Treeview</a></li>
+                        </ul>
+                    </li>            
+                </ul>
+    
+                <div class="update-msg text-center">
+                    <a href="javascript: void(0);" class="float-right close-btn text-white" data-dismiss="update-msg" aria-label="Close" aria-hidden="true">
+                        <i class="mdi mdi-close"></i>
+                    </a>
+                    <h5 class="mt-3">Mannat Themes</h5>
+                    <p class="mb-3">We Design and Develop Clean and High Quality Web Applications</p>
+                    <a href="javascript: void(0);" class="btn btn-outline-warning btn-sm">Upgrade your plan</a>
+                </div>
+            </div>
+        </div>
+        <!-- end left-sidenav-->
+        
 
-    <body>
-
-        <!-- <body data-layout="horizontal"> -->
-
-        <!-- Begin page -->
-        <div id="layout-wrapper">
-
-            <header id="page-topbar">
-                <div class="navbar-header">
-                    <div class="d-flex">
-                        <!-- LOGO -->
-                        <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
-                                <span class="logo-sm">
-                                    <img src="assets/images/logo-sm.svg" alt=""
-                                        height="24">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="assets/images/logo-sm.svg" alt=""
-                                        height="24"> <span class="logo-txt">Minia</span>
-                                </span>
+        <div class="page-wrapper">
+            <!-- Top Bar Start -->
+            <div class="topbar">            
+                <!-- Navbar -->
+                <nav class="navbar-custom">    
+                    <ul class="list-unstyled topbar-nav float-right mb-0">  
+                        <li class="dropdown hide-phone">
+                            <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="false" aria-expanded="false">
+                                <i data-feather="search" class="topbar-icon"></i>
                             </a>
-
-                            <a href="index.html" class="logo logo-light">
-                                <span class="logo-sm">
-                                    <img src="assets/images/logo-sm.svg" alt=""
-                                        height="24">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="assets/images/logo-sm.svg" alt=""
-                                        height="24"> <span class="logo-txt">Minia</span>
-                                </span>
-                            </a>
-                        </div>
-
-                        <button type="button" class="btn btn-sm px-3
-                            font-size-16 header-item" id="vertical-menu-btn">
-                            <i class="fa fa-fw fa-bars"></i>
-                        </button>
-
-                        <!-- App Search-->
-                        <form class="app-search d-none d-lg-block">
-                            <div class="position-relative">
-                                <input type="text" class="form-control"
-                                    placeholder="Search...">
-                                <button class="btn btn-primary" type="button"><i
-                                        class="bx bx-search-alt align-middle"></i></button>
+                            
+                            <div class="dropdown-menu dropdown-menu-right dropdown-lg p-0">
+                                <!-- Top Search Bar -->
+                                <div class="app-search-topbar">
+                                    <form action="#" method="get">
+                                        <input type="search" name="search" class="from-control top-search mb-0" placeholder="Type text...">
+                                        <button type="submit"><i class="ti-search"></i></button>
+                                    </form>
+                                </div>
                             </div>
-                        </form>
-                    </div>
+                        </li>                      
 
-                    <div class="d-flex">
+                        <li class="dropdown notification-list">
+                            <a class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="false" aria-expanded="false">
+                                <i data-feather="bell" class="align-self-center topbar-icon"></i>
+                                <span class="badge badge-danger badge-pill noti-icon-badge">2</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-lg pt-0">
+                            
+                                <h6 class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">
+                                    Notifications <span class="badge badge-primary badge-pill">2</span>
+                                </h6> 
+                                <div class="notification-menu" data-simplebar>
+                                    <!-- item-->
+                                    <a href="#" class="dropdown-item py-3">
+                                        <small class="float-right text-muted pl-2">2 min ago</small>
+                                        <div class="media">
+                                            <div class="avatar-md bg-soft-primary">
+                                                <i data-feather="shopping-cart" class="align-self-center icon-xs"></i>
+                                            </div>
+                                            <div class="media-body align-self-center ml-2 text-truncate">
+                                                <h6 class="my-0 font-weight-normal text-dark">Your order is placed</h6>
+                                                <small class="text-muted mb-0">Dummy text of the printing and industry.</small>
+                                            </div><!--end media-body-->
+                                        </div><!--end media-->
+                                    </a><!--end-item-->
+                                    <!-- item-->
+                                    <a href="#" class="dropdown-item py-3">
+                                        <small class="float-right text-muted pl-2">10 min ago</small>
+                                        <div class="media">
+                                            <div class="avatar-md bg-soft-primary">
+                                                <img src="assets/images/users/user-4.jpg" alt="" class="thumb-sm rounded-circle">
+                                            </div>
+                                            <div class="media-body align-self-center ml-2 text-truncate">
+                                                <h6 class="my-0 font-weight-normal text-dark">Meeting with designers</h6>
+                                                <small class="text-muted mb-0">It is a long established fact that a reader.</small>
+                                            </div><!--end media-body-->
+                                        </div><!--end media-->
+                                    </a><!--end-item-->
+                                    <!-- item-->
+                                    <a href="#" class="dropdown-item py-3">
+                                        <small class="float-right text-muted pl-2">40 min ago</small>
+                                        <div class="media">
+                                            <div class="avatar-md bg-soft-primary">                                                    
+                                                <i data-feather="users" class="align-self-center icon-xs"></i>
+                                            </div>
+                                            <div class="media-body align-self-center ml-2 text-truncate">
+                                                <h6 class="my-0 font-weight-normal text-dark">UX 3 Task complete.</h6>
+                                                <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                            </div><!--end media-body-->
+                                        </div><!--end media-->
+                                    </a><!--end-item-->
+                                    <!-- item-->
+                                    <a href="#" class="dropdown-item py-3">
+                                        <small class="float-right text-muted pl-2">1 hr ago</small>
+                                        <div class="media">
+                                            <div class="avatar-md bg-soft-primary">
+                                                <img src="assets/images/users/user-5.jpg" alt="" class="thumb-sm rounded-circle">
+                                            </div>
+                                            <div class="media-body align-self-center ml-2 text-truncate">
+                                                <h6 class="my-0 font-weight-normal text-dark">Your order is placed</h6>
+                                                <small class="text-muted mb-0">It is a long established fact that a reader.</small>
+                                            </div><!--end media-body-->
+                                        </div><!--end media-->
+                                    </a><!--end-item-->
+                                    <!-- item-->
+                                    <a href="#" class="dropdown-item py-3">
+                                        <small class="float-right text-muted pl-2">2 hrs ago</small>
+                                        <div class="media">
+                                            <div class="avatar-md bg-soft-primary">
+                                                <i data-feather="check-circle" class="align-self-center icon-xs"></i>
+                                            </div>
+                                            <div class="media-body align-self-center ml-2 text-truncate">
+                                                <h6 class="my-0 font-weight-normal text-dark">Payment Successfull</h6>
+                                                <small class="text-muted mb-0">Dummy text of the printing.</small>
+                                            </div><!--end media-body-->
+                                        </div><!--end media-->
+                                    </a><!--end-item-->
+                                </div>
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+                                    View all <i class="fi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </li>
 
-                        <div class="dropdown d-inline-block d-lg-none ms-2">
-                            <button type="button" class="btn header-item"
-                                id="page-header-search-dropdown"
-                                data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i data-feather="search" class="icon-lg"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg
-                                dropdown-menu-end p-0"
-                                aria-labelledby="page-header-search-dropdown">
-                                <form class="p-3">
-                                    <div class="form-group m-0">
-                                        <div class="input-group">
-                                            <input type="text"
-                                                class="form-control"
-                                                placeholder="Search ..."
-                                                aria-label="Search Result">
-                                            <button class="btn btn-primary"
-                                                type="submit"><i class="mdi
-                                                    mdi-magnify"></i></button>
-                                        </div>
-                                    </div>
+                        <li class="dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="false" aria-expanded="false">
+                                <span class="ml-1 nav-user-name hidden-sm">Nick</span>
+                                <img src="assets/images/users/user-5.jpg" alt="profile-user" class="rounded-circle" />                                 
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i data-feather="user" class="align-self-center icon-xs icon-dual mr-1"></i> Profile</a>
+                                <a class="dropdown-item" href="#"><i data-feather="settings" class="align-self-center icon-xs icon-dual mr-1"></i> Settings</a>
+                                <div class="dropdown-divider mb-0"></div>
+                                {{-- <a class="dropdown-item" href="#"><i data-feather="power" class="align-self-center icon-xs icon-dual mr-1"></i> Logout</a> --}}
+                                <a href="{{ route('logout') }}" class="dropdown-item"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i data-feather="power" class="align-self-center icon-xs icon-dual mr-1"></i>
+                                    Logout
+                                </a>
+                                
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
                                 </form>
                             </div>
-                        </div>
-
-                        <div class="dropdown d-none d-sm-inline-block">
-                            <button type="button" class="btn header-item"
-                                data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <img id="header-lang-img"
-                                    src="assets/images/flags/us.jpg" alt="Header
-                                    Language" height="16">
+                        </li>
+                    </ul><!--end topbar-nav-->
+        
+                    <ul class="list-unstyled topbar-nav mb-0">                        
+                        <li>
+                            <button class="nav-link button-menu-mobile">
+                                <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item notify-item language"
-                                    data-lang="en">
-                                    <img src="assets/images/flags/us.jpg"
-                                        alt="user-image" class="me-1"
-                                        height="12"> <span class="align-middle">English</span>
-                                </a>
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item notify-item language"
-                                    data-lang="sp">
-                                    <img src="assets/images/flags/spain.jpg"
-                                        alt="user-image" class="me-1"
-                                        height="12"> <span class="align-middle">Spanish</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item notify-item language"
-                                    data-lang="gr">
-                                    <img src="assets/images/flags/germany.jpg"
-                                        alt="user-image" class="me-1"
-                                        height="12"> <span class="align-middle">German</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item notify-item language"
-                                    data-lang="it">
-                                    <img src="assets/images/flags/italy.jpg"
-                                        alt="user-image" class="me-1"
-                                        height="12"> <span class="align-middle">Italian</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);"
-                                    class="dropdown-item notify-item language"
-                                    data-lang="ru">
-                                    <img src="assets/images/flags/russia.jpg"
-                                        alt="user-image" class="me-1"
-                                        height="12"> <span class="align-middle">Russian</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dropdown d-none d-sm-inline-block">
-                            <button type="button" class="btn header-item"
-                                id="mode-setting-btn">
-                                <i data-feather="moon" class="icon-lg
-                                    layout-mode-dark"></i>
-                                <i data-feather="sun" class="icon-lg
-                                    layout-mode-light"></i>
-                            </button>
-                        </div>
-
-                        <div class="dropdown d-none d-lg-inline-block ms-1">
-                            <button type="button" class="btn header-item"
-                                data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i data-feather="grid" class="icon-lg"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg
-                                dropdown-menu-end">
-                                <div class="p-2">
-                                    <div class="row g-0">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item"
-                                                href="#">
-                                                <img
-                                                    src="assets/images/brands/github.png"
-                                                    alt="Github">
-                                                <span>GitHub</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item"
-                                                href="#">
-                                                <img
-                                                    src="assets/images/brands/bitbucket.png"
-                                                    alt="bitbucket">
-                                                <span>Bitbucket</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item"
-                                                href="#">
-                                                <img
-                                                    src="assets/images/brands/dribbble.png"
-                                                    alt="dribbble">
-                                                <span>Dribbble</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="row g-0">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item"
-                                                href="#">
-                                                <img
-                                                    src="assets/images/brands/dropbox.png"
-                                                    alt="dropbox">
-                                                <span>Dropbox</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item"
-                                                href="#">
-                                                <img
-                                                    src="assets/images/brands/mail_chimp.png"
-                                                    alt="mail_chimp">
-                                                <span>Mail Chimp</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item"
-                                                href="#">
-                                                <img
-                                                    src="assets/images/brands/slack.png"
-                                                    alt="slack">
-                                                <span>Slack</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item
-                                noti-icon position-relative"
-                                id="page-header-notifications-dropdown"
-                                data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i data-feather="bell" class="icon-lg"></i>
-                                <span class="badge bg-danger rounded-pill">5</span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg
-                                dropdown-menu-end p-0"
-                                aria-labelledby="page-header-notifications-dropdown">
-                                <div class="p-3">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h6 class="m-0"> Notifications </h6>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a href="#!" class="small text-reset
-                                                text-decoration-underline">
-                                                Unread (3)</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-simplebar style="max-height: 230px;">
-                                    <a href="#!" class="text-reset
-                                        notification-item">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0 me-3">
-                                                <img
-                                                    src="assets/images/users/avatar-3.jpg"
-                                                    class="rounded-circle
-                                                    avatar-sm" alt="user-pic">
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">James Lemire</h6>
-                                                <div class="font-size-13
-                                                    text-muted">
-                                                    <p class="mb-1">It will seem
-                                                        like simplified English.</p>
-                                                    <p class="mb-0"><i
-                                                            class="mdi
-                                                            mdi-clock-outline"></i>
-                                                        <span>1 hours ago</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="text-reset
-                                        notification-item">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0 avatar-sm
-                                                me-3">
-                                                <span class="avatar-title
-                                                    bg-primary rounded-circle
-                                                    font-size-16">
-                                                    <i class="bx bx-cart"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">Your order is
-                                                    placed</h6>
-                                                <div class="font-size-13
-                                                    text-muted">
-                                                    <p class="mb-1">If several
-                                                        languages coalesce the
-                                                        grammar</p>
-                                                    <p class="mb-0"><i
-                                                            class="mdi
-                                                            mdi-clock-outline"></i>
-                                                        <span>3 min ago</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#!" class="text-reset
-                                        notification-item">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0 avatar-sm
-                                                me-3">
-                                                <span class="avatar-title
-                                                    bg-success rounded-circle
-                                                    font-size-16">
-                                                    <i class="bx
-                                                        bx-badge-check"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">Your item is
-                                                    shipped</h6>
-                                                <div class="font-size-13
-                                                    text-muted">
-                                                    <p class="mb-1">If several
-                                                        languages coalesce the
-                                                        grammar</p>
-                                                    <p class="mb-0"><i
-                                                            class="mdi
-                                                            mdi-clock-outline"></i>
-                                                        <span>3 min ago</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a href="#!" class="text-reset
-                                        notification-item">
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0 me-3">
-                                                <img
-                                                    src="assets/images/users/avatar-6.jpg"
-                                                    class="rounded-circle
-                                                    avatar-sm" alt="user-pic">
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mb-1">Salena Layfield</h6>
-                                                <div class="font-size-13
-                                                    text-muted">
-                                                    <p class="mb-1">As a
-                                                        skeptical Cambridge
-                                                        friend of mine
-                                                        occidental.</p>
-                                                    <p class="mb-0"><i
-                                                            class="mdi
-                                                            mdi-clock-outline"></i>
-                                                        <span>1 hours ago</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="p-2 border-top d-grid">
-                                    <a class="btn btn-sm btn-link font-size-14
-                                        text-center" href="javascript:void(0)">
-                                        <i class="mdi mdi-arrow-right-circle
-                                            me-1"></i> <span>View More..</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item
-                                right-bar-toggle me-2">
-                                <i data-feather="settings" class="icon-lg"></i>
-                            </button>
-                        </div>
-
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item
-                                bg-soft-light border-start border-end"
-                                id="page-header-user-dropdown"
-                                data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <img class="rounded-circle header-profile-user"
-                                    src="assets/images/users/avatar-1.jpg"
-                                    alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1
-                                    fw-medium">Shawn L.</span>
-                                <i class="mdi mdi-chevron-down d-none
-                                    d-xl-inline-block"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <a class="dropdown-item" href="#"><i class="mdi
-                                        mdi-face-profile font-size-16
-                                        align-middle me-1"></i> Profile</a>
-                                <a class="dropdown-item" href="#"><i class="mdi
-                                        mdi-credit-card-outline font-size-16
-                                        align-middle me-1"></i> Billing</a>
-                                <a class="dropdown-item" href="#"><i class="mdi
-                                        mdi-account-settings font-size-16
-                                        align-middle me-1"></i> Settings</a>
-                                <a class="dropdown-item" href="#"><i class="mdi
-                                        mdi-lock font-size-16 align-middle
-                                        me-1"></i> Lock screen</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="mdi
-                                        mdi-logout font-size-16 align-middle
-                                        me-1"></i> Logout</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </header>
-
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="vertical-menu">
-
-                <div data-simplebar class="h-100">
-
-                    <!--- Sidemenu -->
-                    <div id="sidebar-menu">
-                        <!-- Left Menu Start -->
-                        <ul class="metismenu list-unstyled" id="side-menu">
-                            <li class="menu-title" data-key="t-menu">Menu</li>
-                            <li>
-                                <a href="index.html">
-                                    <i data-feather="home"></i>
-                                    <span data-key="t-dashboard">Dashboard</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="grid"></i>
-                                    <span data-key="t-apps">Apps</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li>
-                                        <a href="calendar.html">
-                                            <span data-key="t-calendar">Calendar</span>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="chat.html">
-                                            <span data-key="t-chat">Chat</span>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="javascript: void(0);"
-                                            class="has-arrow">
-                                            <span data-key="t-email">Email</span>
-                                        </a>
-                                        <ul class="sub-menu"
-                                            aria-expanded="false">
-                                            <li><a href="inbox.html"
-                                                    data-key="t-inbox">Inbox</a></li>
-                                            <li><a href="read-email.html"
-                                                    data-key="t-read-email">Read
-                                                    Email</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript: void(0);"
-                                            class="has-arrow">
-                                            <span data-key="t-invoices">Invoices</span>
-                                        </a>
-                                        <ul class="sub-menu"
-                                            aria-expanded="false">
-                                            <li><a
-                                                    href="invoice-list.html"
-                                                    data-key="t-invoice-list">Invoice
-                                                    List</a></li>
-                                            <li><a
-                                                    href="invoice-detail.html"
-                                                    data-key="t-invoice-detail">Invoice
-                                                    Detail</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="javascript: void(0);"
-                                            class="has-arrow">
-                                            <span data-key="t-contacts">Contacts</span>
-                                        </a>
-                                        <ul class="sub-menu"
-                                            aria-expanded="false">
-                                            <li><a
-                                                    href="user-grid.html"
-                                                    data-key="t-user-grid">User
-                                                    Grid</a></li>
-                                            <li><a
-                                                    href="user-list.html"
-                                                    data-key="t-user-list">User
-                                                    List</a></li>
-                                            <li><a
-                                                    href="profile.html"
-                                                    data-key="t-profile">Profile</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="users"></i>
-                                    <span data-key="t-authentication">Authentication</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a target="_self" href="login.html"
-                                            data-key="t-login">Login</a></li>
-                                    <li><a target="_self"
-                                            href="register.html"
-                                            data-key="t-register">Register</a></li>
-                                    <li><a target="_self"
-                                            href="recover-password.html"
-                                            data-key="t-recover-password">Recover
-                                            Password</a></li>
-                                    <li><a target="_self"
-                                            href="lock-screen.html"
-                                            data-key="t-lock-screen">Lock Screen</a></li>
-                                    <li><a target="_self"
-                                            href="confirm-mail.html"
-                                            data-key="t-confirm-mail">Confirm
-                                            Mail</a></li>
-                                    <li><a target="_self"
-                                            href="email-verification.html"
-                                            data-key="t-email-verification">Email
-                                            Verification</a></li>
-                                    <li><a target="_self"
-                                            href="two-step-verification.html"
-                                            data-key="t-two-step-verification">Two
-                                            Step Verification</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="file-text"></i>
-                                    <span data-key="t-pages">Pages</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="starter-page.html"
-                                            data-key="t-starter-page">Starter
-                                            Page</a></li>
-                                    <li><a target="_self" href="maintenance.html"
-                                            data-key="t-maintenance">Maintenance</a></li>
-                                    <li><a target="_self" href="coming-soon.html"
-                                            data-key="t-coming-soon">Coming Soon</a></li>
-                                    <li><a href="timeline.html"
-                                            data-key="t-timeline">Timeline</a></li>
-                                    <li><a href="faqs.html"
-                                            data-key="t-faqs">FAQs</a></li>
-                                    <li><a href="pricing.html"
-                                            data-key="t-pricing">Pricing</a></li>
-                                    <li><a target="_self" href="404.html"
-                                            data-key="t-error-404">Error 404</a></li>
-                                    <li><a target="_self" href="500.html"
-                                            data-key="t-error-500">Error 500</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a target="_self"
-                                    href="layouts-horizontal.html">
-                                    <i data-feather="layout"></i>
-                                    <span data-key="t-horizontal">Horizontal</span>
-                                </a>
-                            </li>
-
-                            <li class="menu-title mt-2" data-key="t-components">Elements</li>
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="briefcase"></i>
-                                    <span data-key="t-components">Components</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="alerts.html"
-                                            data-key="t-alerts">Alerts</a></li>
-                                    <li><a href="buttons.html"
-                                            data-key="t-buttons">Buttons</a></li>
-                                    <li><a href="cards.html"
-                                            data-key="t-cards">Cards</a></li>
-                                    <li><a href="carousel.html"
-                                            data-key="t-carousel">Carousel</a></li>
-                                    <li><a href="dropdowns.html"
-                                            data-key="t-dropdowns">Dropdowns</a></li>
-                                    <li><a href="grid.html"
-                                            data-key="t-grid">Grid</a></li>
-                                    <li><a href="images.html"
-                                            data-key="t-images">Images</a></li>
-                                    <li><a href="modals.html"
-                                            data-key="t-modals">Modals</a></li>
-                                    <li><a href="offcanvas.html"
-                                            data-key="t-offcanvas">Offcanvas</a></li>
-                                    <li><a href="progress-Bars.html"
-                                            data-key="t-progress-bars">Progress
-                                            Bars</a></li>
-                                    <li><a href="tabs-accordions.html"
-                                            data-key="t-tabs-accordions">Tabs &
-                                            Accordions</a></li>
-                                    <li><a href="typography.html"
-                                            data-key="t-typography">Typography</a></li>
-                                    <li><a href="video.html"
-                                            data-key="t-video">Video</a></li>
-                                    <li><a href="general.html"
-                                            data-key="t-general">General</a></li>
-                                    <li><a href="colors.html"
-                                            data-key="t-colors">Colors</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="gift"></i>
-                                    <span data-key="t-ui-elements">Extended</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="lightbox.html"
-                                            data-key="t-lightbox">Lightbox</a></li>
-                                    <li><a href="range-Slider.html"
-                                            data-key="t-range-slider">Range
-                                            Slider</a></li>
-                                    <li><a href="sweet-Alert-2.html"
-                                            data-key="t-sweet-alert">SweetAlert
-                                            2</a></li>
-                                    <li><a href="session-Timeout.html"
-                                            data-key="t-session-timeout">Session
-                                            Timeout</a></li>
-                                    <li><a href="rating.html"
-                                            data-key="t-rating">Rating</a></li>
-                                    <li><a href="notifications.html"
-                                            data-key="t-notifications">Notifications</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);">
-                                    <i data-feather="box"></i>
-                                    <span class="badge rounded-pill
-                                        bg-soft-danger text-danger float-end">7</span>
-                                    <span data-key="t-forms">Forms</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="basic-Elements.html"
-                                            data-key="t-form-elements">Basic
-                                            Elements</a></li>
-                                    <li><a href="validation.html"
-                                            data-key="t-form-validation">Validation</a></li>
-                                    <li><a href="advanced-Plugins.html"
-                                            data-key="t-form-advanced">Advanced
-                                            Plugins</a></li>
-                                    <li><a href="editors.html"
-                                            data-key="t-form-editors">Editors</a></li>
-                                    <li><a href="form-upload.html"
-                                            data-key="t-form-upload">File Upload</a></li>
-                                    <li><a href="wizard.html"
-                                            data-key="t-form-wizard">Wizard</a></li>
-                                    <li><a href="mask.html"
-                                            data-key="t-form-mask">Mask</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="sliders"></i>
-                                    <span data-key="t-tables">Tables</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="bootstrap-Basic.html"
-                                            data-key="t-basic-tables">Bootstrap
-                                            Basic</a></li>
-                                    <li><a href="datatables.html"
-                                            data-key="t-data-tables">DataTables</a></li>
-                                    <li><a href="responsive.html"
-                                            data-key="t-responsive-table">Responsive</a></li>
-                                    <li><a href="editable.html"
-                                            data-key="t-editable-table">Editable</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="pie-chart"></i>
-                                    <span data-key="t-charts">Charts</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="apexcharts.html"
-                                            data-key="t-apex-charts">Apexcharts</a></li>
-                                    <li><a href="echarts.html"
-                                            data-key="t-e-charts">Echarts</a></li>
-                                    <li><a href="chartjs.html"
-                                            data-key="t-chartjs-charts">Chartjs</a></li>
-                                    <li><a href="jquery-Knob.html"
-                                            data-key="t-knob-charts">Jquery Knob</a></li>
-                                    <li><a href="sparkline.html"
-                                            data-key="t-sparkline-charts">Sparkline</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="cpu"></i>
-                                    <span data-key="t-icons">Icons</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="boxicons.html"
-                                            data-key="t-boxicons">Boxicons</a></li>
-                                    <li><a href="material-Design.html"
-                                            data-key="t-material-design">Material
-                                            Design</a></li>
-                                    <li><a href="dripicons.html"
-                                            data-key="t-dripicons">Dripicons</a></li>
-                                    <li><a href="font-Awesome-5.html"
-                                            data-key="t-font-awesome">Font
-                                            Awesome 5</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="map"></i>
-                                    <span data-key="t-maps">Maps</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="google.html"
-                                            data-key="t-g-maps">Google</a></li>
-                                    <li><a href="vector.html"
-                                            data-key="t-v-maps">Vector</a></li>
-                                    <li><a href="leaflet.html"
-                                            data-key="t-l-maps">Leaflet</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);"
-                                    class="has-arrow">
-                                    <i data-feather="share-2"></i>
-                                    <span data-key="t-multi-level">Multi Level</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="javascript: void(0);"
-                                            data-key="t-level-1-1">Level 1.1</a></li>
-                                    <li>
-                                        <a href="javascript: void(0);"
-                                            class="has-arrow"
-                                            data-key="t-level-1-2">Level 1.2</a>
-                                        <ul class="sub-menu"
-                                            aria-expanded="true">
-                                            <li><a href="javascript: void(0);"
-                                                    data-key="t-level-2-1">Level
-                                                    2.1</a></li>
-                                            <li><a href="javascript: void(0);"
-                                                    data-key="t-level-2-2">Level
-                                                    2.2</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                        </ul>
-
-                        <div class="card sidebar-alert border-0 text-center mx-4
-                            mb-0 mt-5">
-                            <div class="card-body">
-                                <img src="assets/images/giftbox.png" alt="">
-                                <div class="mt-4">
-                                    <h5 class="alertcard-title font-size-16">Unlimited
-                                        Access</h5>
-                                    <p class="font-size-13">Upgrade your plan
-                                        from a Free trial, to select ‘Business
-                                        Plan’.</p>
-                                    <a href="#!" class="btn btn-primary mt-2">Upgrade
-                                        Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Sidebar -->
-                </div>
+                        </li> 
+                        <li class="creat-btn">
+                            <div class="nav-link">
+                                <a class=" btn btn-sm btn-soft-primary" href="#" role="button"><i class="fas fa-plus mr-2"></i>New Task</a>
+                            </div>                                
+                        </li>                           
+                    </ul>
+                </nav>
+                <!-- end navbar-->
             </div>
-            <!-- Left Sidebar End -->
+            <!-- Top Bar End -->
 
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
-            <div class="main-content" id="miniaresult">
-                <h5 class="m-0 me-2 text-white">Theme Customizer</h5>
-            </div>
-
-            <footer class="footer">
+            <!-- Page Content-->
+            <div class="page-content">
                 <div class="container-fluid">
+                    <!-- Page-Title -->
                     <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script>
-                            ©
-                            Minia.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by <a href="#!"
-                                    class="text-decoration-underline">Themesbrand</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+                        <div class="col-sm-12">
+                            <div class="page-title-box">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 class="page-title">Analytics</h4>
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="javascript:void(0);">Dastyle</a></li>
+                                            <li class="breadcrumb-item active">Dashboard</li>
+                                        </ol>
+                                    </div><!--end col-->
+                                    <div class="col-auto align-self-center">
+                                        <a href="#" class="btn btn-sm btn-outline-primary" id="Dash_Date">
+                                            <span class="ay-name" id="Day_Name">Today:</span>&nbsp;
+                                            <span class="" id="Select_date">Jan 11</span>
+                                            <i data-feather="calendar" class="align-self-center icon-xs ml-1"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i data-feather="download" class="align-self-center icon-xs"></i>
+                                        </a>
+                                    </div><!--end col-->  
+                                </div><!--end row-->                                                              
+                            </div><!--end page-title-box-->
+                        </div><!--end col-->
+                    </div><!--end row-->
+                    <!-- end page title end breadcrumb -->
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card report-card">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col">
+                                            <p class="text-dark mb-1 font-weight-semibold">Sessions</p>
+                                            <h3 class="my-2">24k</h3>
+                                            <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>8.5%</span> New Sessions Today</p>
+                                        </div>
+                                        <div class="col-auto align-self-center">
+                                            <div class="report-main-icon bg-light-alt">
+                                                <i data-feather="users" class="align-self-center text-muted icon-md"></i>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col--> 
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card report-card">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">                                                
+                                        <div class="col">
+                                            <p class="text-dark mb-1 font-weight-semibold">Avg.Sessions</p>
+                                            <h3 class="my-2">00:18</h3>
+                                            <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>1.5%</span> Weekly Avg.Sessions</p>
+                                        </div>
+                                        <div class="col-auto align-self-center">
+                                            <div class="report-main-icon bg-light-alt">
+                                                <i data-feather="clock" class="align-self-center text-muted icon-md"></i>  
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col--> 
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card report-card">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">                                                
+                                        <div class="col">
+                                            <p class="text-dark mb-1 font-weight-semibold">Bounce Rate</p>
+                                            <h3 class="my-2">$2400</h3>
+                                            <p class="mb-0 text-truncate text-muted"><span class="text-danger"><i class="mdi mdi-trending-down"></i>35%</span> Bounce Rate Weekly</p>
+                                        </div>
+                                        <div class="col-auto align-self-center">
+                                            <div class="report-main-icon bg-light-alt">
+                                                <i data-feather="activity" class="align-self-center text-muted icon-md"></i>  
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col--> 
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card report-card">
+                                <div class="card-body">
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col">  
+                                            <p class="text-dark mb-1 font-weight-semibold">Goal Completions</p>                                         
+                                            <h3 class="my-2">85000</h3>
+                                            <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>10.5%</span> Completions Weekly</p>
+                                        </div>
+                                        <div class="col-auto align-self-center">
+                                            <div class="report-main-icon bg-light-alt">
+                                                <i data-feather="briefcase" class="align-self-center text-muted icon-md"></i>  
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col-->                               
+                    </div><!--end row-->
 
-            <!-- end main content-->
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">                      
+                                            <h4 class="card-title">Audience Overview</h4>                      
+                                        </div><!--end col-->
+                                        <div class="col-auto"> 
+                                            <div class="dropdown">
+                                                <a href="#" class="btn btn-sm btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                   This Year<i class="las la-angle-down ml-1"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Today</a>
+                                                    <a class="dropdown-item" href="#">Last Week</a>
+                                                    <a class="dropdown-item" href="#">Last Month</a>
+                                                    <a class="dropdown-item" href="#">This Year</a>
+                                                </div>
+                                            </div>               
+                                        </div><!--end col-->
+                                    </div>  <!--end row-->                                  
+                                </div><!--end card-header-->
+                                <div class="card-body">
+                                    <div class="">
+                                        <div id="ana_dash_1" class="apex-charts"></div>
+                                    </div> 
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col-->  
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">                      
+                                            <h4 class="card-title">Traffic Sources</h4>                      
+                                        </div><!--end col-->
+                                        <div class="col-auto"> 
+                                            <div class="dropdown">
+                                                <a href="#" class="btn btn-sm btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                   Direct<i class="las la-angle-down ml-1"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Email</a>
+                                                    <a class="dropdown-item" href="#">Referral</a>
+                                                    <a class="dropdown-item" href="#">Organic</a>
+                                                    <a class="dropdown-item" href="#">Campaign</a>
+                                                </div>
+                                            </div>               
+                                        </div><!--end col-->
+                                    </div>  <!--end row-->                                  
+                                </div><!--end card-header-->
+                                <div class="card-body">
+                                    <div class="my-5">
+                                        <div id="ana_1" class="apex-charts d-block w-90 mx-auto"></div>
+                                        <hr class="hr-dashed w-25 mt-0">                                                                            
+                                    </div>    
+                                    <div class="text-center">
+                                        <h4>76% Direct Visitors</h4>
+                                        <p class="text-muted mt-2">This is a simple hero unit, a simple jumbotron-style component</p>
+                                        <button type="button" class="btn btn-sm btn-outline-primary px-3 mt-2">More details</button>
+                                   </div>                                    
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col-->                                        
+                    </div><!--end row-->
+                    <div class="row">  
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="card">                                
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">                      
+                                            <h4 class="card-title">Organic Traffic in USA</h4>                      
+                                        </div><!--end col-->
+                                        <div class="col-auto"> 
+                                            <div class="dropdown">
+                                                <a href="#" class="btn btn-sm btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Today<i class="las la-angle-down ml-1"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Today</a>
+                                                    <a class="dropdown-item" href="#">Yesterday</a>
+                                                    <a class="dropdown-item" href="#">Last Week</a>
+                                                </div>
+                                            </div>          
+                                        </div><!--end col-->
+                                    </div>  <!--end row-->                                  
+                                </div><!--end card-header-->                                 
+                                <div class="card-body">  
+                                    <div class="row"> 
+                                        <div class="col-lg-7">
+                                            <div id="usa" class="" style="height: 265px"></div> 
+                                        </div><!--end col-->
+                                        <div class="col-lg-5 align-self-center">                                           
+                                            <div class="">
+                                                <span class="text-dark">Texas</span>
+                                                <small class="float-right text-muted ml-3 font-11">81%</small>
+                                                <div class="progress mt-2" style="height:3px;">
+                                                    <div class="progress-bar bg-warning-50" role="progressbar" style="width: 81%; border-radius:5px;" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
 
+                                            <div class="mt-3">
+                                                <span class="text-dark">Washington</span>
+                                                <small class="float-right text-muted ml-3 font-11">68%</small>
+                                                <div class="progress mt-2" style="height:3px;">
+                                                    <div class="progress-bar bg-warning-50" role="progressbar" style="width: 68%; border-radius:5px;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>   
+                                            <div class="mt-3">
+                                                <span class="text-dark">Wyoming</span>
+                                                <small class="float-right text-muted ml-3 font-11">48%</small>
+                                                <div class="progress mt-2" style="height:3px;">
+                                                    <div class="progress-bar bg-warning-50" role="progressbar" style="width: 48%; border-radius:5px;" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-3">
+                                                <span class="text-dark">Virginia</span>
+                                                <small class="float-right text-muted ml-3 font-11">32%</small>
+                                                <div class="progress mt-2" style="height:3px;">
+                                                    <div class="progress-bar bg-warning-50" role="progressbar" style="width: 32%; border-radius:5px;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>        
+                                        </div><!--end col-->
+                                    </div><!--end row-->                                     
+                                </div><!--end card-body--> 
+                            </div><!--end card-body-->
+                        </div> <!--end col-->
+                        
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">                      
+                                            <h4 class="card-title">Browser Used & Traffic Reports</h4>                      
+                                        </div><!--end col-->
+                                        <div class="col-auto"> 
+                                            <ul class="nav nav-pills-custom nav-pills mb-0" id="pills-tab" role="tablist">
+                                                <li class="nav-item mr-1">
+                                                  <a class="nav-link active" id="pills-traffic-tab" data-toggle="pill" href="#Traffic_Sources" role="tab" aria-controls="pills-traffic" aria-selected="true">Traffic Sources</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                  <a class="nav-link" id="pills-browser-tab" data-toggle="pill" href="#Browser_Used" role="tab" aria-controls="pills-browser" aria-selected="false">Browser Used</a>
+                                                </li>
+                                            </ul>
+                                        </div><!--end col-->
+                                    </div>  <!--end row-->                                  
+                                </div><!--end card-header-->
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="Traffic_Sources" role="tabpanel" aria-labelledby="pills-traffic-tab">
+                                            <div class="table-responsive browser_users">
+                                                <table class="table mb-0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th class="border-top-0">Channel</th>
+                                                            <th class="border-top-0">Sessions</th>
+                                                            <th class="border-top-0">Prev.Period</th>
+                                                            <th class="border-top-0">% Change</th>
+                                                        </tr><!--end tr-->
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>                                                        
+                                                            <td><a href="" class="text-primary">Organic search</a></td>
+                                                            <td>10853<small class="text-muted">(52%)</small></td>
+                                                            <td>566<small class="text-muted">(92%)</small></td>
+                                                            <td> 52.80% <i class="fas fa-caret-up text-success font-16"></i></td>
+                                                        </tr><!--end tr-->     
+                                                        <tr>                                                        
+                                                            <td><a href="" class="text-primary">Direct</a></td>
+                                                            <td>2545<small class="text-muted">(47%)</small></td>
+                                                            <td>498<small class="text-muted">(81%)</small></td>
+                                                            <td> -17.20% <i class="fas fa-caret-down text-danger font-16"></i></td>
+                                                            
+                                                        </tr><!--end tr-->    
+                                                        <tr>                                                        
+                                                            <td><a href="" class="text-primary">Referal</a></td>
+                                                            <td>1836<small class="text-muted">(38%)</small></td> 
+                                                            <td>455<small class="text-muted">(74%)</small></td>
+                                                            <td> 41.12% <i class="fas fa-caret-up text-success font-16"></i></td>
+                                                            
+                                                        </tr><!--end tr-->    
+                                                        <tr>                                                        
+                                                            <td><a href="" class="text-primary">Email</a></td>
+                                                            <td>1958<small class="text-muted">(31%)</small></td> 
+                                                            <td>361<small class="text-muted">(61%)</small></td>
+                                                            <td> -8.24% <i class="fas fa-caret-down text-danger font-16"></i></td>
+                                                        </tr><!--end tr-->    
+                                                        <tr>                                                        
+                                                            <td><a href="" class="text-primary">Social</a></td>
+                                                            <td>1566<small class="text-muted">(26%)</small></td> 
+                                                            <td>299<small class="text-muted">(49%)</small></td>
+                                                            <td> 29.33% <i class="fas fa-caret-up text-success"></i></td>
+                                                        </tr><!--end tr-->                            
+                                                    </tbody>
+                                                </table> <!--end table-->                                               
+                                            </div><!--end /div-->
+                                        </div>
+                                        <div class="tab-pane fade" id="Browser_Used" role="tabpanel" aria-labelledby="pills-browser-tab">
+                                            <div class="table-responsive browser_users">
+                                                <table class="table mb-0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th class="border-top-0">Browser</th>
+                                                            <th class="border-top-0">Sessions</th>
+                                                            <th class="border-top-0">Bounce Rate</th>
+                                                            <th class="border-top-0">Transactions</th>
+                                                        </tr><!--end tr-->
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>                                                        
+                                                            <td><img src="assets/images/browser_logo/chrome.png" alt="" height="24" class="mr-2">Chrome</td>
+                                                            <td>10853<small class="text-muted">(52%)</small></td>                                   
+                                                            <td> 52.80%</td>
+                                                            <td>566<small class="text-muted">(92%)</small></td>
+                                                        </tr><!--end tr-->     
+                                                        <tr>                                                        
+                                                            <td><img src="assets/images/browser_logo/micro-edge.png" alt="" height="24" class="mr-2">Microsoft Edge</td>
+                                                            <td>2545<small class="text-muted">(47%)</small></td>                                   
+                                                            <td> 47.54%</td>
+                                                            <td>498<small class="text-muted">(81%)</small></td>
+                                                        </tr><!--end tr-->    
+                                                        <tr>                                                        
+                                                            <td><img src="assets/images/browser_logo/in-explorer.png" alt="" height="24" class="mr-2">Internet-Explorer</td>
+                                                            <td>1836<small class="text-muted">(38%)</small></td>                                   
+                                                            <td> 41.12%</td>
+                                                            <td>455<small class="text-muted">(74%)</small></td>
+                                                        </tr><!--end tr-->    
+                                                        <tr>                                                        
+                                                            <td><img src="assets/images/browser_logo/opera.png" alt="" height="24" class="mr-2">Opera</td>
+                                                            <td>1958<small class="text-muted">(31%)</small></td>                                   
+                                                            <td> 36.82%</td>
+                                                            <td>361<small class="text-muted">(61%)</small></td>
+                                                        </tr><!--end tr-->    
+                                                                                      
+                                                    </tbody>
+                                                </table> <!--end table-->                                               
+                                            </div><!--end /div-->                                            
+                                        </div>
+                                    </div>
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col-->                               
+                    </div><!--end row-->
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">                      
+                                            <h4 class="card-title">Pages View by Users</h4>                      
+                                        </div><!--end col-->
+                                        <div class="col-auto"> 
+                                            <div class="dropdown">
+                                                <a href="#" class="btn btn-sm btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                   Today<i class="las la-angle-down ml-1"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Today</a>
+                                                    <a class="dropdown-item" href="#">Yesterday</a>
+                                                    <a class="dropdown-item" href="#">Last Week</a>
+                                                </div>
+                                            </div>               
+                                        </div><!--end col-->
+                                    </div>  <!--end row-->                                  
+                                </div><!--end card-header-->
+                                <div class="card-body">
+                                    <ul class="list-group custom-list-group mb-n3">
+                                        <li class="list-group-item align-items-center d-flex justify-content-between">
+                                            <div class="media">
+                                                <img src="assets/images/small/img-2.jpg" height="40" class="mr-3 align-self-center rounded" alt="...">
+                                                <div class="media-body align-self-center"> 
+                                                    <h6 class="m-0">Dastyle - Admin Dashboard</h6>
+                                                    <a href="#" class="font-12 text-primary">analytic-index.html</a>                                                                                           
+                                                </div><!--end media body-->
+                                            </div>
+                                            <div class="align-self-center">
+                                                <span class="text-muted mb-n2">4.3k</span>
+                                                <div class="apexchart-wrapper w-30 align-self-center">                                                    
+                                                    <div id="dash_spark_1" class="chart-gutters"></div>
+                                                </div>
+                                            </div>                                            
+                                        </li>
+                                        <li class="list-group-item align-items-center d-flex justify-content-between">
+                                            <div class="media">
+                                                <img src="assets/images/small/img-1.jpg" height="40" class="mr-3 align-self-center rounded" alt="...">
+                                                <div class="media-body align-self-center"> 
+                                                    <h6 class="m-0">Metrica Simple- Admin Dashboard</h6>
+                                                    <a href="#" class="font-12 text-primary">sales-index.html</a>                                                                                           
+                                                </div><!--end media body-->
+                                            </div>
+                                            <div class="align-self-center">
+                                                <span class="text-muted mb-n2">3.7k</span>
+                                                <div class="apexchart-wrapper w-30 align-self-center">                                                    
+                                                    <div id="dash_spark_2" class="chart-gutters"></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item align-items-center d-flex justify-content-between">
+                                            <div class="media">
+                                                <img src="assets/images/small/img-4.jpg" height="40" class="mr-3 align-self-center rounded" alt="...">
+                                                <div class="media-body align-self-center"> 
+                                                    <h6 class="m-0">Crovex - Admin Dashboard</h6>
+                                                    <a href="#" class="font-12 text-primary">helpdesk-index.html</a>                                                                                           
+                                                </div><!--end media body-->
+                                            </div>
+                                            <div class="align-self-center">
+                                                <span class="text-muted mb-n2">2.9k</span>
+                                                <div class="apexchart-wrapper w-30 align-self-center">                                                    
+                                                    <div id="dash_spark_3" class="chart-gutters"></div>
+                                                </div>
+                                            </div>   
+                                        </li>
+                                        <li class="list-group-item align-items-center d-flex justify-content-between">
+                                            <div class="media">
+                                                <img src="assets/images/small/img-5.jpg" height="40" class="mr-3 align-self-center rounded" alt="...">
+                                                <div class="media-body align-self-center"> 
+                                                    <h6 class="m-0">Annex - Admin Dashboard</h6>
+                                                    <a href="#" class="font-12 text-primary">calendar.html</a>                                                                                           
+                                                </div><!--end media body-->
+                                            </div>
+                                            <div class="align-self-center">
+                                                <span class="text-muted mb-n2">1.2k</span>
+                                                <div class="apexchart-wrapper w-30 align-self-center">                                                    
+                                                    <div id="dash_spark_4" class="chart-gutters"></div>
+                                                </div>
+                                            </div>   
+                                        </li>
+                                    </ul>                                    
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col--> 
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">                      
+                                            <h4 class="card-title">Sessions Device</h4>                      
+                                        </div><!--end col-->
+                                        <div class="col-auto"> 
+                                            <div class="dropdown">
+                                                <a href="#" class="btn btn-sm btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i data-feather="more-horizontal" class="align-self-center text-muted icon-xs"></i> 
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Purchases</a>
+                                                    <a class="dropdown-item" href="#">Emails</a>
+                                                </div>
+                                            </div>       
+                                        </div><!--end col-->
+                                    </div>  <!--end row-->                                  
+                                </div><!--end card-header-->
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <div id="ana_device" class="apex-charts"></div>
+                                        <h6 class="text-primary bg-soft-primary p-3 mb-0">
+                                            <i data-feather="calendar" class="align-self-center icon-xs mr-1"></i>
+                                            01 January 2020 to 31 June 2020
+                                        </h6>
+                                    </div>                                     
+                                </div><!--end card-body--> 
+                            </div><!--end card--> 
+                        </div> <!--end col-->  
+                        <div class="col-lg-4">
+                            <div class="card">   
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">                      
+                                            <h4 class="card-title">Activity</h4>                      
+                                        </div><!--end col-->
+                                        <div class="col-auto"> 
+                                            <div class="dropdown">
+                                                <a href="#" class="btn btn-sm btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    All<i class="las la-angle-down ml-1"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Purchases</a>
+                                                    <a class="dropdown-item" href="#">Emails</a>
+                                                </div>
+                                            </div>          
+                                        </div><!--end col-->
+                                    </div>  <!--end row-->                                  
+                                </div><!--end card-header-->                                              
+                                <div class="card-body"> 
+                                    <div class="analytic-dash-activity" data-simplebar>
+                                        <div class="activity">
+                                            <div class="activity-info">
+                                                <div class="icon-info-activity">
+                                                    <i class="las la-user-clock bg-soft-primary"></i>
+                                                </div>
+                                                <div class="activity-info-text">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>Donald</span> 
+                                                            updated the status of <a href="">Refund #1234</a> to awaiting customer response
+                                                        </p>
+                                                        <small class="text-muted">10 Min ago</small>
+                                                    </div>    
+                                                </div>
+                                            </div>   
+
+                                            <div class="activity-info">
+                                                <div class="icon-info-activity">
+                                                    <i class="mdi mdi-timer-off bg-soft-primary"></i>
+                                                </div>
+                                                <div class="activity-info-text">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>Lucy Peterson</span> 
+                                                            was added to the group, group name is <a href="">Overtake</a>
+                                                        </p>
+                                                        <small class="text-muted">50 Min ago</small>
+                                                    </div>    
+                                                </div>
+                                            </div>   
+
+                                            <div class="activity-info">
+                                                <div class="icon-info-activity">
+                                                    <img src="assets/images/users/user-5.jpg" alt="" class="rounded-circle thumb-md">
+                                                </div>
+                                                <div class="activity-info-text">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>Joseph Rust</span> 
+                                                            opened new showcase <a href="">Mannat #112233</a> with theme market
+                                                        </p>
+                                                        <small class="text-muted">10 hours ago</small>
+                                                    </div>    
+                                                </div>
+                                            </div>   
+
+                                            <div class="activity-info">
+                                                <div class="icon-info-activity">
+                                                    <i class="mdi mdi-clock-outline bg-soft-primary"></i>
+                                                </div>
+                                                <div class="activity-info-text">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>Donald</span> 
+                                                            updated the status of <a href="">Refund #1234</a> to awaiting customer response
+                                                        </p>
+                                                        <small class="text-muted">Yesterday</small>
+                                                    </div>    
+                                                </div>
+                                            </div>   
+                                            <div class="activity-info">
+                                                <div class="icon-info-activity">
+                                                    <i class="mdi mdi-alert-outline bg-soft-primary"></i>
+                                                </div>
+                                                <div class="activity-info-text">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>Lucy Peterson</span> 
+                                                            was added to the group, group name is <a href="">Overtake</a>
+                                                        </p>
+                                                        <small class="text-muted">14 Nov 2019</small>
+                                                    </div>    
+                                                </div>
+                                            </div> 
+                                            <div class="activity-info">
+                                                <div class="icon-info-activity">
+                                                    <img src="assets/images/users/user-4.jpg" alt="" class="rounded-circle thumb-md">
+                                                </div>
+                                                <div class="activity-info-text">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="text-muted mb-0 font-13 w-75"><span>Joseph Rust</span> 
+                                                            opened new showcase <a href="">Mannat #112233</a> with theme market
+                                                        </p>
+                                                        <small class="text-muted">15 Nov 2019</small>
+                                                    </div>    
+                                                </div>
+                                            </div>                                                                                                                                      
+                                        </div><!--end activity-->
+                                    </div><!--end analytics-dash-activity-->
+                                </div>  <!--end card-body-->                                     
+                            </div><!--end card--> 
+                        </div><!--end col--> 
+                        
+                    </div><!--end row-->
+
+                </div><!-- container -->
+
+                <footer class="footer text-center text-sm-left">
+                    &copy; 2020 Dastyle <span class="d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span>
+                </footer><!--end footer-->
+            </div>
+            <!-- end page content -->
         </div>
-        <!-- END layout-wrapper -->
+        <!-- end page-wrapper -->
+
+        
 
 
-        <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div data-simplebar class="h-100">
-                <div class="rightbar-title d-flex align-items-center bg-dark
-                    p-3">
+        <!-- jQuery  -->
+        <script src="{{url('admin/dashstyle/assets/js/jquery.min.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/js/metismenu.min.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/js/waves.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/js/feather.min.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/js/simplebar.min.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/js/jquery-ui.min.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/js/moment.js')}}"></script>
+        <script src="{{url('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
 
-                    <h5 class="m-0 me-2 text-white">Theme Customizer</h5>
+        <script src="{{url('admin/plugins/apex-charts/apexcharts.min.js')}}"></script>
+        <script src="{{url('admin/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
+        <script src="{{url('admin/plugins/jvectormap/jquery-jvectormap-us-aea-en.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/pages/jquery.analytics_dashboard.init.js')}}"></script>
 
-                    <a href="javascript:void(0);" class="right-bar-toggle
-                        ms-auto">
-                        <i class="mdi mdi-close noti-icon"></i>
-                    </a>
-                </div>
-
-                <!-- Settings -->
-                <hr class="m-0" />
-
-                <div class="p-4">
-                    <h6 class="mb-3">Layout</h6>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout"
-                            id="layout-vertical" value="vertical">
-                        <label class="form-check-label" for="layout-vertical">Vertical</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout"
-                            id="layout-horizontal" value="horizontal">
-                        <label class="form-check-label" for="layout-horizontal">Horizontal</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 pt-2">Layout Mode</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout-mode"
-                            id="layout-mode-light" value="light">
-                        <label class="form-check-label" for="layout-mode-light">Light</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout-mode"
-                            id="layout-mode-dark" value="dark">
-                        <label class="form-check-label" for="layout-mode-dark">Dark</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 pt-2">Layout Width</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout-width"
-                            id="layout-width-fuild" value="fuild"
-                            onchange="document.body.setAttribute('data-layout-size',
-                            'fluid')">
-                        <label class="form-check-label"
-                            for="layout-width-fuild">Fluid</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout-width"
-                            id="layout-width-boxed" value="boxed"
-                            onchange="document.body.setAttribute('data-layout-size',
-                            'boxed')">
-                        <label class="form-check-label"
-                            for="layout-width-boxed">Boxed</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 pt-2">Layout Position</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout-position"
-                            id="layout-position-fixed" value="fixed"
-                            onchange="document.body.setAttribute('data-layout-scrollable',
-                            'false')">
-                        <label class="form-check-label"
-                            for="layout-position-fixed">Fixed</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout-position"
-                            id="layout-position-scrollable" value="scrollable"
-                            onchange="document.body.setAttribute('data-layout-scrollable',
-                            'true')">
-                        <label class="form-check-label"
-                            for="layout-position-scrollable">Scrollable</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 pt-2">Topbar Color</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="topbar-color"
-                            id="topbar-color-light" value="light"
-                            onchange="document.body.setAttribute('data-topbar',
-                            'light')">
-                        <label class="form-check-label"
-                            for="topbar-color-light">Light</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="topbar-color"
-                            id="topbar-color-dark" value="dark"
-                            onchange="document.body.setAttribute('data-topbar',
-                            'dark')">
-                        <label class="form-check-label" for="topbar-color-dark">Dark</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Size</h6>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio"
-                            name="sidebar-size"
-                            id="sidebar-size-default" value="default"
-                            onchange="document.body.setAttribute('data-sidebar-size',
-                            'lg')">
-                        <label class="form-check-label"
-                            for="sidebar-size-default">Default</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio"
-                            name="sidebar-size"
-                            id="sidebar-size-compact" value="compact"
-                            onchange="document.body.setAttribute('data-sidebar-size',
-                            'md')">
-                        <label class="form-check-label"
-                            for="sidebar-size-compact">Compact</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio"
-                            name="sidebar-size"
-                            id="sidebar-size-small" value="small"
-                            onchange="document.body.setAttribute('data-sidebar-size',
-                            'sm')">
-                        <label class="form-check-label"
-                            for="sidebar-size-small">Small (Icon View)</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 pt-2 sidebar-setting">Sidebar Color</h6>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio"
-                            name="sidebar-color"
-                            id="sidebar-color-light" value="light"
-                            onchange="document.body.setAttribute('data-sidebar',
-                            'light')">
-                        <label class="form-check-label"
-                            for="sidebar-color-light">Light</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio"
-                            name="sidebar-color"
-                            id="sidebar-color-dark" value="dark"
-                            onchange="document.body.setAttribute('data-sidebar',
-                            'dark')">
-                        <label class="form-check-label"
-                            for="sidebar-color-dark">Dark</label>
-                    </div>
-                    <div class="form-check sidebar-setting">
-                        <input class="form-check-input" type="radio"
-                            name="sidebar-color"
-                            id="sidebar-color-brand" value="brand"
-                            onchange="document.body.setAttribute('data-sidebar',
-                            'brand')">
-                        <label class="form-check-label"
-                            for="sidebar-color-brand">Brand</label>
-                    </div>
-
-                    <h6 class="mt-4 mb-3 pt-2">Direction</h6>
-
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout-direction"
-                            id="layout-direction-ltr" value="ltr">
-                        <label class="form-check-label"
-                            for="layout-direction-ltr">LTR</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio"
-                            name="layout-direction"
-                            id="layout-direction-rtl" value="rtl">
-                        <label class="form-check-label"
-                            for="layout-direction-rtl">RTL</label>
-                    </div>
-
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
-
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
-
-        <!-- JAVASCRIPT -->
-        <script src="{{ url('admin-template/assets/libs/jquery/jquery.min.js') }}"></script>
-        <script src="{{ url('admin-template/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ url('admin-template/assets/libs/metismenu/metisMenu.min.js') }}"></script>
-        <script src="{{url('admin-template/assets/libs/simplebar/simplebar.min.js')}}"></script>
-        <script src="{{url('admin-template/assets/libs/node-waves/waves.min.js')}}"></script>
-        <script src="{{url('admin-template/assets/libs/feather-icons/feather.min.js')}}"></script>
-        <!-- pace js -->
-        <script src="{{url('admin-template/assets/libs/pace-js/pace.min.js')}}"></script>
-
-        <script src="https://maps.google.com/maps/api/js?key=AIzaSyCtSAR45TFgZjOs4nBFFZnII-6mMHLfSYI"></script>
-
-        <script src="{{url('admin-template/assets/js/app.js')}}"></script>
-
-        <script src="{{url('admin-template/assets/js/ajax.js')}}"></script>
-
+        <!-- App js -->
+        <script src="{{url('admin/dashstyle/assets/js/app.js')}}"></script>
+        
     </body>
 
 </html>
