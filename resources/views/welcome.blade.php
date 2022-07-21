@@ -50,7 +50,7 @@
                                     <p class="text-muted mb-0">Tidak punya akun ?  <a href="#" class="text-primary ml-2">Silahkan hubungi admin</a></p>
                                 </div>
                                 <div class="card-body bg-light-alt text-center">
-                                    <span class="text-muted d-none d-sm-inline-block">Mannatthemes © 2020</span>                                            
+                                    <span class="text-muted d-none d-sm-inline-block">Developer © 2020</span>                                            
                                 </div>
                             </div><!--end card-->
                         </div><!--end col-->

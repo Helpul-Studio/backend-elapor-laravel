@@ -11,18 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{url('logo-polri.png')}}">
-
-        <!-- jvectormap -->
-        <link href="{{url('admin/plugins/jvectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet">
-
-        <!-- App css -->
-        <link href="{{url('admin/dashstyle/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{url('admin/dashstyle/assets/css/jquery-ui.min.css')}}" rel="stylesheet">
-        <link href="{{url('admin/dashstyle/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{url('admin/dashstyle/assets/css/metisMenu.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{url('admin/plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{url('admin/dashstyle/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+        @include('includes.style')
 
     </head>
 
@@ -31,13 +20,13 @@
         <div class="left-sidenav">
             <!-- LOGO -->
             <div class="brand">
-                <a href="dashboard/crm-index.html" class="logo">
+                <a href="/admin/dashboard" class="logo">
                     <span>
-                        <img src="assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                        <img src="{{url('logo-polri.png')}}" alt="logo-large" class="logo-lg logo-dark">
                     </span>
                     <span>
-                        <img src="assets/images/logo.png" alt="logo-large" class="logo-lg logo-light">
-                        <img src="assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                        <img src="{{url('logo-polri.png')}}" alt="logo-large" class="logo-lg logo-light">
+                        <img src="{{url('logo-polri.png')}}" alt="logo-large" class="logo-lg logo-dark">
                     </span>
                 </a>
             </div>
@@ -362,8 +351,8 @@
                         <li class="dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="false" aria-expanded="false">
-                                <span class="ml-1 nav-user-name hidden-sm">Nick</span>
-                                <img src="assets/images/users/user-5.jpg" alt="profile-user" class="rounded-circle" />                                 
+                                <span class="ml-1 nav-user-name hidden-sm">{{$user->name}}</span>
+                                <img src="{{$user->user_photo}}" alt="profile-user" class="rounded-circle" />                                 
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#"><i data-feather="user" class="align-self-center icon-xs icon-dual mr-1"></i> Profile</a>
@@ -997,23 +986,7 @@
 
 
         <!-- jQuery  -->
-        <script src="{{url('admin/dashstyle/assets/js/jquery.min.js')}}"></script>
-        <script src="{{url('admin/dashstyle/assets/js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{url('admin/dashstyle/assets/js/metismenu.min.js')}}"></script>
-        <script src="{{url('admin/dashstyle/assets/js/waves.js')}}"></script>
-        <script src="{{url('admin/dashstyle/assets/js/feather.min.js')}}"></script>
-        <script src="{{url('admin/dashstyle/assets/js/simplebar.min.js')}}"></script>
-        <script src="{{url('admin/dashstyle/assets/js/jquery-ui.min.js')}}"></script>
-        <script src="{{url('admin/dashstyle/assets/js/moment.js')}}"></script>
-        <script src="{{url('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
-
-        <script src="{{url('admin/plugins/apex-charts/apexcharts.min.js')}}"></script>
-        <script src="{{url('admin/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
-        <script src="{{url('admin/plugins/jvectormap/jquery-jvectormap-us-aea-en.js')}}"></script>
-        <script src="{{url('admin/dashstyle/assets/pages/jquery.analytics_dashboard.init.js')}}"></script>
-
-        <!-- App js -->
-        <script src="{{url('admin/dashstyle/assets/js/app.js')}}"></script>
+        @include('includes.script')
         
     </body>
 
