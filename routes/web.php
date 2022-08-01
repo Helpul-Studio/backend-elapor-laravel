@@ -25,12 +25,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->middleware('auth')->group(function(){
 
     Route::controller(\App\Http\Controllers\Admin\DashboardController::class)->group(function(){
-        Route::get('/dashboard', 'index');
+        Route::get('/dashboard', 'index')->name('dashboard');
+    });
+
+    Route::controller(\App\Http\Controllers\Admin\UserController::class)->group(function(){
+        Route::get('/user', 'index')->name('user.index');
     });
 
 
-});
-
-Route::get('/hello', function () {
-    return "Hello World";
 });
