@@ -22,6 +22,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('getAllUser', [App\Http\Controllers\Admin\UserController::class, 'getAllUser'])->name('getAllUser');
+
+
 Route::prefix('admin')->middleware('auth')->group(function(){
 
     Route::controller(\App\Http\Controllers\Admin\DashboardController::class)->group(function(){
@@ -30,6 +33,10 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 
     Route::controller(\App\Http\Controllers\Admin\UserController::class)->group(function(){
         Route::get('/user', 'index')->name('user.index');
+        Route::post('/user/add-user', 'store')->name('user.store');
+        Route::get('/user/get-user/{id}', 'edit')->name('user.edit');
+        Route::put('/user/update-user/{id}', 'update')->name('user.update');
+        Route::delete('/user/delete-user/{id}', 'destroy')->name('user.destroy');
     });
 
 
