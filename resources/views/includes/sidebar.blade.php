@@ -20,7 +20,7 @@
                 <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}"><i class="ti-control-record"></i>Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}"><i class="ti-control-record"></i>User</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}"><i class="ti-control-record"></i>Struktural</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('structural.index') }}"><i class="ti-control-record"></i>Struktural</a></li>
                     <li class="nav-item"><a class="nav-link" href="crm-index.html"><i class="ti-control-record"></i>Laporan</a></li>
                 </ul>
             </li>           

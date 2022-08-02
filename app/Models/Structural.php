@@ -14,4 +14,14 @@ class Structural extends Model
     protected $fillable = [
         'principal', 'subordinate'
     ];
+
+    public function principal()
+    {
+        return $this->belongsToMany(User::class, 'structurals', 'structural_id', 'principal');
+    }
+
+    public function subordinate()
+    {
+        return $this->belongsToMany(User::class, 'structurals', 'structural_id', 'subordinate');
+    }
 }

@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('getAllUser', [App\Http\Controllers\Admin\UserController::class, 'getAllUser'])->name('getAllUser');
+Route::get('getAllStructural', [App\Http\Controllers\Admin\StructuralController::class, 'getAllStructural'])->name('getAllStructural');
 
 
 Route::prefix('admin')->middleware('auth')->group(function(){
@@ -40,4 +41,12 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     });
 
 
+
+    Route::controller(\App\Http\Controllers\Admin\StructuralController::class)->group(function(){
+        Route::get('/structural', 'index')->name('structural.index');
+        Route::post('/structural/add-structural', 'store')->name('structural.store');
+        Route::get('/structural/get-structural/{id}', 'edit')->name('structural.edit');
+        Route::put('/structural/update-structural/{id}', 'update')->name('structural.update');
+        Route::delete('/structural/delete-structural/{id}', 'destroy')->name('structural.destroy');
+    });
 });
