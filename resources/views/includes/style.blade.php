@@ -10,4 +10,5 @@
         <link href="{{url('admin/dashstyle/assets/css/metisMenu.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{url('admin/plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{url('admin/dashstyle/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+        @yield('style')
 </head>

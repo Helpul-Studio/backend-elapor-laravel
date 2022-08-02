@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('style')
+<link href="{{url('admin/plugins/sweet-alert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css">
+@endsection
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
@@ -222,7 +225,6 @@ $('#addUser').click(function(){
         Swal.fire({
             title: "You want to delete this data?",
             type: "warning",
-            confirmButtonClass: "btn-danger",
             confirmButtonText: "Yes!",
             showCancelButton: true,
             cancelButtonText: "No"
