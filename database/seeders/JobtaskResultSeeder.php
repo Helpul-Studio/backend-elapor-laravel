@@ -1,0 +1,35 @@
+<?php
+
+namespace Database\Seeders;
+
+use Carbon\Carbon;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class JobtaskResultSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('jobtask_results')->insert(
+        [
+            [
+                'job_task_id' => 1,
+                'location_latitude' =>  -1.2598389,
+                'location_longitude' => 116.8697653,
+                'jobtask_documentation' => 'jobtask_documentation/085524400zvcsU79jU6.jpg',
+            ],
+            [
+                'job_task_id' => 1,
+                'location_latitude' =>  -1.2598389,
+                'location_longitude' => 116.8697653,
+                'jobtask_documentation' => 'jobtask_documentation/4235228928442mXtUmEvkgB.jpg',
+            ]
+        ]);
+    }
+}

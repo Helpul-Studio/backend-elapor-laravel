@@ -20,8 +20,8 @@ class SubordinateSeeder extends Seeder
             'name' => 'subordinate',
             'email' => 'subordinate@gmail.com',
             'password' => Hash::make('subordinate1234'),
-            'occupation' => 'Subordinate',
-            'user_photo' => 'https://cdn-icons-png.flaticon.com/512/892/892781.png?w=360',
+            'occupation' => 'Brigpol',
+            'user_photo' => 'user_photo/subordinate.jpg',
             'user_role' => 'subordinate'
         ]);
     }

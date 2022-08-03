@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             PrincipalSeeder::class,
-            SubordinateSeeder::class
+            SubordinateSeeder::class,
+            JobtaskSeeder::class,
+            JobtaskResultSeeder::class
         ]);
     }
 }

@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('jobtask_results', function (Blueprint $table) {
             $table->bigIncrements('job_task_result_id');
+        
             $table->unsignedBigInteger('job_task_id');
             $table->foreign('job_task_id')->references('job_task_id')->on('jobtasks');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->string('job_task_documentation');
-            $table->enum('job_task_rating', [5, 4, 3, 2, 1]);
+
+
+            $table->decimal('location_latitude', 10, 7)->nullable();;
+            $table->decimal('location_longitude', 10, 7)->nullable();;
+            $table->string('jobtask_documentation');
             $table->timestamps();
         });
     }

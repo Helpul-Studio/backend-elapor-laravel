@@ -20,8 +20,8 @@ class PrincipalSeeder extends Seeder
             'name' => 'principal',
             'email' => 'principal@gmail.com',
             'password' => Hash::make('principal1234'),
-            'occupation' => 'Principal',
-            'user_photo' => 'https://cdn-icons-png.flaticon.com/512/892/892781.png?w=360',
+            'occupation' => 'AKBP',
+            'user_photo' => 'user_photo/principal.jpg',
             'user_role' => 'principal'
         ]);
     }

@@ -14,4 +14,9 @@ class Jobtask extends Model
     protected $fillable = [
         'user_id', 'job_task_name', 'job_task_date', 'job_task_status'
     ];
+
+    public function jobtaskresult()
+    {
+        return $this->belongsToMany(JobtaskResult::class);
+    }
 }
