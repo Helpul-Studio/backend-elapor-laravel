@@ -13,6 +13,8 @@ class Jobtask extends Model
 
     protected $guarded = [];
 
+    public $incrementing = false;
+
     public function principal()
     {
         return $this->belongsToMany(User::class, 'jobtasks', 'job_task_id', 'principal');
@@ -23,8 +25,8 @@ class Jobtask extends Model
         return $this->belongsToMany(User::class, 'jobtasks', 'job_task_id', 'subordinate');
     }
 
-    // public function jobtaskresult()
-    // {
-    //     return $this->belongsToMany(JobtaskResult::class);
-    // }
+    public function jobtaskResult()
+    {
+        return $this->hasMany(JobtaskResult::class, 'job_task_id');
+    }
 }

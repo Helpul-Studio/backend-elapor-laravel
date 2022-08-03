@@ -6,7 +6,6 @@ use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Models\Jobtask;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 
 class JobtaskController extends Controller
 {
