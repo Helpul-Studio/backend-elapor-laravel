@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jobtask;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,14 +13,16 @@ class JobtaskController extends Controller
     public function getAllJobtask()
     {
         $user_id = Auth::user()->user_id;
-        $jobtasks = Jobtask::where('principal', $user_id)->get();
-        dd($jobtasks);
+        $jobtasks = Jobtask::where('principal', $user_id)
+        ->with('subordinate')
+        ->get();
         return json_encode(['data' => $jobtasks]);
     }
 
     public function index()
     {
-        return view('user.index');
+        $subordinates = User::where('user_role', 'subordinate')->get();
+        return view('jobtask.index', compact('subordinates'));
     }
 
     // public function store(Request $request)

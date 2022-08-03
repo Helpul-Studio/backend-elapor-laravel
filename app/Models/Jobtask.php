@@ -11,12 +11,20 @@ class Jobtask extends Model
 
     protected $primaryKey = 'job_task_id';
 
-    protected $fillable = [
-        'user_id', 'job_task_name', 'job_task_date', 'job_task_status'
-    ];
+    protected $guarded = [];
 
-    public function jobtaskresult()
+    public function principal()
     {
-        return $this->belongsToMany(JobtaskResult::class);
+        return $this->belongsToMany(User::class, 'jobtasks', 'job_task_id', 'principal');
     }
+
+    public function subordinate()
+    {
+        return $this->belongsToMany(User::class, 'jobtasks', 'job_task_id', 'subordinate');
+    }
+
+    // public function jobtaskresult()
+    // {
+    //     return $this->belongsToMany(JobtaskResult::class);
+    // }
 }

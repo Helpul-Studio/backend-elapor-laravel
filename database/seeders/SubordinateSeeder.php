@@ -17,7 +17,7 @@ class SubordinateSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'subordinate',
+            'name' => 'Pardi Mandala',
             'email' => 'subordinate@gmail.com',
             'password' => Hash::make('subordinate1234'),
             'occupation' => 'Brigpol',

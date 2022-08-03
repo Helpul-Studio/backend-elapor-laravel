@@ -10,7 +10,7 @@
             <div class="page-title-box">
                 <div class="row">
                     <div class="col">
-                        <h4 class="page-title">E Lapor</h4>
+                        <h4 class="page-title">E Report</h4>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
                             <li class="breadcrumb-item active">User</li>
@@ -134,7 +134,7 @@ $('#addUser').click(function(){
         e.preventDefault();
         var id = $(this).attr("data-id");
         
-        $.get('/admin/user/get-user/'+id, function(data){
+        $.get('/manage/user/get-user/'+id, function(data){
             $('#modalAddUser').modal('show');
             $('#user_id').val(data.user_id);
             $('#name').val(data.name); 
@@ -175,7 +175,7 @@ $('#addUser').click(function(){
                 processData: false,
                 contentType: false,
                 data: formData.data,
-                url: "/admin/user/update-user/"+formData.user_id,
+                url: "/manage/user/update-user/"+formData.user_id,
                 type: "POST",
                 dataType: "json",
                 success : function(data){
@@ -198,7 +198,7 @@ $('#addUser').click(function(){
                 processData: false,
                 contentType: false,
                 data: formData.data,
-                url: "/admin/user/add-user",
+                url: "/manage/user/add-user",
                 type: "POST",
                 dataType: "json",
                 success : function(data){
@@ -231,7 +231,7 @@ $('#addUser').click(function(){
         }).then((result)=> {
             if(result.value){
                 $.ajax({
-                    url: '/admin/user/delete-user/'+id,
+                    url: '/manage/user/delete-user/'+id,
                     type: "DELETE",
                     success : function(data){
                         if(data.status === true){

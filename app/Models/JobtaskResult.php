@@ -14,8 +14,8 @@ class JobtaskResult extends Model
         'job_task_id', 'user_id', 'job_task_documentation', 'job_task_rating'
     ];
 
-    public function jobtask()
-    {
-        return $this->belongsTo(Jobtask::class);
-    }
+    // public function jobtask()
+    // {
+    //     return $this->belongsTo(Jobtask::class);
+    // }
 }

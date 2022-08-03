@@ -17,7 +17,7 @@ class PrincipalSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'principal',
+            'name' => 'Dadi Nugroho',
             'email' => 'principal@gmail.com',
             'password' => Hash::make('principal1234'),
             'occupation' => 'AKBP',

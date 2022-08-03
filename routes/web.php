@@ -25,7 +25,7 @@ Route::get('getAllStructural', [App\Http\Controllers\Admin\StructuralController:
 Route::get('getAllJobtask', [App\Http\Controllers\Admin\JobtaskController::class, 'getAllJobtask'])->name('getAllJobtask');
 
 
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::prefix('manage')->middleware('auth')->group(function(){
 
     Route::controller(\App\Http\Controllers\Admin\DashboardController::class)->group(function(){
         Route::get('/dashboard', 'index')->name('dashboard');

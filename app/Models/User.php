@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Structural::class, 'structurals');
     }
+
+    public function jobtask()
+    {
+        return $this->belongsTo(Jobtask::class, 'jobtasks');
+    }
 }

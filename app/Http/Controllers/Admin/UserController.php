@@ -78,7 +78,9 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         try {
+            if($user->user_photo != null){
             Storage::disk('public')->delete($user->user_photo);
+            }
             $user->delete();
             return response()->json([
                 'status' => true,

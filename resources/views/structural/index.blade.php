@@ -10,7 +10,7 @@
             <div class="page-title-box">
                 <div class="row">
                     <div class="col">
-                        <h4 class="page-title">E Lapor</h4>
+                        <h4 class="page-title">E Report</h4>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">Menu</a></li>
                             <li class="breadcrumb-item active">Struktural</li>
@@ -139,7 +139,7 @@ $('#addStructural').click(function(){
         e.preventDefault();
         var id = $(this).attr("data-id");
         
-        $.get('/admin/structural/get-structural/'+id, function(data){
+        $.get('/manage/structural/get-structural/'+id, function(data){
             $('#modalAddStructural').modal('show');
             $('#structural_id').val(data.structural_id);
             $('#principal').val(data.principal); 
@@ -170,7 +170,7 @@ $('#addStructural').click(function(){
                 processData: false,
                 contentType: false,
                 data: formData.data,
-                url: "/admin/structural/update-structural/"+formData.structural_id,
+                url: "/manage/structural/update-structural/"+formData.structural_id,
                 type: "POST",
                 dataType: "json",
                 success : function(data){
@@ -193,7 +193,7 @@ $('#addStructural').click(function(){
                 processData: false,
                 contentType: false,
                 data: formData.data,
-                url: "/admin/structural/add-structural",
+                url: "/manage/structural/add-structural",
                 type: "POST",
                 dataType: "json",
                 success : function(data){
@@ -226,7 +226,7 @@ $('#addStructural').click(function(){
         }).then((result)=> {
             if(result.value){
                 $.ajax({
-                    url: '/admin/structural/delete-structural/'+id,
+                    url: '/manage/structural/delete-structural/'+id,
                     type: "DELETE",
                     success : function(data){
                         if(data.status === true){
