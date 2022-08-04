@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('job_task_result_id');
         
             $table->unsignedBigInteger('job_task_id');
-            $table->foreign('job_task_id')->references('job_task_id')->on('jobtasks');
+            $table->foreign('job_task_id')->references('job_task_id')->on('jobtasks')->onDelete('cascade');
 
 
             $table->decimal('location_latitude', 10, 7)->nullable();;

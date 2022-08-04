@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Models\Jobtask;
 use App\Models\JobtaskResult;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 
 class JobtaskResultController extends Controller
 {

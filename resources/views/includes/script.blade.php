@@ -6,7 +6,6 @@
         <script src="{{url('admin/dashstyle/assets/js/simplebar.min.js')}}"></script>
         <script src="{{url('admin/dashstyle/assets/js/jquery-ui.min.js')}}"></script>
         <script src="{{url('admin/dashstyle/assets/js/moment.js')}}"></script>
-        <script src="{{url('admin/plugins/daterangepicker/daterangepicker.js')}}"></script>
 
         <!-- App js -->
         <script src="{{url('admin/dashstyle/assets/js/app.js')}}"></script>

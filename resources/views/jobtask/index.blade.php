@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('style')
 <link href="{{url('admin/plugins/sweet-alert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css">
-<link href="{{url('admin/plugins/timepicker/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" type="text/css">
 @endsection       
 @section('content')
 <div class="page-content">
@@ -64,6 +63,7 @@
             <div class="modal-body">
                 <form id="formAddStructural" method="POST" autocomplete="off">
                     <input type="hidden" name="job_task_id" id="job_task_id">
+                    <input type="hidden" name="principal" id="principal" value="{{Auth::user()->user_id}}">
                     <div class="form-group">
 
                         <div class="mb-1">
@@ -72,8 +72,8 @@
                         </div>
 
                         <div class="mb-1">
-                        <label for="subordinate">Tanggal Pekerjaan</label>
-                        <input type="text" class="form-control" id="mdate" placeholder="2017-06-04" name="job_task_date">
+                        <label for="job_task_date">Tanggal Pekerjaan</label>
+                        <input type="date" class="form-control" id="job_task_date" placeholder="2017-06-04" name="job_task_date">
                         </div>
 
                         <div class="mb-1">
@@ -82,6 +82,27 @@
                                 @foreach ($subordinates as $subordinate)
                                 <option value="{{ $subordinate->user_id }}"> {{ $subordinate->name }} </option>
                                 @endforeach
+                            </select> 
+                        </div>
+
+                        <div id="jobStatus" class="mb-1" style="display: none;">
+                            <label for="job_task_status">Status Pekerjaan</label>
+                            <select name="job_task_status" id="job_task_status" class="form-control">
+                                <option value="Ditugaskan"> Ditugaskan </option>
+                                <option value="Menunggu Konfirmasi"> Menunggu Konfirmasi </option>
+                                <option value="Selesai"> Selesai </option>
+                            </select> 
+                        </div>
+
+                        <div id="jobRating" class="mb-1" style="display: none;">
+                            <label for="job_task_rating">Rating Pekerjaan</label>
+                            <select name="job_task_rating" id="job_task_rating" class="form-control">
+                                <option value="">Belum Diberi Rating</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select> 
                         </div>
 
@@ -101,9 +122,6 @@
 <script src="{{url('admin/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
 <script src="{{url('admin/plugins/sweet-alert2/sweetalert2.min.js')}}"></script>
-
-<script src="{{url('admin/plugins/timepicker/bootstrap-material-datetimepicker.js')}}"></script>
-
 
 <script> 
 $(document).ready(function() {
@@ -131,7 +149,7 @@ $('#datatable').DataTable({
         render: function(data, type, row) {
             return `
             <a id="viewStructural" data-id='`+data +`' class="btn btn-md btn-primary my-1"  style="color: white;" > Laporan</a>
-            <a id="editStructural" data-id='`+data +`' class="btn btn-md btn-warning my-1"  style="color: white;" > Edit</a>
+            <a id="editJobtask" data-id='`+data +`' class="btn btn-md btn-warning my-1"  style="color: white;" > Edit</a>
             <a id="deleteStructural"  data-id='`+data +`' class=" btn btn-md btn-danger my-1" style="color: white;"> Delete</a>`;
         }}
     ]
@@ -143,15 +161,21 @@ $('#addJobtask').click(function(){
         $('#job_task_id').val('');
     });
 
-    $(document).on('click', '#editStructural', function(e){
+    $(document).on('click', '#editJobtask', function(e){
         e.preventDefault();
         var id = $(this).attr("data-id");
         
-        $.get('/manage/structural/get-structural/'+id, function(data){
+        $.get('/manage/jobtask/get-jobtask/'+id, function(data){
             $('#modalAddJobtask').modal('show');
             $('#job_task_id').val(data.job_task_id);
             $('#principal').val(data.principal); 
             $('#subordinate').val(data.subordinate);            
+            $('#job_task_name').val(data.job_task_name); 
+            $('#job_task_date').val(data.job_task_date); 
+            $('#jobStatus').attr("style", "");
+            $('#job_task_status').val(data.job_task_status); 
+            $('#jobRating').attr("style", "");
+            $('#job_task_rating').val(data.job_task_rating); 
         });
     });
 
@@ -178,7 +202,7 @@ $('#addJobtask').click(function(){
                 processData: false,
                 contentType: false,
                 data: formData.data,
-                url: "/manage/structural/update-structural/"+formData.job_task_id,
+                url: "/manage/jobtask/update-jobtask/"+formData.job_task_id,
                 type: "POST",
                 dataType: "json",
                 success : function(data){
@@ -201,7 +225,7 @@ $('#addJobtask').click(function(){
                 processData: false,
                 contentType: false,
                 data: formData.data,
-                url: "/manage/structural/add-structural",
+                url: "/manage/jobtask/add-jobtask",
                 type: "POST",
                 dataType: "json",
                 success : function(data){
@@ -234,7 +258,7 @@ $('#addJobtask').click(function(){
         }).then((result)=> {
             if(result.value){
                 $.ajax({
-                    url: '/manage/structural/delete-structural/'+id,
+                    url: '/manage/jobtask/delete-jobtask/'+id,
                     type: "DELETE",
                     success : function(data){
                         if(data.status === true){
