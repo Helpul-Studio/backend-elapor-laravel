@@ -61,7 +61,7 @@ class JobtaskController extends Controller
     {
         $jobtask = Jobtask::findOrFail($id);
         try {
-            $jobtask->delete();
+             $jobtask->delete();
             return response()->json([
                 'status' => true,
                 'message' => 'Data successfully deleted'

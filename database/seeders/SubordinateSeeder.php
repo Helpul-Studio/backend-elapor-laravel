@@ -18,7 +18,7 @@ class SubordinateSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Pardi Mandala',
-            'email' => 'subordinate@gmail.com',
+            'nrp' => 35040356,
             'password' => Hash::make('subordinate1234'),
             'occupation' => 'Brigpol',
             'user_photo' => 'user_photo/subordinate.jpg',

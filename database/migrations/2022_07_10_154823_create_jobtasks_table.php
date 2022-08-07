@@ -18,12 +18,13 @@ return new class extends Migration
 
             $table->unsignedBigInteger('principal');
             $table->foreign('principal')->references('user_id')->on('users');
-            $table->unsignedBigInteger('subordinate');
-            $table->foreign('subordinate')->references('user_id')->on('users');
-            
+
             $table->string('job_task_name');
             $table->date('job_task_date');
+            $table->string('job_task_place');
+
             $table->enum('job_task_status', ['Ditugaskan', 'Menunggu Konfirmasi', 'Selesai'])->default('Ditugaskan');
+            $table->string('job_task_note')->nullable();
             $table->enum('job_task_rating', [5, 4, 3, 2, 1])->nullable();
             $table->timestamps();
         });

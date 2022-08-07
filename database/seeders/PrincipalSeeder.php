@@ -18,7 +18,7 @@ class PrincipalSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Dadi Nugroho',
-            'email' => 'principal@gmail.com',
+            'nrp' => 95040345,
             'password' => Hash::make('principal1234'),
             'occupation' => 'AKBP',
             'user_photo' => 'user_photo/principal.jpg',

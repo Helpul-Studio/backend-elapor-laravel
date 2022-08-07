@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
             PrincipalSeeder::class,
             SubordinateSeeder::class,
             StructuralSeeder::class,
-            JobtaskSeeder::class,
-            JobtaskResultSeeder::class
+            // JobtaskSeeder::class,
+            // JobtaskResultSeeder::class
         ]);
     }
 }

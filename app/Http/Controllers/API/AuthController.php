@@ -14,10 +14,10 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validated = $request->all();
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('nrp', $request->nrp)->first();
 
         if (!Auth::attempt($validated)) {
-            return ResponseFormatter::error(null, 'Login gagal. Email atau Password salah.', 401);
+            return ResponseFormatter::error(null, 'Login gagal. NRP atau Password salah. Silahkan Hubungi Admin.', 401);
         }else{
             $tokenResult = $user->createToken('token-auth')->plainTextToken;
             return ResponseFormatter::success([
