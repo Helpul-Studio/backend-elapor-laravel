@@ -19,19 +19,20 @@ return new class extends Migration
 
             $table->unsignedBigInteger('sector_id');
             $table->foreign('sector_id')->references('sector_id')->on('sectors')->onDelete('cascade');
-            
-            $table->string('report_about');
-            $table->string('report_source_information');
-            $table->date('report_date');
-            $table->string('report_place');
-            $table->string('report_activities');
-            $table->string('report_analysis');
-            $table->string('report_prediction');
-            $table->string('report_steps_taken');
-            $table->string('report_recommendation');
-            
+
             $table->unsignedBigInteger('subordinate');
             $table->foreign('subordinate')->references('user_id')->on('users');
+            
+            $table->string('report_about');
+            $table->string('report_source_information')->nullable();
+            $table->date('report_date');
+            $table->string('report_place');
+
+            $table->string('report_activities')->nullable();
+            $table->string('report_analysis')->nullable();
+            $table->string('report_prediction')->nullable();
+            $table->string('report_steps_taken')->nullable();
+            $table->string('report_recommendation')->nullable();
 
             $table->timestamps();
         });

@@ -22,12 +22,21 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            //user
             AdminSeeder::class,
             PrincipalSeeder::class,
             SubordinateSeeder::class,
             StructuralSeeder::class,
-            // JobtaskSeeder::class,
-            // JobtaskResultSeeder::class
+
+            SectorSeeder::class,
+
+            JobtaskSeeder::class,
+            JobtaskSubordinateSeeder::class,
+            JobtaskResultSeeder::class,
+
+            ReportSeeder::class,
+            ReportImageSeeder::class,
+            NewsSeeder::class
         ]);
     }
 }

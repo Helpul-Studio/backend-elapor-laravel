@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('style')
 <link href="{{url('admin/plugins/sweet-alert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css">
+<link href="{{url('admin/plugins/select2/select2.min.css')}}" rel="stylesheet" type="text/css">
 @endsection       
 @section('content')
 <div class="page-content">
@@ -35,6 +36,7 @@
                         <thead>
                         <tr>
                             <th>Nama Pekerjaan</th>
+                            <th>Bidang Pekerjaan</th>
                             <th>Pelaksana Pekerjaan</th>
                             <th>Tanggal Pekerjaan</th>
                             <th>Status Pekerjaan</th>
@@ -57,11 +59,11 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="formTitle">Form Struktural</h4>
+                <h4 class="modal-title" id="formTitle">Form Pekerjaan</h4>
                 <button type="button" class="close" data-dismiss="modal" id="closeButton" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <form id="formAddStructural" method="POST" autocomplete="off">
+                <form id="formJobtask" method="POST" autocomplete="off">
                     <input type="hidden" name="job_task_id" id="job_task_id">
                     <input type="hidden" name="principal" id="principal" value="{{Auth::user()->user_id}}">
                     <div class="form-group">
@@ -72,15 +74,33 @@
                         </div>
 
                         <div class="mb-1">
+                            <label for="job_task_place">Tempat Pekerjaan</label>
+                            <input type="text" class="form-control" id="job_task_place" placeholder="Masukkan Tempat Pekerjaan" name="job_task_place">
+                        </div>
+
+                        <div class="mb-1">
+                            <label for="sector_id">Bidang Pekerjaan</label>
+                            <select name="sector_id" id="sector_id" class="form-control">
+                                @foreach ($sectors as $sector)
+                                <option value="{{ $sector->sector_id }}"> {{ $sector->sector_name }} </option>
+                                @endforeach
+                            </select> 
+                        </div>
+
+
+                        <div class="mb-1">
                         <label for="job_task_date">Tanggal Pekerjaan</label>
                         <input type="date" class="form-control" id="job_task_date" placeholder="2017-06-04" name="job_task_date">
                         </div>
 
-                        <div class="mb-1">
+                        <div id="jobSubordinate" class="mb-1" style="">
                             <label for="subordinate">Pelaksana Pekerjaan</label>
-                            <select name="subordinate" id="subordinate" class="form-control">
                                 @foreach ($subordinates as $subordinate)
-                                <option value="{{ $subordinate->user_id }}"> {{ $subordinate->name }} </option>
+                                {{-- <option value="{{ $subordinate->user_id }}"> {{ $subordinate->name }} </option> --}}
+                                <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="subordinate[]" value="{{ $subordinate->user_id }}" class="custom-control-input" id="customCheck{{ $subordinate->user_id }}" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                <label class="custom-control-label" for="customCheck{{ $subordinate->user_id }}">{{ $subordinate->name }}</label>
+                                </div>
                                 @endforeach
                             </select> 
                         </div>
@@ -106,6 +126,11 @@
                             </select> 
                         </div>
 
+                        <div id="jobTaskNote" class="mb-1" style="display: none;">
+                            <label for="job_task_note">Beri Komentar Pekerjaan</label>
+                            <input type="text" class="form-control" id="job_task_note" placeholder="Masukkan Komentar Pekerjaan" name="job_task_note">
+                        </div>
+
                     </div>
                     <div class="text-right">
                         <button type="submit" id="submitButton" class="btn btn-success waves-effect waves-light mr-2">Submit</button>
@@ -122,6 +147,7 @@
 <script src="{{url('admin/plugins/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
 <script src="{{url('admin/plugins/sweet-alert2/sweetalert2.min.js')}}"></script>
+<script src="{{url('admin/plugins/select2/select2.min.js')}}"></script>
 
 <script> 
 $(document).ready(function() {
@@ -139,10 +165,20 @@ $('#datatable').DataTable({
     ],
     columns: [
         {"data": "job_task_name"},
-        {"data" : null, 
-        render: function(data,type,row){
-        return data.subordinate[0].name
-    }},
+        {"data": null,
+        render: function(data){
+            return data.sector.sector_name
+        }    
+    },
+        {"data": "jobtask_subordinate",
+        render: function(data){
+            var arr = [];
+            data.forEach(function (item){
+                arr.push(item.subordinate.name)
+            })
+            return arr;
+        }
+        },
         {"data": "job_task_date"},
         {"data": "job_task_status"},
         {"data" : "job_task_id",
@@ -150,7 +186,7 @@ $('#datatable').DataTable({
             return `
             <a id="viewStructural" data-id='`+data +`' class="btn btn-md btn-primary my-1"  style="color: white;" > Laporan</a>
             <a id="editJobtask" data-id='`+data +`' class="btn btn-md btn-warning my-1"  style="color: white;" > Edit</a>
-            <a id="deleteStructural"  data-id='`+data +`' class=" btn btn-md btn-danger my-1" style="color: white;"> Delete</a>`;
+            <a id="deleteJobtask"  data-id='`+data +`' class=" btn btn-md btn-danger my-1" style="color: white;"> Delete</a>`;
         }}
     ]
 });
@@ -168,14 +204,19 @@ $('#addJobtask').click(function(){
         $.get('/manage/jobtask/get-jobtask/'+id, function(data){
             $('#modalAddJobtask').modal('show');
             $('#job_task_id').val(data.job_task_id);
-            $('#principal').val(data.principal); 
-            $('#subordinate').val(data.subordinate);            
+            $('#principal').val(data.principal);  
+            $('#sector_id').val(data.sector_id);  
+            $('#jobSubordinate').attr("style", "display: none;");            
             $('#job_task_name').val(data.job_task_name); 
             $('#job_task_date').val(data.job_task_date); 
+            $('#job_task_place').val(data.job_task_place); 
             $('#jobStatus').attr("style", "");
-            $('#job_task_status').val(data.job_task_status); 
+            $('#job_task_status').val(data.job_task_status);  
             $('#jobRating').attr("style", "");
             $('#job_task_rating').val(data.job_task_rating); 
+
+            $('#jobTaskNote').attr("style", "");
+            $('#job_task_note').val(data.job_task_note); 
         });
     });
 
@@ -192,7 +233,7 @@ $('#addJobtask').click(function(){
     $('#submitButton').click(function(e){
         e.preventDefault();
         var formData = {
-            data: new FormData(document.getElementById('formAddStructural')),
+            data: new FormData(document.getElementById('formJobtask')),
             job_task_id: $('#job_task_id').val(),
         }
 
@@ -246,7 +287,7 @@ $('#addJobtask').click(function(){
         }
     });
 
-    $(document).on('click', '#deleteStructural', function(e){
+    $(document).on('click', '#deleteJobtask', function(e){
         e.preventDefault();
         var id = $(this).attr('data-id');
         Swal.fire({

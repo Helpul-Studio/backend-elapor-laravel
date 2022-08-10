@@ -22,6 +22,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('user.index') }}"><i class="ti-control-record"></i>User</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('structural.index') }}"><i class="ti-control-record"></i>Struktural</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('jobtask.index') }}"><i class="ti-control-record"></i>Pekerjaan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('jobtask.index') }}"><i class="ti-control-record"></i>Berita</a></li>
                 </ul>
             </li>           
         </ul>

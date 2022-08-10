@@ -1,4 +1,4 @@
-<script src="{{url('admin/dashstyle/assets/js/jquery.min.js')}}"></script>
+        <script src="{{url('admin/dashstyle/assets/js/jquery.min.js')}}"></script>
         <script src="{{url('admin/dashstyle/assets/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{url('admin/dashstyle/assets/js/metismenu.min.js')}}"></script>
         <script src="{{url('admin/dashstyle/assets/js/waves.js')}}"></script>

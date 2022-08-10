@@ -20,16 +20,41 @@ class JobtaskResultSeeder extends Seeder
         [
             [
                 'job_task_id' => 1,
+                'subordinate' => 3,
                 'location_latitude' =>  -1.2598389,
                 'location_longitude' => 116.8697653,
                 'jobtask_documentation' => 'jobtask_documentation/085524400zvcsU79jU6.jpg',
             ],
             [
                 'job_task_id' => 1,
+                'subordinate' => 4,
                 'location_latitude' =>  -1.2598389,
                 'location_longitude' => 116.8697653,
                 'jobtask_documentation' => 'jobtask_documentation/4235228928442mXtUmEvkgB.jpg',
-            ]
+            ],
+
+
+            [
+                'job_task_id' => 2,
+                'subordinate' => 3,
+                'location_latitude' =>  -1.2767308,
+                'location_longitude' => 116.8276976,
+                'jobtask_documentation' => 'jobtask_documentation/rjothewrghf598.jpg',
+            ],
+            [
+                'job_task_id' => 2,
+                'subordinate' => 4,
+                'location_latitude' =>  -1.2767308,
+                'location_longitude' => 116.8276976,
+                'jobtask_documentation' => 'jobtask_documentation/fgushw28924j2hrjk2f.jpg',
+            ],
+            [
+                'job_task_id' => 2,
+                'subordinate' => 5,
+                'location_latitude' =>  -1.2767308,
+                'location_longitude' => 116.8276976,
+                'jobtask_documentation' => 'jobtask_documentation/3489ryuwefsgfsdjk.jpg',
+            ],
         ]);
     }
 }

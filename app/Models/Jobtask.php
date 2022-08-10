@@ -13,7 +13,7 @@ class Jobtask extends Model
 
     protected $guarded = [];
 
-    public $incrementing = false;
+    // public $incrementing = false;
 
     public function principal()
     {
@@ -28,5 +28,14 @@ class Jobtask extends Model
     public function jobtaskResult()
     {
         return $this->hasMany(JobtaskResult::class, 'job_task_id');
+    }
+
+    public function jobtaskSubordinate()
+    {
+        return $this->hasMany(JobtaskSubordinate::class, 'job_task_id');
+    }
+
+    public function sector(){
+        return $this->belongsTo(Sector::class, 'sector_id');
     }
 }

@@ -36,7 +36,7 @@
                         <tr>
                             <th>ID User</th>
                             <th>Nama</th>
-                            <th>Email</th>
+                            <th>NRP</th>
                             <th>Foto</th>
                             <th>Aksi</th>
                         </tr>
@@ -109,7 +109,7 @@ $('#datatable').DataTable({
     columns: [
         {"data" : "user_id"},
         {"data" : "name"},
-        {"data" : "email"},
+        {"data" : "nrp"},
         {"data" : "user_photo",
         render: function(data){
         const url = `http://localhost:8000/storage/${data}` 

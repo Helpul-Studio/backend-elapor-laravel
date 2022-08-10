@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Jobtask::class, 'jobtasks');
     }
+
+    public function jobtaskSubordinate()
+    {
+        return $this->belongsTo(JobtaskSubordinate::class, 'job_task_id');
+    }
 }

@@ -19,6 +19,9 @@ return new class extends Migration
             $table->unsignedBigInteger('principal');
             $table->foreign('principal')->references('user_id')->on('users');
 
+            $table->unsignedBigInteger('sector_id');
+            $table->foreign('sector_id')->references('sector_id')->on('sectors')->onDelete('cascade');
+
             $table->string('job_task_name');
             $table->date('job_task_date');
             $table->string('job_task_place');

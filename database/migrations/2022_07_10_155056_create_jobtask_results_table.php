@@ -22,9 +22,8 @@ return new class extends Migration
             $table->unsignedBigInteger('subordinate');
             $table->foreign('subordinate')->references('user_id')->on('users');
             
-
-            $table->decimal('location_latitude', 10, 7)->nullable();;
-            $table->decimal('location_longitude', 10, 7)->nullable();;
+            $table->decimal('location_latitude', 10, 7)->nullable();
+            $table->decimal('location_longitude', 10, 7)->nullable();
             $table->string('jobtask_documentation');
             $table->timestamps();
         });
