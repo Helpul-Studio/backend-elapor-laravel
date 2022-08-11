@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('jobtask_results', function (Blueprint $table) {
             $table->bigIncrements('job_task_result_id');
-        
+
             $table->enum('report_type', ['Rutin', 'Isidentil']);
+
+            $table->unsignedBigInteger('report_task_id')->nullable();
 
             $table->unsignedBigInteger('job_task_id')->nullable();
             $table->foreign('job_task_id')->references('job_task_id')->on('jobtasks')->onDelete('cascade');

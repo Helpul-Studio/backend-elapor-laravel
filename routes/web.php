@@ -24,6 +24,7 @@ Route::get('getAllUser', [App\Http\Controllers\Admin\UserController::class, 'get
 Route::get('getAllStructural', [App\Http\Controllers\Admin\StructuralController::class, 'getAllStructural'])->name('getAllStructural');
 Route::get('getAllJobtask', [App\Http\Controllers\Admin\JobtaskController::class, 'getAllJobtask'])->name('getAllJobtask');
 Route::get('getAllNews', [App\Http\Controllers\Admin\NewsController::class, 'getAllNews'])->name('getAllNews');
+Route::get('getAllReport', [App\Http\Controllers\Admin\ReportController::class, 'getAllReport'])->name('getAllReport');
 
 
 Route::prefix('manage')->middleware('auth')->group(function(){
@@ -55,6 +56,11 @@ Route::prefix('manage')->middleware('auth')->group(function(){
         Route::get('/jobtask/get-jobtask/{id}', 'edit')->name('jobtask.edit');
         Route::put('/jobtask/update-jobtask/{id}', 'update')->name('jobtask.update');
         Route::delete('/jobtask/delete-jobtask/{id}', 'destroy')->name('jobtask.destroy');
+    });
+
+    Route::controller(\App\Http\Controllers\Admin\ReportController::class)->group(function(){
+        Route::get('/report', 'index')->name('report.index');
+        Route::get('/report-result/{id}', 'show')->name('report.show');
     });
 
     Route::controller(\App\Http\Controllers\Admin\NewsController::class)->group(function(){

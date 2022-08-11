@@ -32,7 +32,7 @@ class JobtaskController extends Controller
         $sectors = Sector::all();
         return view('jobtask.index', compact('subordinates', 'sectors'));
     }
-
+    
     public function store(Request $request)
     {
         $jobtask = new Jobtask();

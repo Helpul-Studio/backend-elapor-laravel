@@ -18,4 +18,9 @@ class JobtaskResult extends Model
     {
         return $this->belongsTo(Jobtask::class, 'job_task_id');
     }
+
+    public function subordinate()
+    {
+        return $this->belongsTo(User::class, 'subordinate', 'user_id');
+    }
 }
