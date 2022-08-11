@@ -20,7 +20,10 @@ class SectorSeeder extends Seeder
             ['sector_name' => 'Sosial Budaya'],
             ['sector_name' => 'Politik'],
             ['sector_name' => 'Ekonomi'],
-            ['sector_name' => 'Keamanan']
+            ['sector_name' => 'Keamanan'],
+            ['sector_name' => 'Kriminal'],
+            ['sector_name' => 'Polri'],
+            ['sector_name' => 'Masyarakat']
         ]
     );
     }

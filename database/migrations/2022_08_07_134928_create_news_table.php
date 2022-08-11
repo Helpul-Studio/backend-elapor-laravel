@@ -17,10 +17,13 @@ return new class extends Migration
             $table->bigIncrements('news_id');
             $table->string('news_title');
             $table->string('news_field');
-            $table->string('news_image');
+            $table->string('news_image')->nullable();
             
             $table->unsignedBigInteger('principal');
             $table->foreign('principal')->references('user_id')->on('users');
+
+            $table->unsignedBigInteger('sector_id');
+            $table->foreign('sector_id')->references('sector_id')->on('sectors')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -40,8 +40,8 @@ class JobtaskSeeder extends Seeder
             ],
             [
                 'principal' => 2,
-                'sector_id' => 1,
-                'job_task_name' => 'Berpatroli Di Area Rawan Insiden',
+                'sector_id' => 7,
+                'job_task_name' => 'Menjaga Tempat Ramai Pengunjung Masyarakat',
                 'job_task_date' => Carbon::create(2022, 8, 17),
                 'job_task_place' => 'Kantor DPRD Balikpapan',
                 'job_task_status' => 'Ditugaskan',

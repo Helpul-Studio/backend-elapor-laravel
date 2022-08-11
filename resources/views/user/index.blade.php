@@ -113,7 +113,7 @@ $('#datatable').DataTable({
         {"data" : "user_photo",
         render: function(data){
         const url = `http://localhost:8000/storage/${data}` 
-            return `<img src ="`+url+`" height="70" width="70"/>`
+            return `<img src ="`+url+`" height="140" width="140"/>`
         }
         },
         {"data" : "user_id",

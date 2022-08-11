@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('getAllUser', [App\Http\Controllers\Admin\UserController::class, 'getAllUser'])->name('getAllUser');
 Route::get('getAllStructural', [App\Http\Controllers\Admin\StructuralController::class, 'getAllStructural'])->name('getAllStructural');
 Route::get('getAllJobtask', [App\Http\Controllers\Admin\JobtaskController::class, 'getAllJobtask'])->name('getAllJobtask');
+Route::get('getAllNews', [App\Http\Controllers\Admin\NewsController::class, 'getAllNews'])->name('getAllNews');
 
 
 Route::prefix('manage')->middleware('auth')->group(function(){
@@ -54,6 +55,14 @@ Route::prefix('manage')->middleware('auth')->group(function(){
         Route::get('/jobtask/get-jobtask/{id}', 'edit')->name('jobtask.edit');
         Route::put('/jobtask/update-jobtask/{id}', 'update')->name('jobtask.update');
         Route::delete('/jobtask/delete-jobtask/{id}', 'destroy')->name('jobtask.destroy');
+    });
+
+    Route::controller(\App\Http\Controllers\Admin\NewsController::class)->group(function(){
+        Route::get('/news', 'index')->name('news.index');
+        Route::post('/news/add-news', 'store')->name('news.store');
+        Route::get('/news/get-news/{id}', 'edit')->name('news.edit');
+        Route::put('/news/update-news/{id}', 'update')->name('news.update');
+        Route::delete('/news/delete-news/{id}', 'destroy')->name('news.destroy');
     });
 
     Route::controller(\App\Http\Controllers\API\JobtaskResultController::class)->group(function(){
