@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Jobtask;
 use App\Models\JobtaskSubordinate;
 use App\Models\Sector;
+use App\Models\Structural;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -24,7 +25,10 @@ class JobtaskController extends Controller
 
     public function index()
     {
-        $subordinates = User::where('user_role', 'subordinate')->get();
+        // $subordinates = User::where('user_role', 'subordinate')->get();
+        $user_id = Auth::user()->user_id;
+        $structurals = Structural::where('principal', $user_id)->distinct()->get('subordinate')->toArray();
+        $subordinates = User::whereIn('user_id', $structurals)->get();
         $sectors = Sector::all();
         return view('jobtask.index', compact('subordinates', 'sectors'));
     }

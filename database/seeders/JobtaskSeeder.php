@@ -38,6 +38,16 @@ class JobtaskSeeder extends Seeder
                 'job_task_note' => null,
                 'job_task_rating' => null
             ],
+            [
+                'principal' => 2,
+                'sector_id' => 1,
+                'job_task_name' => 'Berpatroli Di Area Rawan Insiden',
+                'job_task_date' => Carbon::create(2022, 8, 17),
+                'job_task_place' => 'Kantor DPRD Balikpapan',
+                'job_task_status' => 'Ditugaskan',
+                'job_task_note' => null,
+                'job_task_rating' => null
+            ],
         ]
     );
     }

@@ -50,10 +50,17 @@ class JobtaskResultSeeder extends Seeder
             ],
             [
                 'job_task_id' => 2,
-                'subordinate' => 5,
+                'subordinate' => 4,
                 'location_latitude' =>  -1.2767308,
                 'location_longitude' => 116.8276976,
                 'jobtask_documentation' => 'jobtask_documentation/3489ryuwefsgfsdjk.jpg',
+            ],
+            [
+                'job_task_id' => 3,
+                'subordinate' => 3,
+                'location_latitude' =>  -1.2767308,
+                'location_longitude' => 116.8276976,
+                'jobtask_documentation' => 'jobtask_documentation/43t8wrfg49tfda.jpg',
             ],
         ]);
     }

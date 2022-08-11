@@ -16,8 +16,14 @@ class StructuralSeeder extends Seeder
     public function run()
     {
         DB::table('structurals')->insert([
-            'principal' => 2,
-            'subordinate' => 3,
+            [
+                'principal' => 2,
+                'subordinate' => 3,
+            ],
+            [
+                'principal' => 2,
+                'subordinate' => 4,
+            ],
         ]);
     }
 }
