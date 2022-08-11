@@ -16,6 +16,13 @@ class JobtaskResultController extends Controller
         return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
     }
 
+    public function showreport($id)
+    {
+        $jobtask = JobtaskResult::where('job_task_id', $id)->get();
+        return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
+    }
+
+
     public function store(Request $request, $id)
     {
 

@@ -55,4 +55,8 @@ Route::prefix('manage')->middleware('auth')->group(function(){
         Route::put('/jobtask/update-jobtask/{id}', 'update')->name('jobtask.update');
         Route::delete('/jobtask/delete-jobtask/{id}', 'destroy')->name('jobtask.destroy');
     });
+
+    Route::controller(\App\Http\Controllers\API\JobtaskResultController::class)->group(function(){
+        Route::get('/jobtask-result/{id}', 'showreport')->name('jobtaskresult.showreport');
+    });
 });

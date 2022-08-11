@@ -141,6 +141,24 @@
     </div><!-- /.modal-dialog -->
 
 </div>
+
+<div class="modal fade" id="modalViewJobtask" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="formTitle">Form Laporan Pekerjaan</h4>
+                <button type="button" class="close" data-dismiss="modal" id="closeButton" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="formViewJobtask" action="#">
+                <div class="card-body" id="imageJobTask"> 
+                </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+</div>
 @endsection
 @section('script')
 <script src="{{url('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
@@ -184,7 +202,7 @@ $('#datatable').DataTable({
         {"data" : "job_task_id",
         render: function(data, type, row) {
             return `
-            <a id="viewStructural" data-id='`+data +`' class="btn btn-md btn-primary my-1"  style="color: white;" > Laporan</a>
+            <a id="viewJobtask" data-id='`+data +`' class="btn btn-md btn-primary my-1"  style="color: white;" > Laporan</a>
             <a id="editJobtask" data-id='`+data +`' class="btn btn-md btn-warning my-1"  style="color: white;" > Edit</a>
             <a id="deleteJobtask"  data-id='`+data +`' class=" btn btn-md btn-danger my-1" style="color: white;"> Delete</a>`;
         }}
@@ -218,8 +236,35 @@ $('#addJobtask').click(function(){
             $('#jobTaskNote').attr("style", "");
             $('#job_task_note').val(data.job_task_note); 
         });
+    }); 
+
+
+    $(document).on('click', '#viewJobtask', function(e){
+        e.preventDefault();
+        $('#modalViewJobtask').modal('show'); 
+        var id = $(this).attr("data-id");
+        
+        $.get('/manage/jobtask-result/'+id, function(data){
+            $('#formViewJobtask').trigger('reset');
+            if(data.data.length == 0){
+                $(`<p id='noReport'> Belum Ada Laporan Yang Diberikan </p>`).appendTo( "#imageJobTask" )
+            }else{
+                for (let index = 0; index < data.data.length; index++) {
+                $(`#noReport`+index+``).remove();  
+                $(`<img src="" id="imgReport`+index+`" class="img-fluid mb-2"/>`).appendTo( "#imageJobTask" )
+                $(`#imgReport`+index+``).attr("src", `http://localhost:8000/storage/`+data.data[index].jobtask_documentation);
+
+                $('#modalViewJobtask').on('hidden.bs.modal', function () {
+                    $(`#imgReport`+index+``).remove();  
+                    $(`#noReport`).remove();  
+                });
+            }
+            }
+        });
+        
     });
 
+      // Modal hidden event fired
 
 
     
