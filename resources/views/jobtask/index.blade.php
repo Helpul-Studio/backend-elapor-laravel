@@ -96,7 +96,6 @@
                         <div id="jobSubordinate" class="mb-1" style="">
                             <label for="subordinate">Pelaksana Pekerjaan</label>
                                 @foreach ($subordinates as $subordinate)
-                                {{-- <option value="{{ $subordinate->user_id }}"> {{ $subordinate->name }} </option> --}}
                                 <div class="custom-control custom-checkbox">
                                 <input type="checkbox" name="subordinate[]" value="{{ $subordinate->user_id }}" class="custom-control-input" id="customCheck{{ $subordinate->user_id }}" data-parsley-multiple="groups" data-parsley-mincheck="2">
                                 <label class="custom-control-label" for="customCheck{{ $subordinate->user_id }}">{{ $subordinate->name }}</label>
@@ -213,6 +212,10 @@ $('#addJobtask').click(function(){
         $('#formJobtask').trigger('reset');
         $('#modalAddJobtask').modal('show');
         $('#job_task_id').val('');
+        $('#jobSubordinate').attr("style", "");    
+        $('#jobStatus').attr("style", "display: none;");
+        $('#jobRating').attr("style", "display: none;");
+        $('#jobTaskNote').attr("style", "display: none;");
     });
 
     $(document).on('click', '#editJobtask', function(e){
@@ -247,10 +250,10 @@ $('#addJobtask').click(function(){
         $.get('/manage/jobtask-result/'+id, function(data){
             $('#formViewJobtask').trigger('reset');
             if(data.data.length == 0){
-                $(`<p id='noReport'> Belum Ada Laporan Yang Diberikan </p>`).appendTo( "#imageJobTask" )
+                $("<p id='noReport'> Belum Ada Laporan Yang Diberikan </p>").appendTo( "#imageJobTask" )
             }else{
                 for (let index = 0; index < data.data.length; index++) {
-                $(`#noReport`+index+``).remove();  
+                $(`#noReport`).remove();  
                 $(`<img src="" id="imgReport`+index+`" class="img-fluid mb-2"/>`).appendTo( "#imageJobTask" )
                 $(`#imgReport`+index+``).attr("src", `http://localhost:8000/storage/`+data.data[index].jobtask_documentation);
 
