@@ -34,8 +34,6 @@ class DatabaseSeeder extends Seeder
             JobtaskSubordinateSeeder::class,
             JobtaskResultSeeder::class,
 
-            ReportSeeder::class,
-            ReportImageSeeder::class,
             NewsSeeder::class
         ]);
     }

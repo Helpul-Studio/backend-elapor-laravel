@@ -19,6 +19,7 @@ class SubordinateSeeder extends Seeder
         DB::table('users')->insert([
         [
             'name' => 'Pardi Mandala',
+            'email' => 'pardimandala@gmail.com',
             'nrp' => 35040356,
             'password' => Hash::make('subordinate1234'),
             'occupation' => 'Brigpol',
@@ -27,6 +28,7 @@ class SubordinateSeeder extends Seeder
         ],
         [
             'name' => 'Prayoga Ramadhan',
+            'email' => 'prayogaramadhan@gmail.com',
             'nrp' => 35040116,
             'password' => Hash::make('subordinate1234'),
             'occupation' => 'Brigadir',
@@ -35,6 +37,7 @@ class SubordinateSeeder extends Seeder
         ],
         [
             'name' => 'Kurniawan Radika',
+            'email' => 'kurniawanradika@gmail.com',
             'nrp' => 353970356,
             'password' => Hash::make('subordinate1234'),
             'occupation' => 'Bripda',

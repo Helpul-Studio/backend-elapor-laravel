@@ -34,8 +34,8 @@
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>ID User</th>
                             <th>Nama</th>
+                            <th>Email</th>
                             <th>NRP</th>
                             <th>Foto</th>
                             <th>Aksi</th>
@@ -65,6 +65,7 @@
                     <input type="hidden" name="user_id" id="user_id">
                     <div class="form-group">
                         <input type="text" class="form-control mb-1" id="name" placeholder="Masukkan Nama" name="name">
+                        <input type="number" class="form-control mb-1" id="nrp" placeholder="Masukkan NRP" name="nrp">
                         <input type="email" class="form-control mb-1" id="email" placeholder="Masukkan Email" name="email"> 
                         <input type="password" class="form-control mb-1" id="password" placeholder="Masukkan Password" name="password">
                         <input type="text" class="form-control mb-1" id="occupation" placeholder="Masukkan Jabatan" name="occupation"> 
@@ -107,8 +108,8 @@ $('#datatable').DataTable({
             { responsivePriority: 1, targets: -1 }
     ],
     columns: [
-        {"data" : "user_id"},
         {"data" : "name"},
+        {"data" : "email"},
         {"data" : "nrp"},
         {"data" : "user_photo",
         render: function(data){
@@ -138,6 +139,7 @@ $('#addUser').click(function(){
             $('#modalAddUser').modal('show');
             $('#user_id').val(data.user_id);
             $('#name').val(data.name); 
+            $('#nrp').val(data.nrp); 
             $('#email').val(data.email); 
             $('#password').attr('placeholder', 'Masukkan Password (Opsional)').val(''); 
             $('#occupation').val(data.occupation);
