@@ -24,4 +24,10 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::get('/jobtask-result/{id}', [\App\Http\Controllers\API\JobtaskResultController::class, 'show']);
     Route::post('/jobtask-result/{id}', [\App\Http\Controllers\API\JobtaskResultController::class, 'store']);
+
+    Route::controller(\App\Http\Controllers\API\ReportController::class)->group(function(){
+        Route::get('/report-data', 'index')->name('report.index');
+        Route::post('/report-data', 'store')->name('report.store');
+        Route::get('/report-detail/{id}', 'show')->name('report.show');
+    });
 });

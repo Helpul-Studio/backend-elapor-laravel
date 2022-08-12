@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Jobtask;
 use App\Models\JobtaskResult;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobtaskResultController extends Controller
 {
@@ -22,7 +23,6 @@ class JobtaskResultController extends Controller
         return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
     }
 
-
     public function store(Request $request, $id)
     {
 
@@ -36,6 +36,8 @@ class JobtaskResultController extends Controller
                 $url = $image->store('jobtask_documentation', 'public');
                 
                 $data = JobtaskResult::create([
+                    'report_type' => 'Rutin',
+                    'subordinate' =>  Auth::user()->user_id,
                     'location_latitude' => $request->location_latitude,
                     'location_longitude' => $request->location_longitude,
                     'job_task_id' => $id,

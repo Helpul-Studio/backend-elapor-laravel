@@ -7,6 +7,7 @@ use App\Models\Report;
 use App\Http\Controllers\Controller;
 use App\Models\JobtaskResult;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ReportController extends Controller
 {

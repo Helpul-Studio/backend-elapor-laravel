@@ -27,6 +27,8 @@ Route::get('getAllNews', [App\Http\Controllers\Admin\NewsController::class, 'get
 Route::get('getAllReport', [App\Http\Controllers\Admin\ReportController::class, 'getAllReport'])->name('getAllReport');
 
 
+
+
 Route::prefix('manage')->middleware('auth')->group(function(){
 
     Route::controller(\App\Http\Controllers\Admin\DashboardController::class)->group(function(){
