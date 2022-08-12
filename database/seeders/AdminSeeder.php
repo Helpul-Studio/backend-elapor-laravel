@@ -17,11 +17,12 @@ class AdminSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'name' => 'Ayu Utami',
+            'email' => 'ayuutami@gmail.com',
+            'nrp' => 95040358,
             'password' => Hash::make('admin1234'),
-            'occupation' => 'Administrator',
-            'user_photo' => 'https://cdn-icons-png.flaticon.com/512/892/892781.png?w=360',
+            'occupation' => 'Aipda',
+            'user_photo' => 'user_photo/admin.jpeg',
             'user_role' => 'admin'
         ]);
     }

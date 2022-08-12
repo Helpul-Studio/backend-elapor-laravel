@@ -42,8 +42,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Structural()
+    public function structural()
     {
-        return $this->belongsToMany(User::class, 'structurals', '');
+        return $this->belongsToMany(Structural::class, 'structurals');
+    }
+
+    public function jobtask()
+    {
+        return $this->belongsTo(Jobtask::class, 'jobtasks');
+    }
+
+    public function jobtaskSubordinate()
+    {
+        return $this->belongsTo(JobtaskSubordinate::class, 'job_task_id');
     }
 }

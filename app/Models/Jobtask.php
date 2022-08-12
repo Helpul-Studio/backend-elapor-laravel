@@ -11,7 +11,31 @@ class Jobtask extends Model
 
     protected $primaryKey = 'job_task_id';
 
-    protected $fillable = [
-        'user_id', 'job_task_name', 'job_task_date', 'job_task_status'
-    ];
+    protected $guarded = [];
+
+    // public $incrementing = false;
+
+    public function principal()
+    {
+        return $this->belongsToMany(User::class, 'jobtasks', 'job_task_id', 'principal');
+    }
+
+    public function subordinate()
+    {
+        return $this->belongsToMany(User::class, 'jobtasks', 'job_task_id', 'subordinate');
+    }
+
+    public function jobtaskResult()
+    {
+        return $this->hasMany(JobtaskResult::class, 'job_task_id');
+    }
+
+    public function jobtaskSubordinate()
+    {
+        return $this->hasMany(JobtaskSubordinate::class, 'job_task_id');
+    }
+
+    public function sector(){
+        return $this->belongsTo(Sector::class, 'sector_id');
+    }
 }
