@@ -34,11 +34,4 @@ class AuthController extends Controller
 
         return responseFormatter::success(null, 'Logout Berhasil', 200);
     }
-
-    public function profile()
-    {
-        $user = Auth::user();
-
-        return responseFormatter::success($user, "Data Profile " .$user->name, 200);
-    }
 }
