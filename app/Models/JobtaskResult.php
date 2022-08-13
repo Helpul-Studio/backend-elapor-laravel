@@ -8,10 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class JobtaskResult extends Model
 {
     use HasFactory;
-
     protected $primaryKey = ['job_task_result_id'];
 
-    protected $fillable = [
-        'job_task_id', 'user_id', 'job_task_documentation', 'job_task_rating'
-    ];
+    protected $guarded = [];
+    
+    public $incrementing = false;
+
+    public function jobtask()
+    {
+        return $this->belongsTo(Jobtask::class, 'job_task_id');
+    }
+
+    public function subordinate()
+    {
+        return $this->belongsTo(User::class, 'subordinate', 'user_id');
+    }
 }

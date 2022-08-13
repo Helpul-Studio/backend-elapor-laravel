@@ -75,7 +75,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Dastyle - Admin & Dashboard Template</title>
+        <title>E Lapor</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="" name="author" />
@@ -120,9 +120,9 @@
                                             <form class="form-horizontal  my-4" action="{{route('login')}}" method="POST">
                                                 @csrf
                                                 <div class="form-group">
-                                                    <label for="username">Email</label>
+                                                    <label for="username">NRP</label>
                                                     <div class="input-group mb-3">                                                                                         
-                                                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Masukkan email" required>
+                                                        <input type="number" class="form-control @error('nrp') is-invalid @enderror" name="nrp" id="nrp" placeholder="Masukkan NRP" required>
                                                         @error('email')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>

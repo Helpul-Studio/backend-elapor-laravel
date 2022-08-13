@@ -17,10 +17,11 @@ return new class extends Migration
             $table->bigIncrements('user_id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->unsignedBigInteger('nrp')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('occupation');
-            $table->string('user_photo');
+            $table->string('user_photo')->nullable();
             $table->enum('user_role', ['admin','principal','subordinate']);
             $table->rememberToken();
             $table->timestamps();
