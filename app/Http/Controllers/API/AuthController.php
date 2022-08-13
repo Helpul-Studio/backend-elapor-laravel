@@ -39,6 +39,6 @@ class AuthController extends Controller
     {
         $user = Auth::user();
 
-        dd($user);
+        return responseFormatter::success($user, "Data Profile " .$user->name, 200);
     }
 }
