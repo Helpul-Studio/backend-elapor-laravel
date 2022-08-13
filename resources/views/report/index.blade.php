@@ -173,7 +173,7 @@ $('#datatable').DataTable({
             for (let index = 0; index < data.data.length; index++) {
                 $(`#noReport`).remove();  
                 $(`<img src="" id="imgReport`+index+`" class="img-fluid mb-2"/>`).appendTo( "#imageJobTask" )
-                $(`#imgReport`+index+``).attr("src", `http://localhost:8000/storage/`+data.data[index].jobtask_documentation);
+                $(`#imgReport`+index+``).attr("src", `{{Storage::url('${data.data[index].jobtask_documentation}')}}`);
 
                 $('#modalReport').on('hidden.bs.modal', function () {
                     $(`#imgReport`+index+``).remove();  

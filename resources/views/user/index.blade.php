@@ -113,7 +113,7 @@ $('#datatable').DataTable({
         {"data" : "nrp"},
         {"data" : "user_photo",
         render: function(data){
-        const url = `http://localhost:8000/storage/${data}` 
+        const url = `{{Storage::url('${data}')}}` 
             return `<img src ="`+url+`" height="140" width="140"/>`
         }
         },
