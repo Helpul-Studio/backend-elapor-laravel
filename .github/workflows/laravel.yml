@@ -26,3 +26,19 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       run: vendor/bin/phpunit
+
+
+  deploy:
+    needs: [tests]
+    run-on: ubuntu-latest
+    steps:
+    - name: 'SSH DEPLOY TO SERVER'
+      uses: appleboy/ssh-action@main
+      with: 
+        host: ${{secrets.HOST}}
+        username: ${{secrets.USERNAME}}
+        password: ${{secrets.PASSWORD}}  
+        port: ${{secrets.PORT}} 
+        script: | 
+          cd /var/www/elapor
+          ls -lah
