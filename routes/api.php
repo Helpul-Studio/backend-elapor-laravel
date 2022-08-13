@@ -20,6 +20,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::get('/jobtask-data', [\App\Http\Controllers\API\JobtaskController::class, 'index']);
     Route::get('/jobtask-detail/{id}', [\App\Http\Controllers\API\JobtaskController::class, 'show']);
+    Route::post('/profile', [\App\Http\Controllers\API\AuthController::class, 'profile']);
     Route::post('/logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
 
     Route::get('/jobtask-result/{id}', [\App\Http\Controllers\API\JobtaskResultController::class, 'show']);
