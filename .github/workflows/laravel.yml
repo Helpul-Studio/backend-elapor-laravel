@@ -30,15 +30,19 @@ jobs:
 
   deploy:
     needs: [tests]
-    run-on: ubuntu-latest
+
+    runs-on: ubuntu-latest
+
     steps:
     - name: 'SSH DEPLOY TO SERVER'
       uses: appleboy/ssh-action@main
       with: 
         host: ${{secrets.HOST}}
         username: ${{secrets.USERNAME}}
-        password: ${{secrets.PASSWORD}}  
+        key: ${{secrets.KEY}}
         port: ${{secrets.PORT}} 
         script: | 
-          cd /var/www/elapor
-          ls -lah
+          cd /var/www/backend-elapor-laravel
+          git pull origin main
+          composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+          php artisan migrate --seed
