@@ -48,3 +48,5 @@ jobs:
           php artisan migrate
           cd /var/www/backend-elapor-laravel/public
           rm -rf storage
+          cd /var/www/backend-elapor-laravel
+          php artisan storage:link
