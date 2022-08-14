@@ -25,6 +25,18 @@ class JobtaskResultController extends Controller
 
     public function store(Request $request, $id)
     {
+        $this->validate($request, [
+            'location_latitude' => 'required',
+            'location_longitude' => 'required',
+        ],
+
+        [
+            'location_latitude.required' => 'Tidak Bisa Mendapatkan Lokasi',
+
+            'location_longitude.required' => 'Tidak Bisa Mendapatkan Lokasi',
+
+        ]
+    );
 
         $files = $request->file('jobtask_documentation');
 
@@ -44,6 +56,11 @@ class JobtaskResultController extends Controller
                     'jobtask_documentation' => $url
                 ]);
             }
+
+            $jobtask = Jobtask::findOrFail($id);
+            $jobtask->job_task_status = 'Menunggu Konfirmasi';
+            $jobtask->save();
+
             return ResponseFormatter::success($data, 'Berhasil Upload Laporan Pekerjaan', 200);
         }
 
