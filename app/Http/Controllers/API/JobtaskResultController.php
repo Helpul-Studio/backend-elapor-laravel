@@ -8,6 +8,7 @@ use App\Models\Jobtask;
 use App\Models\JobtaskResult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class JobtaskResultController extends Controller
 {
@@ -38,31 +39,31 @@ class JobtaskResultController extends Controller
         ]
     );
 
-        $files = $request->file('jobtask_documentation');
+            $jobtask_result = new JobtaskResult();
+            $jobtask_result->report_type = 'Rutin';
+            $jobtask_result->job_task_id =  $id;
+            $jobtask_result->subordinate = Auth::user()->user_id;
 
-        if($request->hasFile('jobtask_documentation')){
-            $jobtask_documentations = $request->file('jobtask_documentation');
+            $jobtask_result->location_latitude =  $request->location_latitude;
+            $jobtask_result->location_longitude =  $request->location_longitude;
 
-            $data = array();
-            foreach ($jobtask_documentations as $image) {
-                $url = $image->store('jobtask_documentation', 'public');
-                
-                $data = JobtaskResult::create([
-                    'report_type' => 'Rutin',
-                    'subordinate' =>  Auth::user()->user_id,
-                    'location_latitude' => $request->location_latitude,
-                    'location_longitude' => $request->location_longitude,
-                    'job_task_id' => $id,
-                    'jobtask_documentation' => $url
+
+            if ($request->hasFile('jobtask_documentation')) {
+                $validate = Validator::make($request->all(), [
+                    'jobtask_documentation' => 'required|mimes:png,jpg,jpeg'
                 ]);
+                $jobtask_result->jobtask_documentation = $request->file('jobtask_documentation')->store('jobtask_documentation', 'public');
             }
+
+            $jobtask_result->save();
+        
 
             $jobtask = Jobtask::findOrFail($id);
             $jobtask->job_task_status = 'Menunggu Konfirmasi';
             $jobtask->save();
 
-            return ResponseFormatter::success($data, 'Berhasil Upload Laporan Pekerjaan', 200);
+            return ResponseFormatter::success($jobtask_result, 'Berhasil Upload Laporan Pekerjaan', 200);
         }
 
-    }
 }
+
