@@ -19,4 +19,9 @@ class Sector extends Model
     {
         return $this->hasMany(News::class, 'news_id');
     }
+
+    public function jobtaskResult()
+    {
+        return $this->hasMany(JobtaskResult::class, 'job_task_id');
+    }
 }

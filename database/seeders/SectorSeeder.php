@@ -23,7 +23,8 @@ class SectorSeeder extends Seeder
             ['sector_name' => 'Keamanan'],
             ['sector_name' => 'Kriminal'],
             ['sector_name' => 'Polri'],
-            ['sector_name' => 'Masyarakat']
+            ['sector_name' => 'Masyarakat'],
+            ['sector_name' => 'Laka Lantas']
         ]
     );
     }

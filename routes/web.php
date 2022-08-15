@@ -25,6 +25,7 @@ Route::get('getAllStructural', [App\Http\Controllers\Admin\StructuralController:
 Route::get('getAllJobtask', [App\Http\Controllers\Admin\JobtaskController::class, 'getAllJobtask'])->name('getAllJobtask');
 Route::get('getAllNews', [App\Http\Controllers\Admin\NewsController::class, 'getAllNews'])->name('getAllNews');
 Route::get('getAllReport', [App\Http\Controllers\Admin\ReportController::class, 'getAllReport'])->name('getAllReport');
+Route::get('getAllSector', [App\Http\Controllers\Admin\SectorController::class, 'getAllSector'])->name('getAllSector');
 
 
 

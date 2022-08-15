@@ -20,6 +20,7 @@ class JobtaskResultSeeder extends Seeder
         [
             [
                 'report_task_id' => null,
+                'sector_id' => null,
                 'report_type' => 'Rutin',
                 'job_task_id' => 1,
                 'subordinate' => 3,
@@ -38,6 +39,7 @@ class JobtaskResultSeeder extends Seeder
             ],
             [
                 'report_task_id' => null,
+                'sector_id' => null,
                 'report_type' => 'Rutin',
                 'job_task_id' => 1,
                 'subordinate' => 4,
@@ -58,6 +60,7 @@ class JobtaskResultSeeder extends Seeder
 
             [
                 'report_task_id' => null,
+                'sector_id' => null,
                 'report_type' => 'Rutin',
                 'job_task_id' => 2,
                 'subordinate' => 3,
@@ -76,6 +79,7 @@ class JobtaskResultSeeder extends Seeder
             ],
             [
                 'report_task_id' => null,
+                'sector_id' => null,
                 'report_type' => 'Rutin',
                 'job_task_id' => 2,
                 'subordinate' => 4,
@@ -94,6 +98,7 @@ class JobtaskResultSeeder extends Seeder
             ],
             [
                 'report_task_id' => null,
+                'sector_id' => null,
                 'report_type' => 'Rutin',
                 'job_task_id' => 2,
                 'subordinate' => 4,
@@ -112,6 +117,7 @@ class JobtaskResultSeeder extends Seeder
             ],
             [
                 'report_task_id' => null,
+                'sector_id' => null,
                 'report_type' => 'Rutin',
                 'job_task_id' => 3,
                 'subordinate' => 3,
@@ -131,6 +137,7 @@ class JobtaskResultSeeder extends Seeder
 
             [
                 'report_task_id' => 1,
+                'sector_id' => 5,
                 'report_type' => 'Isidentil',
                 'job_task_id' => null,
                 'subordinate' => 3,
@@ -152,6 +159,7 @@ class JobtaskResultSeeder extends Seeder
 
             [
                 'report_task_id' => 1,
+                'sector_id' => 5,
                 'report_type' => 'Isidentil',
                 'report_about' => 'Penangkapan Oknum Petugas Bandara Kasus Bobol Koper Penumpang',
                 'report_source_information' => 'Aduan Masyarakat',
@@ -171,6 +179,7 @@ class JobtaskResultSeeder extends Seeder
 
             [
                 'report_task_id' => 3,
+                'sector_id' => 4,
                 'report_type' => 'Isidentil',
                 'report_about' => 'Tawuran STM di gunung pasir',
                 'report_source_information' => 'Aduan Masyarakat',
@@ -190,6 +199,7 @@ class JobtaskResultSeeder extends Seeder
 
             [
                 'report_task_id' => 2,
+                'sector_id' => 8,
                 'report_type' => 'Isidentil',
                 'report_about' => 'Laka Lantas Tunggal',
                 'report_source_information' => 'Aduan Masyarakat',

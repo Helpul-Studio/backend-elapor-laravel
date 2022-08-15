@@ -23,4 +23,8 @@ class JobtaskResult extends Model
     {
         return $this->belongsTo(User::class, 'subordinate', 'user_id');
     }
+
+    public function sector(){
+        return $this->belongsTo(Sector::class, 'sector_id');
+    }
 }

@@ -31,7 +31,7 @@ class ReportController extends Controller
     public function show($id)
     {
         $jobtask = JobtaskResult::where('report_task_id', $id)
-        ->with('subordinate')
+        ->with(['subordinate', 'sector'])
         ->get();
         return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
     }

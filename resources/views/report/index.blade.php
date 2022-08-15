@@ -66,6 +66,11 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="report_sector"> <b> Bidang Laporan </b> </label>
+                        <p id="report_sector"></p>
+                    </div> 
+
+                    <div class="mb-3">
                         <label for="report_about"> <b> Perihal Laporan </b> </label>
                         <p id="report_about"></p>
                     </div> 
@@ -160,6 +165,7 @@ $('#datatable').DataTable({
             $('#formViewReport').trigger('reset');
 
             $('#report_subordinate').text(data.data[0].subordinate.name); 
+            $('#report_sector').text(data.data[0].sector.sector_name); 
             $('#report_about').text(data.data[0].report_about); 
             $('#report_source_information').text(data.data[0].report_source_information); 
             $('#report_place').text(data.data[0].report_source_information);  
