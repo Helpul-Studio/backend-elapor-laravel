@@ -57,6 +57,7 @@ class ReportController extends Controller
         $report = new JobtaskResult();
         $report->report_type = 'Isidentil';
         $report->report_task_id = $randID.$user;
+        $report->sector_id = $request->sector_id;
         $report->location_latitude = $request->location_latitude;
         $report->subordinate = Auth::user()->user_id;
         $report->location_longitude = $request->location_longitude;
