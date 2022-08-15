@@ -26,18 +26,16 @@ class JobtaskResultController extends Controller
 
     public function store(Request $request, $id)
     {
-        $this->validate($request, [
+        $validate = Validator::make($request->all(), [
             'location_latitude' => 'required',
             'location_longitude' => 'required',
-        ],
 
-        [
-            'location_latitude.required' => 'Tidak Bisa Mendapatkan Lokasi',
+            'jobtask_documentation' => 'required|mimes:png,jpg,jpeg'
+        ]);
 
-            'location_longitude.required' => 'Tidak Bisa Mendapatkan Lokasi',
-
-        ]
-    );
+        if ($validate->fails()) {
+            return ResponseFormatter::error(null, $validate->errors(), 400);
+        }
 
             $jobtask_result = new JobtaskResult();
             $jobtask_result->report_type = 'Rutin';
@@ -49,9 +47,6 @@ class JobtaskResultController extends Controller
 
 
             if ($request->hasFile('jobtask_documentation')) {
-                $validate = Validator::make($request->all(), [
-                    'jobtask_documentation' => 'required|mimes:png,jpg,jpeg'
-                ]);
                 $jobtask_result->jobtask_documentation = $request->file('jobtask_documentation')->store('jobtask_documentation', 'public');
             }
 

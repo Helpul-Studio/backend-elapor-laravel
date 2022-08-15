@@ -32,17 +32,36 @@ class ReportController extends Controller
         $user = Auth::user()->user_id;  
         $randID = rand();
 
+        $validate = Validator::make($request->all(), [
+            'sector_id' => 'required',
+            'location_latitude' => 'required',
+            'location_longitude' => 'required',
+
+            'report_about' => 'required',
+            'report_source_information' => 'required',
+            'report_date' => 'required',
+            'report_place' => 'required',
+            'report_activities' => 'required',
+            'report_analysis' => 'required',
+            'report_prediction' => 'required',
+            'report_steps_taken' => 'required',
+            'report_recommendation' => 'required',
+            'jobtask_documentation' => 'required|mimes:png,jpg,jpeg'
+        ]);
+
+        if ($validate->fails()) {
+            return ResponseFormatter::error(null, $validate->errors(), 400);
+        }
+
+
         $report = new JobtaskResult();
         $report->report_type = 'Isidentil';
         $report->report_task_id = $randID.$user;
-        $report->subordinate = Auth::user()->user_id;
         $report->location_latitude = $request->location_latitude;
+        $report->subordinate = Auth::user()->user_id;
         $report->location_longitude = $request->location_longitude;
 
         if ($request->hasFile('jobtask_documentation')) {
-            $validate = Validator::make($request->all(), [
-                'jobtask_documentation' => 'required|mimes:png,jpg,jpeg'
-            ]);
             $report->jobtask_documentation = $request->file('jobtask_documentation')->store('jobtask_documentation', 'public');
         }
 
