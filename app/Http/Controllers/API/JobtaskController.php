@@ -15,7 +15,8 @@ class JobtaskController extends Controller
         $user = Auth::user()->user_id;
         $jobtask = JobtaskSubordinate::where('subordinate', $user)
         ->with('jobtask')
-        ->get();        
+        ->get();
+
         return ResponseFormatter::success($jobtask, 'Data Semua Pekerjaan', 200);
     }
 

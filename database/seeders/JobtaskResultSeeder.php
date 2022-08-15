@@ -170,6 +170,25 @@ class JobtaskResultSeeder extends Seeder
             ],
 
             [
+                'report_task_id' => 3,
+                'report_type' => 'Isidentil',
+                'report_about' => 'Tawuran STM di gunung pasir',
+                'report_source_information' => 'Aduan Masyarakat',
+                'report_date' => Carbon::create(2022, 7, 25),
+                'report_place' => 'Gunung Pasir Balikpapan',
+                'report_activities' => 'Pada jam 22:45 siswa berkumpul untuk tawuran, kemudia pada jam 23:10 petugas datang untuk membubarkan siswa tersebut',
+                'report_analysis' => 'Terjadi kesalahpahaman antar kelompok',
+                'report_prediction' => 'Terjadi kesalahpahaman antar kelompok sehingga antar kelompok tersebut menyelesaikan permasalahan dengan kekerasan', 
+                'report_steps_taken' =>'Membubarkan dan menangkap pelaku yang terlibat tawuran',
+                'report_recommendation' => 'melakukan patroli sesering mungkin agar tercipta suasana yang kondusif',
+                'job_task_id' => null,
+                'subordinate' => 3,
+                'location_latitude' => -1.2658151,
+                'location_longitude' => 116.8977258,
+                'jobtask_documentation' => 'jobtask_documentation/2735485920.jpg',
+            ],
+
+            [
                 'report_task_id' => 2,
                 'report_type' => 'Isidentil',
                 'report_about' => 'Laka Lantas Tunggal',

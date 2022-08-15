@@ -24,7 +24,7 @@ class JobtaskSeeder extends Seeder
                 'job_task_name' => 'Mengawal Rombongan Gubernur',
                 'job_task_date' => Carbon::create(2022, 8, 17),
                 'job_task_place' => 'Ibu Kota Negara Kalimantan',
-                'job_task_status' => 'Ditugaskan',
+                'job_task_status' => 'Selesai',
                 'job_task_note' => null,
                 'job_task_rating' => null
             ],
@@ -34,7 +34,7 @@ class JobtaskSeeder extends Seeder
                 'job_task_name' => 'Menjaga Demo',
                 'job_task_date' => Carbon::create(2022, 8, 17),
                 'job_task_place' => 'Kantor DPRD Balikpapan',
-                'job_task_status' => 'Ditugaskan',
+                'job_task_status' => 'Menunggu Konfirmasi',
                 'job_task_note' => null,
                 'job_task_rating' => null
             ],
@@ -44,6 +44,16 @@ class JobtaskSeeder extends Seeder
                 'job_task_name' => 'Menjaga Tempat Ramai Pengunjung Masyarakat',
                 'job_task_date' => Carbon::create(2022, 8, 17),
                 'job_task_place' => 'Kantor DPRD Balikpapan',
+                'job_task_status' => 'Menunggu Konfirmasi',
+                'job_task_note' => null,
+                'job_task_rating' => null
+            ],
+            [
+                'principal' => 2,
+                'sector_id' => 5,
+                'job_task_name' => 'Operasi Tangkap Basah Transaksi Narkoba',
+                'job_task_date' => Carbon::create(2022, 8, 17),
+                'job_task_place' => 'Kampung Baru Ujung Balikpapan',
                 'job_task_status' => 'Ditugaskan',
                 'job_task_note' => null,
                 'job_task_rating' => null
