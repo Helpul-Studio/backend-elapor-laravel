@@ -31,7 +31,7 @@ class JobtaskResultController extends Controller
             'location_latitude' => 'required',
             'location_longitude' => 'required',
 
-            'jobtask_documentation' => 'required|mimes:png,jpg,jpeg',
+            'jobtask_documentation' => 'required',
 
             'report_about' => 'required',
             'report_source_information' => 'required',
