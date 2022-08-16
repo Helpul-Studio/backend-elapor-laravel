@@ -45,7 +45,7 @@ jobs:
           cd /var/www/backend-elapor-laravel
           git pull origin main
           composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-          php artisan migrate
+          php artisan migrate:fresh --seed
           cd /var/www/backend-elapor-laravel/public
           rm -rf storage
           cd /var/www/backend-elapor-laravel
