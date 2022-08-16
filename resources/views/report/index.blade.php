@@ -47,80 +47,21 @@
         </div> <!-- end col -->
     </div>
 
-    <div class="modal fade" id="modalAddJobtask" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="modalEditReport" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="formTitle">Form Pekerjaan</h4>
+                    <h4 class="modal-title" id="formTitle">Form Laporan</h4>
                     <button type="button" class="close" data-dismiss="modal" id="closeButton" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form id="formJobtask" method="POST" autocomplete="off">
-                        <input type="hidden" name="job_task_id" id="job_task_id">
-                        <input type="hidden" name="principal" id="principal" value="{{Auth::user()->user_id}}">
+                    <form id="formEditReport" method="POST" autocomplete="off">
+                        <input type="hidden" name="job_task_result_id" id="job_task_result_id">
                         <div class="form-group">
     
-                            <div class="mb-1">
-                            <label for="subordinate">Nama Pekerjaan</label>
-                            <input type="text" class="form-control" id="job_task_name" placeholder="Masukkan Pekerjaan" name="job_task_name">
-                            </div>
-    
-                            <div class="mb-1">
-                                <label for="job_task_place">Tempat Pekerjaan</label>
-                                <input type="text" class="form-control" id="job_task_place" placeholder="Masukkan Tempat Pekerjaan" name="job_task_place">
-                            </div>
-    
-                            <div class="mb-1">
-                                <label for="sector_id">Bidang Pekerjaan</label>
-                                <select name="sector_id" id="sector_id" class="form-control">
-                                    @foreach ($sectors as $sector)
-                                    <option value="{{ $sector->sector_id }}"> {{ $sector->sector_name }} </option>
-                                    @endforeach
-                                </select> 
-                            </div>
-    
-    
-                            <div class="mb-1">
-                            <label for="job_task_date">Tanggal Pekerjaan</label>
-                            <input type="date" class="form-control" id="job_task_date" placeholder="2017-06-04" name="job_task_date">
-                            </div>
-    
-                            <div id="jobSubordinate" class="mb-1" style="">
-                                <label for="subordinate">Pelaksana Pekerjaan</label>
-                                    @foreach ($subordinates as $subordinate)
-                                    <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="subordinate[]" value="{{ $subordinate->user_id }}" class="custom-control-input" id="customCheck{{ $subordinate->user_id }}" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                    <label class="custom-control-label" for="customCheck{{ $subordinate->user_id }}">{{ $subordinate->name }}</label>
-                                    </div>
-                                    @endforeach
-                                </select> 
-                            </div>
-    
-                            <div id="jobStatus" class="mb-1" style="display: none;">
-                                <label for="job_task_status">Status Pekerjaan</label>
-                                <select name="job_task_status" id="job_task_status" class="form-control">
-                                    <option value="Ditugaskan"> Ditugaskan </option>
-                                    <option value="Menunggu Konfirmasi"> Menunggu Konfirmasi </option>
-                                    <option value="Ditolak"> Ditolak </option>
-                                    <option value="Selesai"> Selesai </option>
-                                </select> 
-                            </div>
-    
-                            <div id="jobRating" class="mb-1" style="display: none;">
-                                <label for="job_task_rating">Rating Pekerjaan</label>
-                                <select name="job_task_rating" id="job_task_rating" class="form-control">
-                                    <option value="">Belum Diberi Rating</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select> 
-                            </div>
-    
-                            <div id="jobTaskNote" class="mb-1" style="display: none;">
-                                <label for="job_task_note">Beri Komentar Pekerjaan</label>
-                                <input type="text" class="form-control" id="job_task_note" placeholder="Masukkan Komentar Pekerjaan" name="job_task_note">
+                            <div id="jobTaskNote" class="mb-1">
+                                <label for="report_note" class="mb-1">Beri Komentar Laporan</label>
+                                <input type="text" class="form-control" id="report_note" placeholder="Masukkan Komentar Laporan" name="report_note">
                             </div>
     
                         </div>
@@ -254,24 +195,47 @@ $(document).on('click', '#editReport', function(e){
         e.preventDefault();
         var id = $(this).attr("data-id");
         
-        $.get('/manage/jobtask/get-jobtask/'+id, function(data){
-            $('#modalAddJobtask').modal('show');
-            $('#job_task_id').val(data.job_task_id);
-            $('#principal').val(data.principal);  
-            $('#sector_id').val(data.sector_id);  
-            $('#jobSubordinate').attr("style", "display: none;");            
-            $('#job_task_name').val(data.job_task_name); 
-            $('#job_task_date').val(data.job_task_date); 
-            $('#job_task_place').val(data.job_task_place); 
-            $('#jobStatus').attr("style", "");
-            $('#job_task_status').val(data.job_task_status);  
-            $('#jobRating').attr("style", "");
-            $('#job_task_rating').val(data.job_task_rating); 
-
-            $('#jobTaskNote').attr("style", "");
-            $('#job_task_note').val(data.job_task_note); 
+        $.get('/manage/report-result/'+id, function(data){
+            $('#modalEditReport').modal('show'); 
+            $('#job_task_result_id').val(data.data.job_task_result_id);  
+            $('#report_note').val(data.data.report_note);  
         });
     }); 
+
+    $('#submitButton').click(function(e){
+        e.preventDefault();
+        var formData = {
+            data: new FormData(document.getElementById('formEditReport')),
+            job_task_result_id: $('#job_task_result_id').val(),
+        }
+
+        console.log(formData.data)
+
+        formData.data.append('_method', 'PUT'),
+            $.ajax({
+                processData: false,
+                contentType: false,
+                data: formData.data,
+                url: "/manage/report/update-result/"+formData.job_task_result_id,
+                type: "POST",
+                dataType: "json",
+                success : function(data){
+                    $('#formEditReport').trigger("reset");
+                    $('#modalEditReport').trigger("reset");
+                    $('#modalEditReport').modal('hide');
+                    $('#datatable').DataTable().ajax.reload();
+                    Swal.fire("Successfull", data.message, "success");
+                },
+                error : function(data){
+                    console.log('Error : ', data);
+                    $('#formEditReport').trigger("reset");
+                    $('#modalEditReport').modal('hide');
+                    $('#modalEditReport').trigger("reset");
+                    Swal.fire("Wrong request", data.responseJSON.message, "error");
+                }
+            });
+        
+    });
 
     $(document).on('click', '#viewReport', function(e){
         e.preventDefault();
@@ -281,28 +245,27 @@ $(document).on('click', '#editReport', function(e){
         $.get('/manage/report-result/'+id, function(data){
             $('#formViewReport').trigger('reset');
 
-            $('#report_subordinate').text(data.data[0].subordinate.name); 
-            $('#report_sector').text(data.data[0].sector.sector_name); 
-            $('#report_about').text(data.data[0].report_about); 
-            $('#report_source_information').text(data.data[0].report_source_information); 
-            $('#report_place').text(data.data[0].report_source_information);  
-            $('#report_date').text(data.data[0].report_date); 
-            $('#report_activities').text(data.data[0].report_activities); 
-            $('#report_analysis').text(data.data[0].report_analysis); 
-            $('#report_prediction').text(data.data[0].report_prediction); 
-            $('#report_steps_taken').text(data.data[0].report_steps_taken); 
-            $('#report_recommendation').text(data.data[0].report_recommendation); 
+            $('#report_subordinate').text(data.data.subordinate.name); 
+            $('#report_sector').text(data.data.sector.sector_name); 
+            $('#report_about').text(data.data.report_about); 
+            $('#report_source_information').text(data.data.report_source_information); 
+            $('#report_place').text(data.data.report_source_information);  
+            $('#report_date').text(data.data.report_date); 
+            $('#report_activities').text(data.data.report_activities); 
+            $('#report_analysis').text(data.data.report_analysis); 
+            $('#report_prediction').text(data.data.report_prediction); 
+            $('#report_steps_taken').text(data.data.report_steps_taken); 
+            $('#report_recommendation').text(data.data.report_recommendation); 
 
-            for (let index = 0; index < data.data.length; index++) {
                 $(`#noReport`).remove();  
-                $(`<img src="" id="imgReport`+index+`" class="img-fluid mb-2"/>`).appendTo( "#imageJobTask" )
-                $(`#imgReport`+index+``).attr("src", `{{Storage::url('${data.data[index].jobtask_documentation}')}}`);
+                $(`<img src="" id="imgReport" class="img-fluid mb-2"/>`).appendTo( "#imageJobTask" )
+                $(`#imgReport`).attr("src", `{{Storage::url('${data.data.jobtask_documentation}')}}`);
 
                 $('#modalReport').on('hidden.bs.modal', function () {
-                    $(`#imgReport`+index+``).remove();  
+                    $(`#imgReport`).remove();  
                     $(`#noReport`).remove();  
                 });
-            }
+            
         });
         
     });

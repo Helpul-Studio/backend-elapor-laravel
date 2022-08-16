@@ -64,6 +64,7 @@ Route::prefix('manage')->middleware('auth')->group(function(){
     Route::controller(\App\Http\Controllers\Admin\ReportController::class)->group(function(){
         Route::get('/report', 'index')->name('report.index');
         Route::get('/report-result/{id}', 'show')->name('report.show');
+        Route::put('/report/update-result/{id}', 'update')->name('report.update');
     });
 
     Route::controller(\App\Http\Controllers\Admin\NewsController::class)->group(function(){

@@ -32,7 +32,16 @@ class ReportController extends Controller
     {
         $jobtask = JobtaskResult::where('report_task_id', $id)
         ->with(['subordinate', 'sector'])
-        ->get();
+        ->first();
         return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
+    }
+
+    public function update(Request $request,$id)
+    {
+        $jobtask = JobtaskResult::where('job_task_result_id', $id)->update([
+            'report_note' => $request->report_note
+        ]);
+        return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
+
     }
 }

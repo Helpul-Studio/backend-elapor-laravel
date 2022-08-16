@@ -109,7 +109,7 @@
                             <select name="job_task_status" id="job_task_status" class="form-control">
                                 <option value="Ditugaskan"> Ditugaskan </option>
                                 <option value="Menunggu Konfirmasi"> Menunggu Konfirmasi </option>
-                                <option value="Ditolak"> Ditolak </option>
+                                <option value="Ditugaskan"> Ditugaskan </option>~
                                 <option value="Selesai"> Selesai </option>
                             </select> 
                         </div>
