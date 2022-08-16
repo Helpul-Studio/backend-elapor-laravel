@@ -38,26 +38,6 @@ class JobtaskResultSeeder extends Seeder
                 'report_recommendation' => null,
                 'report_note' => null
             ],
-            [
-                'report_task_id' => null,
-                'sector_id' => null,
-                'report_type' => 'Rutin',
-                'job_task_id' => 1,
-                'subordinate' => 4,
-                'location_latitude' =>  -1.2598389,
-                'location_longitude' => 116.8697653,
-                'jobtask_documentation' => 'jobtask_documentation/4235228928442mXtUmEvkgB.jpg',
-                'report_about' => null,
-                'report_source_information' => null,
-                'report_date' => null,
-                'report_place' => null,
-                'report_activities' => null,
-                'report_analysis' => null,
-                'report_prediction' => null, 
-                'report_steps_taken' => null,
-                'report_recommendation' => null,
-                'report_note' => null
-            ],
 
 
             [
@@ -80,46 +60,8 @@ class JobtaskResultSeeder extends Seeder
                 'report_recommendation' => null,
                 'report_note' => null
             ],
-            [
-                'report_task_id' => null,
-                'sector_id' => null,
-                'report_type' => 'Rutin',
-                'job_task_id' => 2,
-                'subordinate' => 4,
-                'location_latitude' =>  -1.2767308,
-                'location_longitude' => 116.8276976,
-                'jobtask_documentation' => 'jobtask_documentation/fgushw28924j2hrjk2f.jpg',
-                'report_about' => null,
-                'report_source_information' => null,
-                'report_date' => null,
-                'report_place' => null,
-                'report_activities' => null,
-                'report_analysis' => null,
-                'report_prediction' => null, 
-                'report_steps_taken' => null,
-                'report_recommendation' => null,
-                'report_note' => null
-            ],
-            [
-                'report_task_id' => null,
-                'sector_id' => null,
-                'report_type' => 'Rutin',
-                'job_task_id' => 2,
-                'subordinate' => 4,
-                'location_latitude' =>  -1.2767308,
-                'location_longitude' => 116.8276976,
-                'jobtask_documentation' => 'jobtask_documentation/3489ryuwefsgfsdjk.jpg',
-                'report_about' => null,
-                'report_source_information' => null,
-                'report_date' => null,
-                'report_place' => null,
-                'report_activities' => null,
-                'report_analysis' => null,
-                'report_prediction' => null, 
-                'report_steps_taken' => null,
-                'report_recommendation' => null,
-                'report_note' => null
-            ],
+
+
             [
                 'report_task_id' => null,
                 'sector_id' => null,
@@ -162,28 +104,7 @@ class JobtaskResultSeeder extends Seeder
                 'report_recommendation' => 'Menambah pengawasan di area Bandara Sepinggan',
                 'report_note' => null
             ],
-
-            [
-                'report_task_id' => 1,
-                'sector_id' => 5,
-                'report_type' => 'Isidentil',
-                'report_about' => 'Penangkapan Oknum Petugas Bandara Kasus Bobol Koper Penumpang',
-                'report_source_information' => 'Aduan Masyarakat',
-                'report_date' => Carbon::create(2022, 7, 25),
-                'report_place' => 'Bandara Sepinggan',
-                'report_activities' => 'Pada jam 10:45 petugas mendatangi Bandara Sepinggan untuk melakukan penangkapan kemudian pada jam 11:30 petugas membawa pelaku ke polres untuk dimintai keterangan lebih lanjut',
-                'report_analysis' => 'Kurangnya pengawasan di bandara sehingga menimbulkan kesempatan oknum untuk melancarkan aksinya',
-                'report_prediction' => 'Pelaku kekurangan uang', 
-                'report_steps_taken' =>'Membawa Pelaku ke polres',
-                'report_recommendation' => 'Menambah pengawasan di area Bandara Sepinggan',
-                'job_task_id' => null,
-                'subordinate' => 3,
-                'location_latitude' => -1.2658151,
-                'location_longitude' => 116.8977258,
-                'jobtask_documentation' => 'jobtask_documentation/49rfiwdfjw90uj234.jpeg',
-                'report_note' => null
-            ],
-
+            
             [
                 'report_task_id' => 3,
                 'sector_id' => 4,

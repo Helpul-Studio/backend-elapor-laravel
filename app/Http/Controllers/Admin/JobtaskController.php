@@ -73,7 +73,14 @@ class JobtaskController extends Controller
         $jobtask->job_task_date = $request->job_task_date;
         $jobtask->job_task_note = $request->job_task_note;
         $jobtask->job_task_place = $request->job_task_place;
-        $jobtask->job_task_status = $request->job_task_status;
+        
+        if($request->job_task_status == 'Ditolak'){
+            $jobtask->jobtaskResult()->delete();
+            $jobtask->job_task_status = $request->job_task_status;
+        }else{
+            $jobtask->job_task_status = $request->job_task_status;
+        }
+
         $jobtask->job_task_rating = $request->job_task_rating;
         $jobtask->save();
         return response()->json(['status' => true]);

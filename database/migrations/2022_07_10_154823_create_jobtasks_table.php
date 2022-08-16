@@ -26,7 +26,7 @@ return new class extends Migration
             $table->date('job_task_date');
             $table->string('job_task_place');
 
-            $table->enum('job_task_status', ['Ditugaskan', 'Menunggu Konfirmasi', 'Selesai'])->default('Ditugaskan');
+            $table->enum('job_task_status', ['Ditugaskan', 'Menunggu Konfirmasi', 'Ditolak', 'Selesai'])->default('Ditugaskan');
             $table->string('job_task_note')->nullable();
             $table->enum('job_task_rating', [5, 4, 3, 2, 1])->nullable();
             $table->timestamps();
