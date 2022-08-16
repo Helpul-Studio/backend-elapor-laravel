@@ -56,9 +56,8 @@ class JobtaskResultController extends Controller
             $jobtask_result->location_longitude =  $request->location_longitude;
 
 
-            if ($request->hasFile('jobtask_documentation')) {
-                $jobtask_result->jobtask_documentation = $request->file('jobtask_documentation')->store('jobtask_documentation', 'public');
-            }
+            $jobtask_result->jobtask_documentation = $request->file('jobtask_documentation')->store('jobtask_documentation', 'public');
+
 
                 
             $jobtask_result->report_about = $request->report_about;
