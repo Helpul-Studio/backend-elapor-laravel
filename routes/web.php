@@ -75,6 +75,14 @@ Route::prefix('manage')->middleware('auth')->group(function(){
         Route::delete('/news/delete-news/{id}', 'destroy')->name('news.destroy');
     });
 
+    Route::controller(\App\Http\Controllers\Admin\SectorController::class)->group(function(){
+        Route::get('/sector', 'index')->name('sector.index');
+        Route::post('/sector/add-sector', 'store')->name('sector.store');
+        Route::get('/sector/get-sector/{id}', 'edit')->name('sector.edit');
+        Route::put('/sector/update-sector/{id}', 'update')->name('sector.update');
+        Route::delete('/sector/delete-sector/{id}', 'destroy')->name('sector.destroy');
+    });
+
     Route::controller(\App\Http\Controllers\API\JobtaskResultController::class)->group(function(){
         Route::get('/jobtask-result/{id}', 'showreport')->name('jobtaskresult.showreport');
     });

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sectors', function (Blueprint $table) {
             $table->bigIncrements('sector_id');
-            $table->string('sector_name');
+            $table->string('sector_name')->unique();
             $table->timestamps();
         });
     }
