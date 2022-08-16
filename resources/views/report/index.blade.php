@@ -46,83 +46,86 @@
             </div>
         </div> <!-- end col -->
     </div>
+
+    <div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="formTitle">Form Laporan</h4>
+                    <button type="button" class="close" data-dismiss="modal" id="closeButton" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <form id="formViewReport" action="#">
+                        <div class="card-body" id="imageJobTask" />
+    
+    
+                        <div class="mb-3">
+                            <label for="report_subordinate"> <b> Dilaporkan Oleh </b> </label>
+                            <p id="report_subordinate"></p>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="report_sector"> <b> Bidang Laporan </b> </label>
+                            <p id="report_sector"></p>
+                        </div> 
+    
+                        <div class="mb-3">
+                            <label for="report_about"> <b> Perihal Laporan </b> </label>
+                            <p id="report_about"></p>
+                        </div> 
+    
+                        <div class="mb-3">
+                            <label for="report_source_information"> <b> Sumber Informasi </b> </label>
+                            <p id="report_source_information"></p>
+                        </div> 
+    
+                        <div class="mb-3">
+                            <label for="report_place"> <b> Lokasi Kejadian Laporan </b> </label>
+                            <p id="report_place"></p>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="report_date"> <b> Tanggal Kejadian </b> </label>
+                            <p id="report_date"></p>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="report_activities"> <b> Rangkaian Kejadian Laporan </b> </label>
+                            <p id="report_activities"></p> 
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="report_analysis"> <b> Analisa </b> </label>
+                            <p id="report_analysis"></p> 
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="report_prediction"> <b> Prediksi </b> </label>
+                            <p id="report_prediction"></p>
+                        </div> 
+    
+                        <div class="mb-3">
+                            <label for="report_recommendation"> <b> Rekomendasi </b> </label>
+                            <p id="report_recommendation"></p>
+                        </div> 
+    
+                        <div class="mb-3">
+                            <label for="report_steps_taken"> <b> Langkah-langkah Yang Diambil </b> </label>
+                            <p id="report_steps_taken"></p>
+                        </div>
+                        
+    
+    
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    
+    </div>
+
 </div> <!--end col-->   
 
-<div class="modal fade" id="modalReport" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="formTitle">Form Laporan</h4>
-                <button type="button" class="close" data-dismiss="modal" id="closeButton" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body">
-                <form id="formViewReport" action="#">
-                    <div class="card-body" id="imageJobTask" />
 
-
-                    <div class="mb-3">
-                        <label for="report_subordinate"> <b> Dilaporkan Oleh </b> </label>
-                        <p id="report_subordinate"></p>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="report_sector"> <b> Bidang Laporan </b> </label>
-                        <p id="report_sector"></p>
-                    </div> 
-
-                    <div class="mb-3">
-                        <label for="report_about"> <b> Perihal Laporan </b> </label>
-                        <p id="report_about"></p>
-                    </div> 
-
-                    <div class="mb-3">
-                        <label for="report_source_information"> <b> Sumber Informasi </b> </label>
-                        <p id="report_source_information"></p>
-                    </div> 
-
-                    <div class="mb-3">
-                        <label for="report_place"> <b> Lokasi Kejadian Laporan </b> </label>
-                        <p id="report_place"></p>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="report_date"> <b> Tanggal Kejadian </b> </label>
-                        <p id="report_date"></p>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="report_activities"> <b> Rangkaian Kejadian Laporan </b> </label>
-                        <p id="report_activities"></p> 
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="report_analysis"> <b> Analisa </b> </label>
-                        <p id="report_analysis"></p> 
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="report_prediction"> <b> Prediksi </b> </label>
-                        <p id="report_prediction"></p>
-                    </div> 
-
-                    <div class="mb-3">
-                        <label for="report_recommendation"> <b> Rekomendasi </b> </label>
-                        <p id="report_recommendation"></p>
-                    </div> 
-
-                    <div class="mb-3">
-                        <label for="report_steps_taken"> <b> Langkah-langkah Yang Diambil </b> </label>
-                        <p id="report_steps_taken"></p>
-                    </div>
-                    
-
-
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-
-</div>
 @endsection
 @section('script')
 <script src="{{url('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>

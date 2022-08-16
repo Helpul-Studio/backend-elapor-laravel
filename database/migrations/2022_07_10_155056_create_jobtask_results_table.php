@@ -44,6 +44,8 @@ return new class extends Migration
             $table->string('report_steps_taken')->nullable();
             $table->string('report_recommendation')->nullable();
 
+            $table->string('report_note')->nullable();
+
             $table->timestamps();
         });
     }

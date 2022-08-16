@@ -248,6 +248,7 @@ $('#addJobtask').click(function(){
         var id = $(this).attr("data-id");
         
         $.get('/manage/jobtask-result/'+id, function(data){
+            console.log(data)
             $('#formViewJobtask').trigger('reset');
             if(data.data.length == 0){
                 $("<p id='noReport'> Belum Ada Laporan Yang Diberikan </p>").appendTo( "#imageJobTask" )

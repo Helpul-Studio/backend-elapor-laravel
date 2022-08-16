@@ -6,6 +6,7 @@ use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Models\Jobtask;
 use App\Models\JobtaskResult;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -62,7 +63,7 @@ class JobtaskResultController extends Controller
                 
             $jobtask_result->report_about = $request->report_about;
             $jobtask_result->report_source_information = $request->report_source_information;
-            $jobtask_result->report_date = $request->report_date; 
+            $jobtask_result->report_date = Carbon::parse($request->report_date)->format('Y/m/d'); 
             $jobtask_result->report_place = $request->report_place;
             $jobtask_result->report_activities = $request->report_activities; 
             $jobtask_result->report_analysis = $request->report_analysis;

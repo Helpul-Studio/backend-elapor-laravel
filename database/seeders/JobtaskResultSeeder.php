@@ -36,6 +36,7 @@ class JobtaskResultSeeder extends Seeder
                 'report_prediction' => null, 
                 'report_steps_taken' => null,
                 'report_recommendation' => null,
+                'report_note' => null
             ],
             [
                 'report_task_id' => null,
@@ -55,6 +56,7 @@ class JobtaskResultSeeder extends Seeder
                 'report_prediction' => null, 
                 'report_steps_taken' => null,
                 'report_recommendation' => null,
+                'report_note' => null
             ],
 
 
@@ -76,6 +78,7 @@ class JobtaskResultSeeder extends Seeder
                 'report_prediction' => null, 
                 'report_steps_taken' => null,
                 'report_recommendation' => null,
+                'report_note' => null
             ],
             [
                 'report_task_id' => null,
@@ -95,6 +98,7 @@ class JobtaskResultSeeder extends Seeder
                 'report_prediction' => null, 
                 'report_steps_taken' => null,
                 'report_recommendation' => null,
+                'report_note' => null
             ],
             [
                 'report_task_id' => null,
@@ -114,6 +118,7 @@ class JobtaskResultSeeder extends Seeder
                 'report_prediction' => null, 
                 'report_steps_taken' => null,
                 'report_recommendation' => null,
+                'report_note' => null
             ],
             [
                 'report_task_id' => null,
@@ -133,6 +138,7 @@ class JobtaskResultSeeder extends Seeder
                 'report_prediction' => null, 
                 'report_steps_taken' => null,
                 'report_recommendation' => null,
+                'report_note' => null
             ],
 
             [
@@ -154,7 +160,7 @@ class JobtaskResultSeeder extends Seeder
                 'report_prediction' => 'Pelaku kekurangan uang', 
                 'report_steps_taken' =>'Membawa Pelaku ke polres',
                 'report_recommendation' => 'Menambah pengawasan di area Bandara Sepinggan',
-               
+                'report_note' => null
             ],
 
             [
@@ -175,6 +181,7 @@ class JobtaskResultSeeder extends Seeder
                 'location_latitude' => -1.2658151,
                 'location_longitude' => 116.8977258,
                 'jobtask_documentation' => 'jobtask_documentation/49rfiwdfjw90uj234.jpeg',
+                'report_note' => null
             ],
 
             [
@@ -195,6 +202,7 @@ class JobtaskResultSeeder extends Seeder
                 'location_latitude' => -1.2658151,
                 'location_longitude' => 116.8977258,
                 'jobtask_documentation' => 'jobtask_documentation/2735485920.jpg',
+                'report_note' => null
             ],
 
             [
@@ -215,6 +223,7 @@ class JobtaskResultSeeder extends Seeder
                 'location_latitude' => -1.2658151,
                 'location_longitude' => 116.8977258,
                 'jobtask_documentation' => 'jobtask_documentation/werut89wer7wer89.jpg',
+                'report_note' => null
             ],
         ]);
     }
