@@ -50,3 +50,5 @@ jobs:
           rm -rf storage
           cd /var/www/backend-elapor-laravel
           php artisan storage:link
+          sudo chown -R www-data.www-data /var/www/backend-elapor-laravel/storage
+          sudo chown -R www-data.www-data 
