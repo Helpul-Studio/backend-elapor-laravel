@@ -82,6 +82,7 @@ class AuthController extends Controller
         $user = User::findOrFail($auth->user_id);
 
         $user->email = $request->email;
+        $user->name = $request->name;
 
         if ($request->hasFile('user_photo')) {
             $validate = Validator::make($request->all(), [
