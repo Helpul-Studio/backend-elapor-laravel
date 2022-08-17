@@ -30,6 +30,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::controller(\App\Http\Controllers\API\Principal\JobtaskController::class)->group(function(){
         Route::get('/getAllJobtask', 'getAllJobtask');
+        Route::get('/getSubordinate', 'getSubordinate'); 
         Route::post('/jobtask/add-jobtask', 'store');
         Route::get('/jobtask/get-jobtask/{id}', 'show');
         Route::put('/jobtask/update-jobtask/{id}', 'update');

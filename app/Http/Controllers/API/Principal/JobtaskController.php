@@ -6,6 +6,8 @@ use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Models\Jobtask;
 use App\Models\JobtaskSubordinate;
+use App\Models\Structural;
+use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +21,14 @@ class JobtaskController extends Controller
         ->with(['jobtaskSubordinate.subordinate', 'principal', 'sector'])
         ->get();
         return json_encode(['data' => $jobtasks]);
+    }
+
+    public function getSubordinate()
+    {
+        $user_id = Auth::user()->user_id;
+        $structurals = Structural::where('principal', $user_id)->distinct()->get('subordinate')->toArray();
+        $subordinates = User::whereIn('user_id', $structurals)->get();
+        return json_encode(['data' => $subordinates]);
     }
 
     public function store(Request $request)
