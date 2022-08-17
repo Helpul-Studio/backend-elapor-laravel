@@ -54,7 +54,7 @@ class JobtaskController extends Controller
 
     public function show($id)
     {
-        $jobtask = Jobtask::where('job_task_id', $id)->with('jobtaskResult', 'sector')
+        $jobtask = Jobtask::where('job_task_id', $id)->with('jobtaskResult.subordinate', 'sector')
         ->first();
         return response()->json($jobtask);
     }
@@ -69,8 +69,8 @@ class JobtaskController extends Controller
         $jobtask->job_task_place = $request->job_task_place;
         
         if($request->job_task_status == 'Ditolak'){
-            $jobtask->jobtaskResult()->delete();
             $jobtask->job_task_status = $request->job_task_status;
+            $jobtask->jobtaskResult()->delete();
         }else{
             $jobtask->job_task_status = $request->job_task_status;
         }
