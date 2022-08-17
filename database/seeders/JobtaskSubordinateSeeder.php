@@ -27,7 +27,6 @@ class JobtaskSubordinateSeeder extends Seeder
 
                 ['job_task_id' => 4, 'subordinate' => 3],
                 ['job_task_id' => 4, 'subordinate' => 4],
-                ['job_task_id' => 4, 'subordinate' => 5],
             ]
         );
     }

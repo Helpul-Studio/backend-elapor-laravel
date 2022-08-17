@@ -61,6 +61,7 @@ class JobtaskResultController extends Controller
 
                 
             $jobtask_result->report_about = $request->report_about;
+            $jobtask_result->report_teamwise = $request->report_teamwise;
             $jobtask_result->report_source_information = $request->report_source_information;
             $jobtask_result->report_date = Carbon::parse($request->report_date)->format('Y/m/d'); 
             $jobtask_result->report_place = $request->report_place;

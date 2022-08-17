@@ -37,10 +37,16 @@ Route::middleware(['auth:sanctum'])->group(function(){
         Route::delete('/jobtask/delete-jobtask/{id}', 'destroy');
     });
 
+    Route::controller(\App\Http\Controllers\API\Principal\ReportController::class)->group(function(){
+        Route::get('/getAllReport', 'getAllReport');
+        Route::get('/report-view/{id}', 'show');
+        Route::put('/report-update/{id}', 'update');
+    });
+
 
     Route::controller(\App\Http\Controllers\API\ReportController::class)->group(function(){
-        Route::get('/report-data', 'index')->name('report.index');
-        Route::post('/report-data', 'store')->name('report.store');
-        Route::get('/report-detail/{id}', 'show')->name('report.show');
+        Route::get('/report-data', 'index');
+        Route::post('/report-data', 'store');
+        Route::get('/report-detail/{id}', 'show');
     });
 });

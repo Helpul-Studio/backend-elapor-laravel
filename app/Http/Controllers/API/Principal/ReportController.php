@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\API\Principal;
 
 use App\Helpers\ResponseFormatter;
-use App\Models\Report;
 use App\Http\Controllers\Controller;
 use App\Models\JobtaskResult;
 use App\Models\Structural;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class ReportController extends Controller
 {
@@ -32,18 +30,12 @@ class ReportController extends Controller
         ->with('subordinate')
         ->get();
 
-        return json_encode(['data' => $jobtasks]);
-    }
-
-    public function index()
-    {
-
-        return view('report.index');
+        return ResponseFormatter::success($jobtasks, "Data Semua Laporan", 200);
     }
 
     public function show($id)
     {
-        $jobtask = JobtaskResult::where('report_task_id', $id)
+        $jobtask = JobtaskResult::where('job_task_result_id', $id)
         ->with(['subordinate', 'sector'])
         ->first();
         return ResponseFormatter::success($jobtask, 'Detail Laporan Isidentil', 200);
@@ -54,7 +46,7 @@ class ReportController extends Controller
         $jobtask = JobtaskResult::where('job_task_result_id', $id)->update([
             'report_note' => $request->report_note
         ]);
-        return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
+        return ResponseFormatter::success($jobtask, 'Berhasil Mengubah Laporan Isidentil', 200);
 
     }
 }

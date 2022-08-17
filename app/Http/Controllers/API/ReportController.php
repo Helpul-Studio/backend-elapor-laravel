@@ -67,6 +67,7 @@ class ReportController extends Controller
         }
 
         $report->report_about = $request->report_about;
+        $report->report_teamwise = $request->report_teamwise;
         $report->report_source_information = $request->report_source_information;
         $report->report_date = $request->report_date; 
         $report->report_place = $request->report_place;
