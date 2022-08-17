@@ -30,10 +30,10 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::controller(\App\Http\Controllers\API\Principal\JobtaskController::class)->group(function(){
         Route::get('/getAllJobtask', 'getAllJobtask');
-        Route::post('/jobtask/add-jobtask', 'store')->name('jobtask.store');
-        Route::get('/jobtask/get-jobtask/{id}', 'edit')->name('jobtask.edit');
-        Route::put('/jobtask/update-jobtask/{id}', 'update')->name('jobtask.update');
-        Route::delete('/jobtask/delete-jobtask/{id}', 'destroy')->name('jobtask.destroy');
+        Route::post('/jobtask/add-jobtask', 'store');
+        Route::get('/jobtask/get-jobtask/{id}', 'show');
+        Route::put('/jobtask/update-jobtask/{id}', 'update');
+        Route::delete('/jobtask/delete-jobtask/{id}', 'destroy');
     });
 
 
