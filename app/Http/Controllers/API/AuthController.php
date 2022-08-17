@@ -67,14 +67,12 @@ class AuthController extends Controller
 
         
 
-        return ResponseFormatter::success([$user, 
-        ["status_pekerjaan" => [
-            ["selesai" => $done], 
-            ["ditugaskan" => $assigned], 
-            ["menunggu_konfirmasi" => $waiting],
-        ]]  
-    ], 
-        'Data Profile ' .$user->name, 
+        return ResponseFormatter::success([ 
+        "data_user" => $user, 
+        "done" => $done, 
+        "assigned" => $assigned, 
+        "waiting" =>$waiting
+        ],'Data Profile ' .$user->name, 
         200);
     }
 
