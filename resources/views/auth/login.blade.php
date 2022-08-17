@@ -151,7 +151,7 @@
                                                         </div>
                                                     </div><!--end col--> 
                                                     <div class="col-sm-6 text-right">
-                                                        <p class="text-muted mb-0">Lupa Password ?  <a target="_blank" href="https://api.whatsapp.com/send/?phone=082255883559&text&type=phone_number&app_absent=0" class="text-primary ml-2">Silahkan hubungi admin</a></p>
+                                                        <p class="text-muted mb-0">Lupa Password ?  <a target="_blank" href="https://api.whatsapp.com/send?phone=6282255883559" class="text-primary ml-2">Silahkan hubungi admin</a></p>
                                                     </div><!--end col--> 
                                                 </div><!--end form-group--> 
                     

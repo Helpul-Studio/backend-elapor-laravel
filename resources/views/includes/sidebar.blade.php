@@ -1,7 +1,7 @@
 <div class="left-sidenav">
     <!-- LOGO -->
     <div class="brand">
-        <a href="/admin/dashboard" class="logo">
+        <a href="/manage/dashboard" class="logo">
             <span>
                 <img src="{{url('logo-polri.png')}}" alt="logo-large" class="logo-lg logo-dark">
             </span>

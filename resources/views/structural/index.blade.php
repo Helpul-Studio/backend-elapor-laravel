@@ -34,7 +34,7 @@
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>Nama Pimpinan</th>
+                            <th>Nama Komandan</th>
                             <th>Nama Anggota</th>
                             <th>Aksi</th>
                         </tr>
@@ -63,7 +63,7 @@
                     <input type="hidden" name="structural_id" id="structural_id">
                     <div class="form-group">
                         <div class="mb-1">
-                            <label for="principal">Pimpinan</label>
+                            <label for="principal">Komandan</label>
                             <select name="principal" id="principal" class="form-control">
                                 @foreach ($principals as $principal)
                                 <option value="{{ $principal->user_id }}"> {{ $principal->name }} </option>
@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="mb-1">
-                            <label for="subordinate">Bawahan</label>
+                            <label for="subordinate">Anggota</label>
                             <select name="subordinate" id="subordinate" class="form-control">
                                 @foreach ($subordinates as $subordinate)
                                 <option value="{{ $subordinate->user_id }}"> {{ $subordinate->name }} </option>

@@ -28,6 +28,7 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->nrp = $request->nrp;
         $user->password = Hash::make($request->password);   
         $user->occupation = $request->occupation;
         $user->user_role = $request->user_role;
@@ -54,6 +55,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->nrp = $request->nrp;
         $user->occupation = $request->occupation;
         $user->user_role = $request->user_role;
         

@@ -70,8 +70,8 @@
                         <input type="password" class="form-control mb-1" id="password" placeholder="Masukkan Password" name="password">
                         <input type="text" class="form-control mb-1" id="occupation" placeholder="Masukkan Jabatan" name="occupation"> 
                         <select name="user_role" id="user_role" class="form-control mb-1">
-                            <option value="subordinate">Bawahan</option>
-                            <option value="principal">Kepala</option>
+                            <option value="subordinate">Anggota</option>
+                            <option value="principal">Komandan</option>
                             <option value="admin">Administrator</option>
                         </select> 
                         <input type="file" class="form-control mb-1" id="user_photo" placeholder="Masukkan Foto Profile" name="user_photo" required>
