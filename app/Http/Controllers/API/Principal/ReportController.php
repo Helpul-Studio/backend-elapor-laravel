@@ -4,11 +4,15 @@ namespace App\Http\Controllers\API\Principal;
 
 use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
+use App\Models\Jobtask;
 use App\Models\JobtaskResult;
 use App\Models\Structural;
 use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ReportController extends Controller
 {
@@ -50,23 +54,72 @@ class ReportController extends Controller
 
     }
 
-    // public function destroy($id)
-    // {
-    //     $news = News::findOrFail($id);
-    //     try {
-    //         if($news->news_image != null){
-    //         Storage::disk('public')->delete($news->news_image);
-    //         }
-    //         $news->delete();
-    //         return response()->json([
-    //             'status' => true,
-    //             'message' => 'Data successfully deleted'
-    //         ]);
-    //     } catch (QueryException $e) {
-    //         return response()->json([
-    //             'status' => false,
-    //             'message' => $e->errorInfo
-    //         ]);
-    //     }
-    // }
+    public function destroy($id)
+    {
+        $jobtask = DB::table('jobtask_results')->where('job_task_result_id', $id)->first();
+
+        try {
+        if($jobtask->report_type == 'Rutin'){
+            $jobID = $jobtask->job_task_id;
+             $job = Jobtask::findOrFail($jobID)->first();
+             $job->job_task_status = 'Ditugaskan';
+             $job->save();
+
+        if($jobtask->jobtask_documentation != null){
+         Storage::disk('public')->delete($jobtask->jobtask_documentation);
+        }
+        $jobtask = DB::table('jobtask_results')->where('job_task_result_id', $id)->delete();
+
+        }else{
+            if($jobtask->jobtask_documentation != null){
+                Storage::disk('public')->delete($jobtask->jobtask_documentation);
+               }
+               $jobtask = DB::table('jobtask_results')->where('job_task_result_id', $id)->delete();
+            }
+
+
+        return response()->json([
+                 'status' => true,
+                 'message' => 'Data successfully deleted'
+        ]);
+
+        } catch (QueryException $e) {
+             return response()->json([
+                'status' => false,
+                 'message' => $e->errorInfo
+             ]);
+        }
+
+        // $jobid = $jobtask->get('job_task_id');
+        // try {
+        // if ($jobid != null) {
+        //     $jobID = $jobtask->get('job_task_id');
+        //     dd($jobID);
+        //     $job = Jobtask::findOrFail($jobID)->first();
+        //     $job->job_task_status = 'Ditugaskan';
+        //     $job->save();
+
+        //     if($jobtask->get('jobtask_documentation') != null){
+        //         Storage::disk('public')->delete($jobtask->get('jobtask_documentation'));
+        //     }
+        //     $jobtask->delete();
+
+        // }else{
+        //     if($jobtask->get('jobtask_documentation') != null){
+        //         Storage::disk('public')->delete($jobtask->get('jobtask_documentation'));
+        //     }
+        //     $jobtask->delete();
+        // }
+
+        //     return response()->json([
+        //         'status' => true,
+        //         'message' => 'Data successfully deleted'
+        //     ]);
+        // } catch (QueryException $e) {
+        //     return response()->json([
+        //         'status' => false,
+        //         'message' => $e->errorInfo
+        //     ]);
+        // }
+    }
 }
