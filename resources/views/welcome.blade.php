@@ -34,7 +34,7 @@
                                         <a href="index.html" class="logo logo-admin">
                                             <img src="{{url('logo-polri.png')}}" height="50" alt="logo" class="auth-logo">
                                         </a>
-                                        <h4 class="mt-3 mb-1 font-weight-semibold text-white font-18">Selamat Datang kembali di e-report</h4>
+                                        <h4 class="mt-3 mb-1 font-weight-semibold text-white font-18">Selamat Datang kembali di E-lapor</h4>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -47,10 +47,10 @@
                                             </div><!--end col--> 
                                         </div> <!--end form-group-->                           
                                     </form><!--end form-->
-                                    <p class="text-muted mb-0">Tidak punya akun ?  <a href="#" class="text-primary ml-2">Silahkan hubungi admin</a></p>
+                                    <p class="text-muted mb-0">Tidak punya akun ?  <a target="_blank" href="https://api.whatsapp.com/send/?phone=082255883559&text&type=phone_number&app_absent=0" class="text-primary ml-2">Silahkan hubungi admin</a></p>
                                 </div>
                                 <div class="card-body bg-light-alt text-center">
-                                    <span class="text-muted d-none d-sm-inline-block">Developer © 2020</span>                                            
+                                    <span class="text-muted d-none d-sm-inline-block">FIQRI ARIA YOGAMA © 2022</span>                                            
                                 </div>
                             </div><!--end card-->
                         </div><!--end col-->
