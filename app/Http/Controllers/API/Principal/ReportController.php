@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ReportController extends Controller
 {
@@ -89,37 +90,61 @@ class ReportController extends Controller
                  'message' => $e->errorInfo
              ]);
         }
+    }
 
-        // $jobid = $jobtask->get('job_task_id');
-        // try {
-        // if ($jobid != null) {
-        //     $jobID = $jobtask->get('job_task_id');
-        //     dd($jobID);
-        //     $job = Jobtask::findOrFail($jobID)->first();
-        //     $job->job_task_status = 'Ditugaskan';
-        //     $job->save();
+    public function update(Request $request, $id)
+    {
 
-        //     if($jobtask->get('jobtask_documentation') != null){
-        //         Storage::disk('public')->delete($jobtask->get('jobtask_documentation'));
-        //     }
-        //     $jobtask->delete();
+        $a = DB::table('jobtask_results')->where('job_task_result_id', $id)->first();
 
-        // }else{
-        //     if($jobtask->get('jobtask_documentation') != null){
-        //         Storage::disk('public')->delete($jobtask->get('jobtask_documentation'));
-        //     }
-        //     $jobtask->delete();
-        // }
+        $jobtask = DB::table('jobtask_results')->where('job_task_result_id', $id)
+        ->update([
+            'sector_id' => $request->sector_id,
+            'location_latitude' => $request->location_latitude,
+            'location_longitude' => $request->location_longitude,
+            'report_about' => $request->report_about,
+            'report_teamwise' => $request->report_teamwise,
+            'report_source_information' => $request->report_source_information,
+            'report_date' => $request->report_date,
+            'report_place' => $request->report_place,
+            'report_activities' => $request->report_activities,
+            'report_analysis' => $request->report_analysis,
+            'report_prediction' => $request->report_prediction,
+            'report_steps_taken' => $request->report_steps_taken,
+            'report_steps_taken' => $request->report_steps_taken,
+            'report_recommendation' => $request->report_recommendation,
 
-        //     return response()->json([
-        //         'status' => true,
-        //         'message' => 'Data successfully deleted'
-        //     ]);
-        // } catch (QueryException $e) {
-        //     return response()->json([
-        //         'status' => false,
-        //         'message' => $e->errorInfo
-        //     ]);
-        // }
+        ]);
+
+
+
+        if ($request->hasFile('jobtask_documentation')) {
+            $validate = Validator::make($request->all(), [
+                'jobtask_documentation' => 'required|mimes:png,jpg,jpeg'
+            ]);
+            Storage::disk('public')->delete($a->jobtask_documentation);
+
+            $jobtask = DB::table('jobtask_results')->where('job_task_result_id', $id)
+            ->update([
+                'sector_id' => $request->sector_id,
+                'location_latitude' => $request->location_latitude,
+                'location_longitude' => $request->location_longitude,
+                'report_about' => $request->report_about,
+                'report_teamwise' => $request->report_teamwise,
+                'report_source_information' => $request->report_source_information,
+                'report_date' => $request->report_date,
+                'report_place' => $request->report_place,
+                'report_activities' => $request->report_activities,
+                'report_analysis' => $request->report_analysis,
+                'report_prediction' => $request->report_prediction,
+                'report_steps_taken' => $request->report_steps_taken,
+                'report_steps_taken' => $request->report_steps_taken,
+                'report_recommendation' => $request->report_recommendation,
+                'jobtask_documentation' => $request->file('jobtask_documentation')->store('jobtask_documentation', 'public')
+            ]);
+        }
+
+        return ResponseFormatter::success($jobtask, 'Berhasil Ubah Laporan', 200);
+
     }
 }
