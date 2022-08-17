@@ -42,7 +42,10 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::controller(\App\Http\Controllers\API\Principal\ReportController::class)->group(function(){
         Route::get('/getAllReport', 'getAllReport');
         Route::get('/report-view/{id}', 'show');
-        Route::put('/report-update/{id}', 'update');
+        Route::put('/report-update/{id}', 'updateNote');
+
+        Route::put('/report/update-report/{id}', 'update');
+        Route::delete('/report/delete-report/{id}', 'destroy');
     });
 
     Route::controller(\App\Http\Controllers\API\Principal\NewsController::class)->group(function(){

@@ -15,7 +15,7 @@ class   JobtaskResultController extends Controller
 {
     public function show($id)
     {
-        $jobtask = Jobtask::where('job_task_id', $id)->with('jobtaskResult')->get();
+        $jobtask = Jobtask::where('job_task_id', $id)->with('jobtaskResult', 'jobtaskSubordinate.subordinate')->get();
         return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
     }
 

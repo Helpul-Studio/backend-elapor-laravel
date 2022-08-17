@@ -41,12 +41,32 @@ class ReportController extends Controller
         return ResponseFormatter::success($jobtask, 'Detail Laporan Isidentil', 200);
     }
 
-    public function update(Request $request,$id)
+    public function updateNote(Request $request,$id)
     {
         $jobtask = JobtaskResult::where('job_task_result_id', $id)->update([
             'report_note' => $request->report_note
         ]);
         return ResponseFormatter::success($jobtask, 'Berhasil Mengubah Laporan Isidentil', 200);
 
+    }
+
+    public function destroy($id)
+    {
+        $news = News::findOrFail($id);
+        try {
+            if($news->news_image != null){
+            Storage::disk('public')->delete($news->news_image);
+            }
+            $news->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'Data successfully deleted'
+            ]);
+        } catch (QueryException $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->errorInfo
+            ]);
+        }
     }
 }
