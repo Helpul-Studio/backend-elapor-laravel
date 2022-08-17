@@ -20,14 +20,13 @@
 
 
 <div class="row justify-content-center">
-    <div class="col-lg-4">
+    <div class="col-lg-3">
         <div class="card report-card">
             <div class="card-body">
                 <div class="row d-flex justify-content-center">
                     <div class="col">
-                        <p class="text-dark mb-1 font-weight-semibold">Sessions</p>
-                        <h3 class="my-2">24k</h3>
-                        <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>8.5%</span> New Sessions Today</p>
+                        <p class="text-dark mb-1 font-weight-semibold">Total Pengguna</p>
+                        <h3 class="my-2">{{ $users }}</h3>
                     </div>
                     <div class="col-auto align-self-center">
                         <div class="report-main-icon bg-light-alt">
@@ -38,42 +37,57 @@
             </div><!--end card-body--> 
         </div><!--end card--> 
     </div> <!--end col--> 
-    <div class="col-lg-4">
+    <div class="col-lg-3">
         <div class="card report-card">
             <div class="card-body">
                 <div class="row d-flex justify-content-center">                                                
                     <div class="col">
-                        <p class="text-dark mb-1 font-weight-semibold">Avg.Sessions</p>
-                        <h3 class="my-2">00:18</h3>
-                        <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>1.5%</span> Weekly Avg.Sessions</p>
+                        <p class="text-dark mb-1 font-weight-semibold">Total Berita</p>
+                        <h3 class="my-2">{{ $news }}</h3>
                     </div>
                     <div class="col-auto align-self-center">
                         <div class="report-main-icon bg-light-alt">
-                            <i data-feather="clock" class="align-self-center text-muted icon-md"></i>  
+                            <i data-feather="clipboard" class="align-self-center text-muted icon-md"></i>  
                         </div>
                     </div> 
                 </div>
             </div><!--end card-body--> 
         </div><!--end card--> 
     </div> <!--end col--> 
-    <div class="col-lg-4">
+    <div class="col-lg-3">
         <div class="card report-card">
             <div class="card-body">
                 <div class="row d-flex justify-content-center">                                                
                     <div class="col">
-                        <p class="text-dark mb-1 font-weight-semibold">Bounce Rate</p>
-                        <h3 class="my-2">$2400</h3>
-                        <p class="mb-0 text-truncate text-muted"><span class="text-danger"><i class="mdi mdi-trending-down"></i>35%</span> Bounce Rate Weekly</p>
+                        <p class="text-dark mb-1 font-weight-semibold">Total Pekerjaan</p>
+                        <h3 class="my-2">{{ $jobtasks }}</h3>
                     </div>
                     <div class="col-auto align-self-center">
                         <div class="report-main-icon bg-light-alt">
-                            <i data-feather="activity" class="align-self-center text-muted icon-md"></i>  
+                            <i data-feather="briefcase" class="align-self-center text-muted icon-md"></i>  
                         </div>
                     </div> 
                 </div>
             </div><!--end card-body--> 
         </div><!--end card--> 
-    </div> <!--end col-->                             
+    </div> <!--end col-->
+    <div class="col-lg-3">
+        <div class="card report-card">
+            <div class="card-body">
+                <div class="row d-flex justify-content-center">                                                
+                    <div class="col">
+                        <p class="text-dark mb-1 font-weight-semibold">Total Laporan</p>
+                        <h3 class="my-2">{{ $reports }}</h3>
+                    </div>
+                    <div class="col-auto align-self-center">
+                        <div class="report-main-icon bg-light-alt">
+                            <i data-feather="file-text" class="align-self-center text-muted icon-md"></i>  
+                        </div>
+                    </div> 
+                </div>
+            </div><!--end card-body--> 
+        </div><!--end card--> 
+    </div> <!--end col-->                               
 </div><!--end row-->
 
 
