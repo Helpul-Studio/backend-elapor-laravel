@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 use App\Helpers\ResponseFormatter;
 use App\Models\Jobtask;
 use App\Models\JobtaskSubordinate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
@@ -70,9 +72,29 @@ class AuthController extends Controller
             ["selesai" => $done], 
             ["ditugaskan" => $assigned], 
             ["menunggu_konfirmasi" => $waiting],
-        ]]
+        ]]  
     ], 
         'Data Profile ' .$user->name, 
         200);
+    }
+
+    public function update(Request $request)
+    {
+        $auth = Auth::user();
+        $user = User::findOrFail($auth->user_id);
+
+        $user->email = $request->email;
+
+        if ($request->hasFile('user_photo')) {
+            $validate = Validator::make($request->all(), [
+                'user_photo' => 'required|mimes:png,jpg,jpeg'
+            ]);
+            if ($user->user_photo != null) {
+            Storage::disk('public')->delete($user->user_photo);
+            $user->user_photo = $request->file('user_photo')->store('user_photo', 'public');
+        }
+    }
+        $user->save();
+        return responseFormatter::success($user, 'Berhasil Ubah Profile ' . $user->name, 200);
     }
 }
