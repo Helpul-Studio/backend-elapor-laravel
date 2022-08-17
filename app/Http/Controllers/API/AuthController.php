@@ -24,6 +24,7 @@ class AuthController extends Controller
             $tokenResult = $user->createToken('token-auth')->plainTextToken;
             return ResponseFormatter::success([
                 'access_token' => $tokenResult,
+                'user_role' => $user->user_role,
                 'token_type' => 'Bearer'
             ], 'Login berhasil.', 200);
         }
