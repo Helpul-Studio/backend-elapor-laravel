@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class JobtaskResultController extends Controller
+class   JobtaskResultController extends Controller
 {
     public function show($id)
     {

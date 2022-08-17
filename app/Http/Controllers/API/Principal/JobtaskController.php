@@ -54,7 +54,7 @@ class JobtaskController extends Controller
 
     public function show($id)
     {
-        $jobtask = Jobtask::where('job_task_id', $id)
+        $jobtask = Jobtask::where('job_task_id', $id)->with('jobtaskResult')
         ->first();
         return response()->json($jobtask);
     }
