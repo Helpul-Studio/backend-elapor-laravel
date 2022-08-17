@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('jobtask_documentation');
 
             $table->string('report_about')->nullable();
+            $table->string('report_teamwise')->nullable();
             $table->string('report_source_information')->nullable();
             $table->date('report_date')->nullable();
             $table->string('report_place')->nullable();
