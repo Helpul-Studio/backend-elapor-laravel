@@ -34,6 +34,12 @@ class NewsController extends Controller
             ]);
             $news->news_image = $request->file('news_image')->store('news_image', 'public');
         }
+
+        
+        if ($request->hasFile('news_attachment')) {
+            $news->news_attachment = $request->file('news_attachment')->store('news_attachment', 'public');
+        }
+        
         $news->save();
 
         return ResponseFormatter::success($news, 'Berhasil Menambahkan Berita', 200);

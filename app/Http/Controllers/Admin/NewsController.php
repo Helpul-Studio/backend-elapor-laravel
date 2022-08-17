@@ -31,12 +31,17 @@ class NewsController extends Controller
         $news->sector_id = $request->sector_id;
         $news->news_title = $request->news_title;
         $news->news_field = $request->news_field;
+        $news->news_attachment = $request->news_attachment;
 
         if ($request->hasFile('news_image')) {
             $validate = Validator::make($request->all(), [
                 'news_image' => 'required|mimes:png,jpg,jpeg'
             ]);
             $news->news_image = $request->file('news_image')->store('news_image', 'public');
+        }
+
+        if ($request->hasFile('news_attachment')) {
+            $news->news_attachment = $request->file('news_attachment')->store('news_attachment', 'public');
         }
         $news->save();
 

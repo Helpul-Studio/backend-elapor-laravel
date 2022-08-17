@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('news_title');
             $table->string('news_field');
             $table->string('news_image')->nullable();
-            
+            $table->string('news_attachment')->nullable();
+
             $table->unsignedBigInteger('principal');
             $table->foreign('principal')->references('user_id')->on('users');
 
