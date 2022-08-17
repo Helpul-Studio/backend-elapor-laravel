@@ -57,12 +57,12 @@ class ReportController extends Controller
 
     public function destroy($id)
     {
-        $jobtask = DB::table('jobtask_results')->where('job_task_result_id', $id)->first();
-
+        $jobtask = DB::table('jobtask_results')->where('job_task_result_id', '=', $id)->first();
         try {
         if($jobtask->report_type == 'Rutin'){
+
             $jobID = $jobtask->job_task_id;
-             $job = Jobtask::findOrFail($jobID)->first();
+             $job = Jobtask::findOrFail($jobID);
              $job->job_task_status = 'Ditugaskan';
              $job->save();
 
