@@ -41,9 +41,19 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::controller(\App\Http\Controllers\API\Principal\ReportController::class)->group(function(){
         Route::get('/getAllReport', 'getAllReport');
+        Route::post('/jobtask/add-jobtask', 'store');
         Route::get('/report-view/{id}', 'show');
         Route::put('/report-update/{id}', 'update');
     });
+
+    Route::controller(\App\Http\Controllers\API\Principal\NewsController::class)->group(function(){
+        Route::get('/getAllNews', 'getAllNews');
+        Route::post('/news/add-news', 'store');
+        Route::get('/news-view/{id}', 'show');
+        Route::put('/news-update/{id}', 'update');
+        Route::delete('/news/delete-news/{id}', 'destroy');
+    });
+
 
 
     Route::controller(\App\Http\Controllers\API\ReportController::class)->group(function(){
