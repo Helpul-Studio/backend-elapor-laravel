@@ -9,6 +9,7 @@ use App\Models\JobtaskResult;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class   JobtaskResultController extends Controller
@@ -22,6 +23,16 @@ class   JobtaskResultController extends Controller
     public function showreport($id)
     {
         $jobtask = JobtaskResult::where('job_task_id', $id)->get();
+        return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
+    }
+
+    public function deletereport($id)
+    {
+        $jobtask = JobtaskResult::where('job_task_id', $id)->get();
+        if($jobtask->jobtask_documentation != null){
+            Storage::disk('public')->delete($jobtask->jobtask_documentation);
+        }
+        $jobtask->delete();
         return ResponseFormatter::success($jobtask, 'Detail Laporan Pekerjaan', 200);
     }
 

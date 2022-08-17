@@ -50,23 +50,23 @@ class ReportController extends Controller
 
     }
 
-    public function destroy($id)
-    {
-        $news = News::findOrFail($id);
-        try {
-            if($news->news_image != null){
-            Storage::disk('public')->delete($news->news_image);
-            }
-            $news->delete();
-            return response()->json([
-                'status' => true,
-                'message' => 'Data successfully deleted'
-            ]);
-        } catch (QueryException $e) {
-            return response()->json([
-                'status' => false,
-                'message' => $e->errorInfo
-            ]);
-        }
-    }
+    // public function destroy($id)
+    // {
+    //     $news = News::findOrFail($id);
+    //     try {
+    //         if($news->news_image != null){
+    //         Storage::disk('public')->delete($news->news_image);
+    //         }
+    //         $news->delete();
+    //         return response()->json([
+    //             'status' => true,
+    //             'message' => 'Data successfully deleted'
+    //         ]);
+    //     } catch (QueryException $e) {
+    //         return response()->json([
+    //             'status' => false,
+    //             'message' => $e->errorInfo
+    //         ]);
+    //     }
+    // }
 }
