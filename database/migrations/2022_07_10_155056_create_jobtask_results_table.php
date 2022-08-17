@@ -27,7 +27,7 @@ return new class extends Migration
             $table->foreign('sector_id')->references('sector_id')->on('sectors')->onDelete('cascade');
 
             $table->unsignedBigInteger('subordinate');
-            $table->foreign('subordinate')->references('user_id')->on('users');
+            $table->foreign('subordinate')->references('user_id')->on('users')->onDelete('cascade');
             
             $table->decimal('location_latitude', 10, 7)->nullable();
             $table->decimal('location_longitude', 10, 7)->nullable();

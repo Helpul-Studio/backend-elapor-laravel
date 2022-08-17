@@ -82,8 +82,10 @@ class UserController extends Controller
         try {
             if($user->user_photo != null){
             Storage::disk('public')->delete($user->user_photo);
-            }
             $user->delete();
+            }else{
+                $user->delete();
+            }
             return response()->json([
                 'status' => true,
                 'message' => 'Data successfully deleted'

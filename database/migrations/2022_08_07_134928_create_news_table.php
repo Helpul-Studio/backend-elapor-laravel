@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('news_attachment')->nullable();
 
             $table->unsignedBigInteger('principal');
-            $table->foreign('principal')->references('user_id')->on('users');
+            $table->foreign('principal')->references('user_id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('sector_id');
             $table->foreign('sector_id')->references('sector_id')->on('sectors')->onDelete('cascade');

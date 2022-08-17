@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('job_task_id')->references('job_task_id')->on('jobtasks')->onDelete('cascade');
 
             $table->unsignedBigInteger('subordinate');
-            $table->foreign('subordinate')->references('user_id')->on('users');
+            $table->foreign('subordinate')->references('user_id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
         });

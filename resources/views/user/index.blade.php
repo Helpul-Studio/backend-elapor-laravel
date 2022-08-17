@@ -120,7 +120,7 @@ $('#datatable').DataTable({
         {"data" : "user_id",
         render: function(data, type, row) {
             return `<a id="editUser" data-id='`+data +`' class="btn btn-md btn-warning my-1"  style="color: white;" > Edit</a>
-                    <a id="deleteUser"  data-id='`+data +`' class=" btn btn-md btn-danger my-1" style="color: white;"> Delete</a>`;
+                    <a id="deleteUser" data-id='`+data +`' class=" btn btn-md btn-danger my-1" style="color: white;"> Delete</a>`;
         }}
     ]
 });
@@ -226,7 +226,6 @@ $('#addUser').click(function(){
         var id = $(this).attr('data-id');
         Swal.fire({
             title: "You want to delete this data?",
-            type: "warning",
             confirmButtonText: "Yes!",
             showCancelButton: true,
             cancelButtonText: "No"
@@ -238,6 +237,7 @@ $('#addUser').click(function(){
                     success : function(data){
                         if(data.status === true){
                             $('#datatable').DataTable().ajax.reload();
+                            console.log(data)
                             Swal.fire("Successfull", data.message, "success");
                         } else {
                             Swal.fire("Wrong request", data.message, "error");

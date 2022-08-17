@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('structurals', function (Blueprint $table) {
             $table->bigIncrements('structural_id');
             $table->unsignedBigInteger('principal');
-            $table->foreign('principal')->references('user_id')->on('users');
+            $table->foreign('principal')->references('user_id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('subordinate');
-            $table->foreign('subordinate')->references('user_id')->on('users');
+            $table->foreign('subordinate')->references('user_id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
