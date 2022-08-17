@@ -41,7 +41,6 @@ Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::controller(\App\Http\Controllers\API\Principal\ReportController::class)->group(function(){
         Route::get('/getAllReport', 'getAllReport');
-        Route::post('/jobtask/add-jobtask', 'store');
         Route::get('/report-view/{id}', 'show');
         Route::put('/report-update/{id}', 'update');
     });
