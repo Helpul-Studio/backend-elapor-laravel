@@ -47,7 +47,6 @@ class JobtaskController extends Controller
         $subordinates = $request->subordinate;
         $data = array();
         foreach ($subordinates as $subordinate) {
-            
             $data = JobtaskSubordinate::create([
                 'job_task_id' => $jobtask->job_task_id,
                 'subordinate' => $subordinate

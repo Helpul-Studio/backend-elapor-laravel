@@ -34,22 +34,19 @@ class JobtaskController extends Controller
     public function store(Request $request)
     {
         $jobtask = new Jobtask();
-        $jobtask->principal =  Auth::user()->user_id;
+        $jobtask->principal = Auth::user()->user_id;
         $jobtask->sector_id = $request->sector_id;
         $jobtask->job_task_name = $request->job_task_name;
         $jobtask->job_task_place = $request->job_task_place;
         $jobtask->job_task_date = $request->job_task_date;
         $jobtask->save();
 
-        
-            
-        $data = JobtaskSubordinate::create([
-            'job_task_id' => $jobtask->job_task_id,
-            'subordinate' => $request->subordinate
-        ]);
-    
-
-        return ResponseFormatter::success($jobtask, 'Berhasil Menambahkan Pekerjaan', 200);
+        for ($count = 0 ; $count < count($request->subordinate) ; $count++) { 
+            $data = new JobtaskSubordinate();
+            $data->job_task_id = $jobtask->job_task_id;
+            $data->subordinate = $request->subordinate[$count];
+            $data->save();
+        }
     }
 
     public function show($id)
