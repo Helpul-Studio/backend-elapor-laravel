@@ -35,11 +35,25 @@ class ReportController extends Controller
         return json_encode(['data' => $jobtasks]);
     }
 
+    public function getAllIsidentil()
+    {
+        $jobtasks = JobtaskResult::
+        whereNotNull('report_task_id')
+        ->groupBy('report_task_id')
+        ->with('subordinate')
+        ->get();
+
+        return json_encode(['data' => $jobtasks]);
+    }
+
+
     public function index()
     {
 
         return view('report.index');
     }
+    
+
 
     public function show($id)
     {

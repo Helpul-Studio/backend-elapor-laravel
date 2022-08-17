@@ -23,6 +23,14 @@ class JobtaskController extends Controller
         return json_encode(['data' => $jobtasks]);
     }
 
+    public function getAllJobtasks()
+    {
+        $jobtasks = Jobtask::whereNotNull('job_task_id')
+        ->with(['jobtaskSubordinate.subordinate', 'principal', 'sector'])
+        ->get();
+        return json_encode(['data' => $jobtasks]);
+    }
+
     public function index()
     {
         // $subordinates = User::where('user_role', 'subordinate')->get();
@@ -100,5 +108,16 @@ class JobtaskController extends Controller
                 'message' => $e->errorInfo
             ]);
         }
+    }
+
+    public function all()
+    {
+
+        return view('report.all');
+    }
+
+    public function isidentil()
+    {
+        return view('report.isidentil');
     }
 }

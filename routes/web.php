@@ -26,6 +26,8 @@ Route::get('getAllJobtask', [App\Http\Controllers\Admin\JobtaskController::class
 Route::get('getAllNews', [App\Http\Controllers\Admin\NewsController::class, 'getAllNews'])->name('getAllNews');
 Route::get('getAllReport', [App\Http\Controllers\Admin\ReportController::class, 'getAllReport'])->name('getAllReport');
 Route::get('getAllSector', [App\Http\Controllers\Admin\SectorController::class, 'getAllSector'])->name('getAllSector');
+Route::get('getAllJobtasks', [App\Http\Controllers\Admin\JobtaskController::class, 'getAllJobtasks'])->name('getAllJobtasks');
+Route::get('getAllIsidentil', [App\Http\Controllers\Admin\ReportController::class, 'getAllIsidentil'])->name('getAllIsidentil');
 
 
 
@@ -55,6 +57,9 @@ Route::prefix('manage')->middleware('auth')->group(function(){
 
     Route::controller(\App\Http\Controllers\Admin\JobtaskController::class)->group(function(){
         Route::get('/jobtask', 'index')->name('jobtask.index');
+        Route::get('/jobtask-report', 'all')->name('report.all');
+        Route::get('/isidentil-report', 'isidentil')->name('report.isidentil');
+
         Route::post('/jobtask/add-jobtask', 'store')->name('jobtask.store');
         Route::get('/jobtask/get-jobtask/{id}', 'edit')->name('jobtask.edit');
         Route::put('/jobtask/update-jobtask/{id}', 'update')->name('jobtask.update');
